@@ -8,14 +8,26 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    [Migration("20160422160206_FixName")]
-    partial class FixName
+    [Migration("20160422165057_changeCategoryName")]
+    partial class changeCategoryName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CategoryName");
+
+                    b.HasKey("CategoryId");
+
+                    b.HasAnnotation("Relational:TableName", "Categories");
+                });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Comment", b =>
                 {
@@ -34,6 +46,8 @@ namespace ProductCompareDotNet.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("CategoryCategoryId");
+
                     b.Property<int>("ProductDownVotes");
 
                     b.Property<string>("ProductName");
@@ -50,6 +64,13 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.Product")
                         .WithMany()
                         .HasForeignKey("ProductProductId");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryCategoryId");
                 });
         }
     }

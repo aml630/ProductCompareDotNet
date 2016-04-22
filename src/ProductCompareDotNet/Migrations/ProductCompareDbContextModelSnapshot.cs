@@ -16,6 +16,18 @@ namespace ProductCompareDotNet.Migrations
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ProductCompareDotNet.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CategoryName");
+
+                    b.HasKey("CategoryId");
+
+                    b.HasAnnotation("Relational:TableName", "Categories");
+                });
+
             modelBuilder.Entity("ProductCompareDotNet.Models.Comment", b =>
                 {
                     b.Property<int>("CommentId")
@@ -33,6 +45,8 @@ namespace ProductCompareDotNet.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("CategoryCategoryId");
+
                     b.Property<int>("ProductDownVotes");
 
                     b.Property<string>("ProductName");
@@ -49,6 +63,13 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.Product")
                         .WithMany()
                         .HasForeignKey("ProductProductId");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryCategoryId");
                 });
         }
     }

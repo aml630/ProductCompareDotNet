@@ -8,14 +8,26 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    [Migration("20160422155523_Initial")]
-    partial class Initial
+    [Migration("20160422164212_newMigration")]
+    partial class newMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ProductName");
+
+                    b.HasKey("CategoryId");
+
+                    b.HasAnnotation("Relational:TableName", "Categories");
+                });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Comment", b =>
                 {
@@ -34,6 +46,8 @@ namespace ProductCompareDotNet.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("CategoryCategoryId");
+
                     b.Property<int>("ProductDownVotes");
 
                     b.Property<string>("ProductName");
@@ -42,7 +56,7 @@ namespace ProductCompareDotNet.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasAnnotation("Relational:TableName", "Items");
+                    b.HasAnnotation("Relational:TableName", "Products");
                 });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Comment", b =>
@@ -50,6 +64,13 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.Product")
                         .WithMany()
                         .HasForeignKey("ProductProductId");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryCategoryId");
                 });
         }
     }
