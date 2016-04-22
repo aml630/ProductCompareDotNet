@@ -10,4 +10,13 @@
 @foreach (var product in Model)
 {
     <p>@Html.DisplayFor(x => product.ProductName)</p>
+    @foreach (var comment in product.Comments)
+    {
+        <li>@Html.DisplayFor(x => comment.Statement)</li>
+        <li>
+            @Html.DisplayFor(x => comment.Like)
+        </li>
+            <hr />
+    }
+
 }
