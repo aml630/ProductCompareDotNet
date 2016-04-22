@@ -1,0 +1,8 @@
+﻿<h1>Your Products List/ Main Page</h1>
+
+@model IList<ProductCompareDotNet.Models.Product>
+
+@foreach (var product in Model)
+{
+    <p>@Html.DisplayFor(x => product.ProductName)</p>
+}
