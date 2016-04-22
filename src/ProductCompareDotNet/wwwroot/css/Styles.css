@@ -1,0 +1,10 @@
+﻿.bigSearch{
+    width: 100%;
+    height: 100px;
+    background-color: lightgrey;
+}
+.bigAdd{
+    width: 100%;
+    height: 100px;
+    background-color: lawngreen;
+}

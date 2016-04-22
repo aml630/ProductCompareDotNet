@@ -1,6 +1,11 @@
-﻿<h1>Your Products List/ Main Page</h1>
-
+﻿@{
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @model IList<ProductCompareDotNet.Models.Product>
+
+<h1>Your Products List/ Main Page</h1>
+
 
 @foreach (var product in Model)
 {

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<ProductCompareDotNet.Models.Category>
+
+<h1>Get Reviews Before You Buy!</h1>
+
+<button class="showSearch btn btn-success">Search For A Product</button>
+<button class="showAdd btn btn-info">No Couldn't find one? Start A Discussion!</button>
+
+
+<div class="bigSearch">
+    <form>
+      <p>Thinking of making a purchase? See what people are saying first</p>
+        <input />
+        <button class="btn btn-warning"type="submit">Search</button>
+    </form>
+</div>
+
+<div class="bigAdd">
+    <form>
+        <p>Curious about a new product? Or furious about one you have? Lets talk about it</p>
+        <input />
+        <button class="btn btn-warning" type="submit">Discuss!</button>
+
+    </form>
+</div>
+
+
+@foreach (var category in Model)
+{
+    <p>@Html.DisplayFor(x => category.CategoryName)</p>
+
+    @foreach (var product in category.Products)
+    {
+        <li>@Html.DisplayFor(x => product.ProductName)</li>
+
+    }
+}
