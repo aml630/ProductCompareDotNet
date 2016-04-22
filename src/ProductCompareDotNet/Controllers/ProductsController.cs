@@ -26,11 +26,16 @@ namespace ProductCompareDotNet.Controllers
             return View(prodList);
         }
 
-        //public IActionResult CreateProduct(Product product)
-        //{
-        //    db.Products.Add(product)
-        //      db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+         public IActionResult CreateRoute()
+        {
+            return View();
+        }
+        [HttpPost, ActionName("CreateRoute")]
+        public IActionResult CreateCategory(Product product)
+        {
+            db.Products.Add(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

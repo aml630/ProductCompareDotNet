@@ -14,6 +14,7 @@ namespace ProductCompareDotNet.Models
         [Key]
         public int CommentId { get; set; }
         public string Statement { get; set; }
+        public string ProductId { get; set; }
         public virtual Product Product { get; set; }
     }
 }

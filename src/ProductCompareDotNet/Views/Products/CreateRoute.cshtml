@@ -1,5 +1,33 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
+    ViewData["Title"] = "ProductShare";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@model ProductCompareDotNet.Models.Product
+<html>
+<head>
+    <title>Person - Create</title>
+</head>
+<body>
+    <h2>Create Person</h2>
+    <hr />
+    <h4>Add a new person</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.ProductName)
+        @Html.TextBoxFor(model => model.ProductName)
+
+        @Html.LabelFor(model => model.ProductUpVotes)
+        @Html.TextBoxFor(model => model.ProductUpVotes)
+
+        @Html.LabelFor(model => model.ProductDownVotes)
+        @Html.TextBoxFor(model => model.ProductDownVotes)
+
+        @*@Html.LabelFor(model => model.CategoryId)
+        @Html.TextBoxFor(model => model.CategoryId)*@
+
+        <input type="submit" value="Add New Category" />
+    }
+</body>
+</html>

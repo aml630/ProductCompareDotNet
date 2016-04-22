@@ -8,9 +8,10 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    partial class ProductCompareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160422212035_AddCategoryAndProductId")]
+    partial class AddCategoryAndProductId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
