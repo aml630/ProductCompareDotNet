@@ -14,9 +14,12 @@
     <div class="container">
 
         <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">Profile</a></li>
-            <li role="presentation"><a href="#">Messages</a></li>
+            <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Categories")</li>
+            <li role="presentation">@Html.ActionLink("Add Category", "CreateRoute", "Categories")</li>
+            <li role="presentation">@Html.ActionLink("Add Product", "CreateRoute", "Products")</li>
+                        <li role="presentation">@Html.ActionLink("Add Comment", "CreateRoute", "Comments")</li>
+
+
         </ul>
         @RenderBody()
 

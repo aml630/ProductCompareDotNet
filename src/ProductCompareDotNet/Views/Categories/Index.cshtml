@@ -2,7 +2,7 @@
     ViewData["Title"] = "To Do List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<ProductCompareDotNet.Models.Category>
+@model IList<ProductCompareDotNet.Models.Category>
 
 <h1>Get Reviews Before You Buy!</h1>
 
@@ -25,16 +25,26 @@
         <button class="btn btn-warning" type="submit">Discuss!</button>
 
     </form>
+
+    @*@using (Html.BeginForm())
+    {
+        @Html.TextBoxFor(category => category.CategoryName)
+
+    }*@
+
+
 </div>
 
 
 @foreach (var category in Model)
 {
-    <p>@Html.DisplayFor(x => category.CategoryName)</p>
+    <h2>@Html.DisplayFor(x => category.CategoryName): @Html.ActionLink("Details", "CategoryList", "Categories",  new { id = category.CategoryId })</h2>
 
     @foreach (var product in category.Products)
     {
-        <li>@Html.DisplayFor(x => product.ProductName)</li>
-
-    }
-}
+        <li>@Html.DisplayFor(x => product.ProductName): @Html.ActionLink("Details", "ProductList", "Products", new { id = product.ProductId })</li>
+        <li>
+            @Html.DisplayFor(x => product.ProductId)</li>
+        <hr />
+        }
+        }

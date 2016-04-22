@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<ProductCompareDotNet.Models.Product>
+
+<h1>Category List Page</h1>
+
+@foreach (var product in Model)
+{
+    <h2>@Html.DisplayFor(x => product.ProductName)</h2>
+
+    @foreach (var comment in product.Comments)
+    {
+        <li>@Html.DisplayFor(x => comment.Statement)</li>
+        <hr />
+    }
+}

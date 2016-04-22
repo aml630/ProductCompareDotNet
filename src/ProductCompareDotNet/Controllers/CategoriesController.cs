@@ -3,19 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-using Microsoft.Data.Entity;
 using ProductCompareDotNet.Models;
+using Microsoft.Data.Entity;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+// How can i have a form on teh same page as my list??
+// How does the form know what function to call on teh create page?
+// What if I had more than one form and more than one function?
 
 namespace ProductCompareDotNet.Controllers
 {
     public class CategoriesController : Controller
     {
         private ProductCompareDbContext db = new ProductCompareDbContext();
+
         public IActionResult Index()
         {
             return View(db.Categories.Include(category => category.Products).ToList());
+        }
+
+        public IActionResult CategoryList(int id)
+        {
+            var catList = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).ToList();
+
+            return View(catList);
+        }
+
+        public IActionResult CreateRoute()
+        {
+            return View();
+        }
+        [HttpPost, ActionName("CreateRoute")]
+        public IActionResult CreateCategory(Category category)
+        {
+            db.Categories.Add(category);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

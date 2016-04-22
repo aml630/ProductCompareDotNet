@@ -17,5 +17,20 @@ namespace ProductCompareDotNet.Controllers
         {
             return View(db.Products.ToList());
         }
+
+
+        public IActionResult ProductList(int id)
+        {
+            var prodList = db.Products.Where(x => x.ProductId == id).Include(product => product.Comments).ToList();
+
+            return View(prodList);
+        }
+
+        //public IActionResult CreateProduct(Product product)
+        //{
+        //    db.Products.Add(product)
+        //      db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
     }
 }
