@@ -8,9 +8,10 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    partial class ProductCompareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160422223554_commentBoolean")]
+    partial class commentBoolean
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -32,6 +33,8 @@ namespace ProductCompareDotNet.Migrations
                 {
                     b.Property<int>("CommentId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Like");
 
                     b.Property<string>("ProductId");
 

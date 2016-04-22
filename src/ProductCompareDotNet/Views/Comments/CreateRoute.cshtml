@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "ProductShare";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ProductCompareDotNet.Models.Comment
+<html>
+<head>
+    <title>Comment - Create</title>
+</head>
+<body>
+    <h2>Create Person</h2>
+    <hr />
+    <h4>Add a new person</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Statement)
+        @Html.TextBoxFor(model => model.Statement)
+
+        @Html.LabelFor(model => model.ProductId)
+        @Html.TextBoxFor(model => model.ProductId)
+
+        <input type="submit" value="Add New Comment" />
+    }
+</body>
+</html>

@@ -26,11 +26,12 @@
 
     </form>
 
-    @*@using (Html.BeginForm())
-    {
-        @Html.TextBoxFor(category => category.CategoryName)
 
-    }*@
+    @using (Html.BeginForm("CreateCategory", "CreateRoute"))
+    {
+        @Html.TextBoxFor(x => x[0].CategoryName)
+        <input type="submit" value="Add New Category" />
+    }
 
 
 </div>
