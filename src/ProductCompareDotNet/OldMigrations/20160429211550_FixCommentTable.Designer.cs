@@ -8,9 +8,10 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    partial class ProductCompareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160429211550_FixCommentTable")]
+    partial class FixCommentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -169,6 +170,8 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<string>("Statement");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("CommentId");
 
                     b.HasAnnotation("Relational:TableName", "Comments");
@@ -229,6 +232,10 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
+
+                    b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>

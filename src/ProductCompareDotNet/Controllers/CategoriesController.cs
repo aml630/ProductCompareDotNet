@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using ProductCompareDotNet.Models;
 using Microsoft.Data.Entity;
+using Microsoft.AspNet.Authorization;
 
 //What signals that you should definitely be using a viewbag
 //Why do i type "Account" instead of "AccountController" in links/rotues
@@ -37,6 +38,7 @@ namespace ProductCompareDotNet.Controllers
         {
             return View();
         }
+        //[Authorize]
         [HttpPost, ActionName("CreateRoute")]
         public IActionResult CreateCategory(Category category)
         {
@@ -44,6 +46,7 @@ namespace ProductCompareDotNet.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        //[Authorize]
         [HttpPost]
         public IActionResult CreateProduct(string Name, string Upvotes, string DownVotes, string CatId)
         {

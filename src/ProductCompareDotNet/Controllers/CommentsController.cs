@@ -6,7 +6,6 @@ using Microsoft.AspNet.Mvc;
 using ProductCompareDotNet.Models;
 using Microsoft.Data.Entity;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ProductCompareDotNet.Controllers
 {

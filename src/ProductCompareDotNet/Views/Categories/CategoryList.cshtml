@@ -20,8 +20,6 @@
 @using (Html.BeginForm("CreateProduct", "Categories"))
 {
     <input name="Name" placeholder="Product Name"/>
-    @*<input name="UpVotes" placeholder="Upvotes" />
-    <input name="DownVotes" placeholder="Downvotes"/>*@
     <input hidden name="CatId" placeholder="Category Id" value="@ViewBag.CatId" />
     <input type="submit" value="Add New Product" />
 }
