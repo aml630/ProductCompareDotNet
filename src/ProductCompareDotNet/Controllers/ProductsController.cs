@@ -31,7 +31,7 @@ namespace ProductCompareDotNet.Controllers
             return View();
         }
         [HttpPost, ActionName("CreateRoute")]
-        public IActionResult CreateCategory(Product product)
+        public IActionResult CreateProduct(Product product)
         {
             db.Products.Add(product);
             db.SaveChanges();

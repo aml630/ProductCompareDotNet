@@ -5,7 +5,7 @@ using ProductCompareDotNet.Models;
 using ProductCompareDotNet.ViewModels;
 
 
-namespace BasicAuthentication.Controllers
+namespace ProductCompareDotNet.Controllers
 {
     public class AccountController : Controller
     {
@@ -44,6 +44,11 @@ namespace BasicAuthentication.Controllers
             }
         }
         public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult AccessDenied()
         {
             return View();
         }

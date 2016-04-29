@@ -8,6 +8,10 @@ using Microsoft.Data.Entity;
 
 //What signals that you should definitely be using a viewbag
 //Why do i type "Account" instead of "AccountController" in links/rotues
+//@Html.AntiForgeryToken()
+//@Html.ValidationSummary(true)
+//StringComparison.CurrentCultureIgnoreCase
+//would people use razor if they were also using a js framework for frontend?
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -24,6 +28,8 @@ namespace ProductCompareDotNet.Controllers
         {
             var catList = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).ToList();
 
+            ViewBag.CatId = id;
+
             return View(catList);
         }
 
@@ -35,6 +41,21 @@ namespace ProductCompareDotNet.Controllers
         public IActionResult CreateCategory(Category category)
         {
             db.Categories.Add(category);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult CreateProduct(string Name, string Upvotes, string DownVotes, string CatId)
+        {
+
+            Product product = new Product();
+            product.ProductName = Request.Form["Name"];
+            product.ProductUpVotes = 5;
+            product.ProductDownVotes = 5;
+            product.CategoryId = Int32.Parse(Request.Form["CatId"]);
+
+
+            db.Products.Add(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

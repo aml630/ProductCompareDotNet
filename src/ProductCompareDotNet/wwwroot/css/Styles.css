@@ -8,3 +8,19 @@
     height: 100px;
     background-color: lawngreen;
 }
+
+.AccessDenied {
+    width: 800px;
+    height: 800px;
+    background-image: url("http://38.media.tumblr.com/c1e057b335c06d1c684c669857e68daf/tumblr_na5sb7TI8E1tx0eb6o1_500.gif");
+        background-color: #cccccc;
+            background-repeat: no-repeat;
+
+            background-size: 100% 100%;
+    border: 1px solid black;
+
+}
+
+.test {
+    color: red;
+}

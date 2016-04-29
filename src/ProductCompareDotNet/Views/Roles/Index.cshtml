@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+<h2>List Out The Roles</h2>
+
+@Html.ActionLink("Create New Role", "Create", "Roles") ||| @Html.ActionLink("Manage User Role", "ManageUserROles", "Roles");
+<hr />
+<div>
+    @foreach (var role in Model)
+    {
+        <p> role : @role.Name</p>
+        <span onclick="return confirm('Are you sure to delete?')"><a href="/Roles/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span>
+    }
+</div>
