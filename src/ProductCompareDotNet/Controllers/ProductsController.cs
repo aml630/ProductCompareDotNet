@@ -64,7 +64,7 @@ namespace ProductCompareDotNet.Controllers
             comment.User = user;
             db.Comments.Add(comment);
             db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Categories");
 
         }
 
