@@ -6,10 +6,8 @@ using Microsoft.AspNet.Mvc;
 using ProductCompareDotNet.Models;
 using Microsoft.Data.Entity;
 
-// How can i have a form on teh same page as my list??
-// How does the form know what function to call on teh create page?
-// What if I had more than one form and more than one function?
-// What should i do if i have errors with my new changed migration?
+//What signals that you should definitely be using a viewbag
+//Why do i type "Account" instead of "AccountController" in links/rotues
 
 namespace ProductCompareDotNet.Controllers
 {

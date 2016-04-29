@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.Entity;
 using ProductCompareDotNet.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TravelBlog
 {
@@ -24,12 +25,16 @@ namespace TravelBlog
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<ProductCompareDbContext>(options =>
                 options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+               .AddEntityFrameworkStores<ProductCompareDbContext>()
+               .AddDefaultTokenProviders();
 
-            services.AddMvc();
+
 
         }
 
@@ -37,6 +42,7 @@ namespace TravelBlog
         public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
