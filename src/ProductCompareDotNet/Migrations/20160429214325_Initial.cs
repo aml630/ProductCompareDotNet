@@ -5,11 +5,10 @@ using Microsoft.Data.Entity.Metadata;
 
 namespace ProductCompareDotNet.Migrations
 {
-    public partial class AddLogin : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(name: "FK_Product_Category_CategoryId", table: "Products");
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -46,6 +45,18 @@ namespace ProductCompareDotNet.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApplicationUser", x => x.Id);
+                });
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    CategoryId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CategoryName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.CategoryId);
                 });
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -129,6 +140,54 @@ namespace ProductCompareDotNet.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CategoryId = table.Column<int>(nullable: false),
+                    ProductDownVotes = table.Column<int>(nullable: false),
+                    ProductName = table.Column<string>(nullable: true),
+                    ProductUpVotes = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Product", x => x.ProductId);
+                    table.ForeignKey(
+                        name: "FK_Product_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+            migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    CommentId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Like = table.Column<bool>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    Statement = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comment", x => x.CommentId);
+                    table.ForeignKey(
+                        name: "FK_Comment_Product_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Comment_ApplicationUser_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
@@ -141,31 +200,19 @@ namespace ProductCompareDotNet.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName");
-            migrationBuilder.AddForeignKey(
-                name: "FK_Product_Category_CategoryId",
-                table: "Products",
-                column: "CategoryId",
-                principalTable: "Categories",
-                principalColumn: "CategoryId",
-                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(name: "FK_Product_Category_CategoryId", table: "Products");
             migrationBuilder.DropTable("AspNetRoleClaims");
             migrationBuilder.DropTable("AspNetUserClaims");
             migrationBuilder.DropTable("AspNetUserLogins");
             migrationBuilder.DropTable("AspNetUserRoles");
+            migrationBuilder.DropTable("Comments");
             migrationBuilder.DropTable("AspNetRoles");
+            migrationBuilder.DropTable("Products");
             migrationBuilder.DropTable("AspNetUsers");
-            migrationBuilder.AddForeignKey(
-                name: "FK_Product_Category_CategoryId",
-                table: "Products",
-                column: "CategoryId",
-                principalTable: "Categories",
-                principalColumn: "CategoryId",
-                onDelete: ReferentialAction.Restrict);
+            migrationBuilder.DropTable("Categories");
         }
     }
 }

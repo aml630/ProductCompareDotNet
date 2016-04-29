@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductCompareDotNet.Models
 {
-    //[Table("Comments")]
+    [Table("Comments")]
     public class Comment
     {
         [Key]
@@ -18,7 +18,7 @@ namespace ProductCompareDotNet.Models
         public int ProductId { get; set; }
         public bool Like { get; set; }
         public virtual Product Product { get; set; }
-        //public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
     }
 }

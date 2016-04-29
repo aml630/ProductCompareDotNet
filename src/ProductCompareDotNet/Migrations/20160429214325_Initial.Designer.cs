@@ -8,8 +8,8 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    [Migration("20160429213328_TestChange")]
-    partial class TestChange
+    [Migration("20160429214325_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -170,6 +170,8 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<string>("Statement");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("CommentId");
 
                     b.HasAnnotation("Relational:TableName", "Comments");
@@ -230,6 +232,10 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
+
+                    b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>

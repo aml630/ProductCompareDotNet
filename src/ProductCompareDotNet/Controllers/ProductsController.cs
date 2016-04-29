@@ -6,12 +6,25 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
 using ProductCompareDotNet.Models;
 using Microsoft.AspNet.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNet.Identity;
 
 namespace ProductCompareDotNet.Controllers
 {
     public class ProductsController : Controller
     {
         private ProductCompareDbContext db = new ProductCompareDbContext();
+
+        private readonly ProductCompareDbContext _db;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+
+        public ProductsController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ProductCompareDbContext db)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _db = db;
+        }
 
         public IActionResult Index()
         {
@@ -41,12 +54,16 @@ namespace ProductCompareDotNet.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public IActionResult LeaveComment(string Comment, string ProdId)
+        public async Task <IActionResult> LeaveComment(string Comment, string ProdId)
         {
             Comment comment = new Comment();
             comment.Statement = Request.Form["Comment"];
             comment.ProductId = Int32.Parse(Request.Form["ProdId"]);
             comment.Like = true;
+            var user = await _userManager.FindByIdAsync(User.GetUserId());
+            comment.User = user;
+            db.Comments.Add(comment);
+            db.SaveChanges();
             return RedirectToAction("Index", "Home");
 
         }
