@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity;
 using ProductCompareDotNet.Models;
 using ProductCompareDotNet.ViewModels;
 using System.Linq;
+using System.Security.Principal;
+using System.Security.Claims;
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -19,10 +21,11 @@ namespace ProductCompareDotNet.Controllers
             _signInManager = signInManager;
             _db = db;
         }
-        public IActionResult Index(string name)
+        public async Task<IActionResult> Index()
         {
-            var profile = _db.Users.Where(x => x.UserName == name);
-            return View(profile);
+            var user = await _userManager.FindByIdAsync(User.GetUserId());
+
+            return View(user);
         }
 
         public IActionResult Register()

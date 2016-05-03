@@ -2,7 +2,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*@model ProductCompareDotNet.Models.AspNetUsers*@
+@model ProductCompareDotNet.Models.ApplicationUser
 
 @using System.Security.Claims
 
@@ -10,7 +10,7 @@
 <hr />
 @if (User.IsSignedIn())
 {
-    <p>Hello @User.GetUserName()!</p>
+    <p>Hello @Model.UserName!</p>
 
     <p>Tell us a little more about yourself!</p>
     <form>
@@ -21,6 +21,8 @@
 
 
 }
+
+
 else
 {
     <p>@Html.ActionLink("Register", "Register")</p>
