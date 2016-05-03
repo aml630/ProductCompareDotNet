@@ -4,23 +4,97 @@
 }
 @model IEnumerable<ProductCompareDotNet.Models.Product>
 
-<h1>Category List Page</h1>
-
 @foreach (var product in Model)
 {
-    <h2>@Html.DisplayFor(x => product.ProductName)</h2>
+    <h2 class="center">@Html.DisplayFor(x => product.ProductName)</h2>
+}
+
+
+<div class="col-sm-6">
+    <div class="center">
+
+        <h2>Hated it</h2>
+
+        <form action="/Products/LeaveComment" method="post">
+
+            <textarea name="Comment" placeholder="What'd You Hate?'"></textarea>
+            <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
+            <input hidden name="like" placeholder="Category Id" value="False" />
+
+            <br />
+            <input class="btn btn-info" type="submit" value="Submit Comment" />
+        </form>
+
+        </div>
+    </div>
+
+<div class="col-sm-6">
+    <div class="center">
+    <h2>Loved it</h2>
+    <form action="/Products/LeaveComment" method="post">
+
+        <textarea name="Comment" placeholder="What'd You Love?'"></textarea>
+        <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
+        <input hidden name="like" placeholder="Category Id" value="True" />
+
+        <br />
+        <input class="btn btn-info" type="submit" value="Submit Comment" />
+    </form>
+        </div>
+
+</div>
+
+
+
+<div class="col-sm-6 hate">
+@foreach (var product in Model)
+{
+
+
 
     @foreach (var comment in product.Comments)
-    {
-        <li>@Html.DisplayFor(x => comment.Statement)</li>
-        <hr />
 
+    {
+        @if (comment.Like == false)
+        {
+            <p class="floatLeft">@Html.DisplayFor(x => comment.Statement)</p>
+
+                <p class="floatLeft">@Html.DisplayFor(x => comment.Like)</p>
+                <br />
+
+        }
+    
     }
 }
 
-<form action="/Products/LeaveComment" method="post">
-    
-    <input name="Comment" placeholder="What do you think of this thing?" />
-    <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
-    <input type="submit" value="Add New Product" />
-    </form>
+</div>
+
+<div class="col-sm-6 love">
+    @foreach (var product in Model)
+    {
+
+
+
+        @foreach (var comment in product.Comments)
+
+        {
+            @if (comment.Like == true)
+            {
+                <p class="floatLeft">@Html.DisplayFor(x => comment.Statement)</p>
+
+                <p class="floatLeft">@Html.DisplayFor(x => comment.Like)</p>
+                <br />
+
+            }
+           
+
+        }
+    }
+
+</div>
+
+
+
+
+
+

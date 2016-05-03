@@ -13,4 +13,19 @@ $(document).ready(function () {
     })
 
 
+    $('.CategoryForm').submit(function (event) {
+        event.preventDefault();
+        console.log(($(this).data))
+        $.ajax({
+            url: 'Categories/AjaxCreateCategory',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+              console.log(result);
+            }
+        });
+        console.log("end");
+    });
+
 });

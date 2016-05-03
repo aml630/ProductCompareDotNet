@@ -17,12 +17,14 @@
     }
 }
 
-@using (Html.BeginForm("CreateProduct", "Categories"))
-{
-    <input name="Name" placeholder="Product Name"/>
-    <input hidden name="CatId" placeholder="Category Id" value="@ViewBag.CatId" />
-    <input type="submit" value="Add New Product" />
-}
+ 
+    @using (Html.BeginForm("CreateProduct", "Categories"))
+    {
+        <input name="Name" placeholder="Add A New Product"/>
+        <input hidden name="CatId" placeholder="Category Id" value="@ViewBag.CatId" />
+        <input class="btn btn-success"type="submit" value="Submit Product" />
+    }
+
 
 @*<form action="/Categories/CreateProduct" method="post">
     <input name="Name" placeholder="Product Name" />

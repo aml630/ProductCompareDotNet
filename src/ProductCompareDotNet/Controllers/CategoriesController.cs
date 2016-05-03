@@ -7,12 +7,6 @@ using ProductCompareDotNet.Models;
 using Microsoft.Data.Entity;
 using Microsoft.AspNet.Authorization;
 
-//What signals that you should definitely be using a viewbag
-//Why do i type "Account" instead of "AccountController" in links/rotues
-//@Html.AntiForgeryToken()
-//@Html.ValidationSummary(true)
-//StringComparison.CurrentCultureIgnoreCase
-//would people use razor if they were also using a js framework for frontend?
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -46,6 +40,16 @@ namespace ProductCompareDotNet.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult AjaxCreateCategory(string catName)
+        {
+            Category newCat = new Category(catName);
+            db.Categories.Add(newCat);
+            db.SaveChanges();
+            return Json(catName);
+        }
+
         //[Authorize]
         [HttpPost]
         public IActionResult CreateProduct(string Name, string Upvotes, string DownVotes, string CatId)
@@ -56,11 +60,11 @@ namespace ProductCompareDotNet.Controllers
             product.ProductUpVotes = 5;
             product.ProductDownVotes = 5;
             product.CategoryId = Int32.Parse(Request.Form["CatId"]);
-
+            int id = Int32.Parse(Request.Form["CatId"]);
 
             db.Products.Add(product);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("CategoryList", "Categories", new { id = product.CategoryId });
         }
     }
 }

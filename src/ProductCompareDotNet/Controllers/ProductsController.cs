@@ -54,17 +54,17 @@ namespace ProductCompareDotNet.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public async Task <IActionResult> LeaveComment(string Comment, string ProdId)
+        public async Task <IActionResult> LeaveComment(string Comment, string ProdId, bool like)
         {
             Comment comment = new Comment();
             comment.Statement = Request.Form["Comment"];
             comment.ProductId = Int32.Parse(Request.Form["ProdId"]);
-            comment.Like = true;
+            comment.Like = like;
             var user = await _userManager.FindByIdAsync(User.GetUserId());
             comment.User = user;
             db.Comments.Add(comment);
             db.SaveChanges();
-            return RedirectToAction("Index", "Categories");
+            return RedirectToAction("ProductList", "Products", new { id = comment.ProductId });
 
         }
 

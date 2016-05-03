@@ -24,3 +24,20 @@
 .test {
     color: red;
 }
+
+
+.center {
+    text-align: center;
+    /*color: red;
+    margin-right: 30%;*/
+}
+
+.hate {
+    background-color: #ffb3b3;
+    height: auto;
+    /*width: auto;*/
+}
+.love {
+    background-color: #b3ecff;
+    height: auto;
+}

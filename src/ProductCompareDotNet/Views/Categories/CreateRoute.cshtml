@@ -15,10 +15,9 @@
     <h4>Add a new person</h4>
     @using (Html.BeginForm())
     {
-        @Html.LabelFor(model => model.CategoryName)
-        @Html.TextBoxFor(model => model.CategoryName)
+        @Html.TextBoxFor(model => model.CategoryName, new { placeholder = "Add New Category"})
 
-        <input type="submit" value="Add New Category" />
+        <input class ="btn btn-danger"type="submit" value="Submit Category" />
     }
 </body>
 </html>

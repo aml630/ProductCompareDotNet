@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
     <script src="~/js/Scripts.js"></script>
 
 </head>
@@ -15,9 +17,9 @@
 
         <ul class="nav nav-pills">
             <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Categories")</li>
-            <li role="presentation">@Html.ActionLink("Add Category", "CreateRoute", "Categories")</li>
+            @*<li role="presentation">@Html.ActionLink("Add Category", "CreateRoute", "Categories")</li>
             <li role="presentation">@Html.ActionLink("Add Product", "CreateRoute", "Products")</li>
-            <li role="presentation">@Html.ActionLink("Add Comment", "CreateRoute", "Comments")</li>
+            <li role="presentation">@Html.ActionLink("Add Comment", "CreateRoute", "Comments")</li>*@
             <li role="presentation">@Html.ActionLink("New User", "Register", "Account")</li>
             <li role="presentation">@Html.ActionLink("LoginHome", "Index", "Account")</li>
             <li role="presentation">@Html.ActionLink("Roles", "Index", "Roles")</li>

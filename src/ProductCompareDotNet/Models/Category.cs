@@ -16,5 +16,15 @@ namespace ProductCompareDotNet.Models
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public virtual ICollection<Product> Products { get; set; }
+
+        public Category(string catName, int id = 0)
+        {
+            CategoryName = catName;
+            CategoryId = id;
+        }
+        public Category()
+        {
+
+        }
     }
 }
