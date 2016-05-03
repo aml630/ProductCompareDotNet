@@ -3,7 +3,7 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Identity;
 using ProductCompareDotNet.Models;
 using ProductCompareDotNet.ViewModels;
-
+using System.Linq;
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -19,9 +19,10 @@ namespace ProductCompareDotNet.Controllers
             _signInManager = signInManager;
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(string name)
         {
-            return View();
+            var profile = _db.Users.Where(x => x.UserName == name);
+            return View(profile);
         }
 
         public IActionResult Register()

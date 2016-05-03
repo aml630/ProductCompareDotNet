@@ -12,18 +12,42 @@
     <script src="~/js/Scripts.js"></script>
 
 </head>
+@using System.Security.Claims
+
 <body>
     <div class="container">
 
         <ul class="nav nav-pills">
             <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Categories")</li>
-            @*<li role="presentation">@Html.ActionLink("Add Category", "CreateRoute", "Categories")</li>
-            <li role="presentation">@Html.ActionLink("Add Product", "CreateRoute", "Products")</li>
-            <li role="presentation">@Html.ActionLink("Add Comment", "CreateRoute", "Comments")</li>*@
-            <li role="presentation">@Html.ActionLink("New User", "Register", "Account")</li>
-            <li role="presentation">@Html.ActionLink("LoginHome", "Index", "Account")</li>
-            <li role="presentation">@Html.ActionLink("Roles", "Index", "Roles")</li>
-            <li role="presentation">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
+            <li class="btn btn-info " role="presentation">@Html.ActionLink("New User", "Register", "Account")</li>
+            
+            
+            @if (!User.IsSignedIn())
+
+            {
+                <li class="btn btn-info " role="presentation">@Html.ActionLink("Log In", "Login", "Account")</li>
+
+
+            }
+            @if (User.IsSignedIn())
+
+            {
+                <li class="btn btn-info " role="presentation">@Html.ActionLink("Profile", "Index", "Account", new { name = @User.GetUserName() })</li>
+
+
+            }
+            <li class="btn btn-danger " role="presentation">@Html.ActionLink("Roles", "Index", "Roles")</li>
+            <li class="btn btn-danger " role="presentation">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
+   
+
+            @if (User.IsSignedIn())
+            {
+                @using (Html.BeginForm("LogOff", "Account"))
+                {
+                    <input type="submit" class="btn btn-default" value="Log out" />
+                }
+
+            }
 
 
 
@@ -31,6 +55,9 @@
 
 
         </ul>
+        
+
+     
         @RenderBody()
 
         <br />

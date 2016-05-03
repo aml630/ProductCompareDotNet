@@ -4,7 +4,14 @@
 }
 @model IEnumerable<ProductCompareDotNet.Models.Category>
 
-<h1>Category List Page</h1>
+
+@using (Html.BeginForm("CreateProduct", "Categories"))
+{
+    <input name="Name" placeholder="Add A New Product" />
+        <input hidden name="CatId" placeholder="Category Id" value="@ViewBag.CatId" />
+        <input class="btn btn-success" type="submit" value="Submit Product" />
+}
+
 
 @foreach (var category in Model)
 {
@@ -12,18 +19,11 @@
 
     @foreach (var product in category.Products)
     {
-        <li>@Html.DisplayFor(x => product.ProductName)</li>
+        <li>@Html.ActionLink(product.ProductName, "ProductList", "Products", new { id = product.ProductId })</li>
         <hr />
     }
 }
 
- 
-    @using (Html.BeginForm("CreateProduct", "Categories"))
-    {
-        <input name="Name" placeholder="Add A New Product"/>
-        <input hidden name="CatId" placeholder="Category Id" value="@ViewBag.CatId" />
-        <input class="btn btn-success"type="submit" value="Submit Product" />
-    }
 
 
 @*<form action="/Categories/CreateProduct" method="post">

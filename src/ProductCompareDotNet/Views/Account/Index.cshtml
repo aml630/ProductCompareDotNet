@@ -2,6 +2,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*@model ProductCompareDotNet.Models.AspNetUsers*@
 
 @using System.Security.Claims
 
@@ -10,10 +11,15 @@
 @if (User.IsSignedIn())
 {
     <p>Hello @User.GetUserName()!</p>
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-default" value="Log out" />
-    }
+
+    <p>Tell us a little more about yourself!</p>
+    <form>
+        <input name="UserName"  placeholder="UserName"/>
+        <input name="UserPic" placeholder="PictureURL" />
+    </form>
+
+
+
 }
 else
 {

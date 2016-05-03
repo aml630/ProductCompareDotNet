@@ -6,10 +6,14 @@
 
 @foreach (var product in Model)
 {
-    <h2 class="center">@Html.DisplayFor(x => product.ProductName)</h2>
+    <div class="center">
+        <h2>@Html.DisplayFor(x => product.ProductName)</h2>
+        <img src="http://www.tuvie.com/wp-content/uploads/flow-healthcare-gadget2.jpg" height="100" width="100" />
+    </div>
 }
 
 
+<div class="row">
 <div class="col-sm-6">
     <div class="center">
 
@@ -92,7 +96,7 @@
     }
 
 </div>
-
+    </div>
 
 
 
