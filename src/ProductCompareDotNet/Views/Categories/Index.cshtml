@@ -32,7 +32,6 @@
 
 </div>
 
-
 @foreach (var category in Model)
 {
     <h2>@Html.DisplayFor(x => category.CategoryName): @Html.ActionLink("Details", "CategoryList", "Categories",  new { id = category.CategoryId })</h2>
@@ -60,7 +59,7 @@
                         </div>
                         <div class="product-likes-and-comments">
                             <div class="product-comments" id="shopping-cart-box">
-                                <i class="fa fa-commenting" aria-hidden="true" style="font-size:24px;position:relative;top:-2px;"></i>
+                                <a href="/Products/ProductList/@product.ProductId"><i class="fa fa-commenting" aria-hidden="true" style="font-size:47px;position:relative;top:-2px;"></i></a>
                             </div>
 
                             <div class="votes">

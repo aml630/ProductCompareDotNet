@@ -8,6 +8,8 @@ using Microsoft.Data.Entity;
 using Microsoft.AspNet.Authorization;
 
 
+//how can i print out the user name of the person who posted the within the product controller?
+
 namespace ProductCompareDotNet.Controllers
 {
     public class CategoriesController : Controller
