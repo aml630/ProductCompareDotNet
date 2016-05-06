@@ -10,6 +10,8 @@ using Microsoft.AspNet.Authorization;
 
 //how can i print out the user name of the person who posted the within the product controller?
 //how do i sort children after .include?
+//got rid of     //"dnxcore50": { } in frameowrks of project json.  will taht be bad?
+
 
 namespace ProductCompareDotNet.Controllers
 {

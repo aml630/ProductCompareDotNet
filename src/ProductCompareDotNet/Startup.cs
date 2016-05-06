@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Data.Entity;
 using ProductCompareDotNet.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using React.AspNet;
 
 namespace TravelBlog
 {
@@ -25,6 +26,7 @@ namespace TravelBlog
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddReact();
             services.AddMvc();
             services.AddEntityFramework()
                 .AddSqlServer()
@@ -41,6 +43,25 @@ namespace TravelBlog
 
         public void Configure(IApplicationBuilder app)
         {
+
+            app.UseReact(config =>
+            {
+                // If you want to use server-side rendering of React components,
+                // add all the necessary JavaScript files here. This includes
+                // your components as well as all of their dependencies.
+                // See http://reactjs.net/ for more information. Example:
+                //config
+                //    .AddScript("~/Scripts/First.jsx")
+                //    .AddScript("~/Scripts/Second.jsx");
+
+                // If you use an external build too (for example, Babel, Webpack,
+                // Browserify or Gulp), you can improve performance by disabling
+                // ReactJS.NET's version of Babel and loading the pre-transpiled
+                // scripts. Example:
+                //config
+                //    .SetLoadBabel(false)
+                //    .AddScriptWithoutTransform("~/Scripts/bundle.server.js");
+            });
             app.UseStaticFiles();
             app.UseIdentity();
 

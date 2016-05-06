@@ -145,8 +145,78 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
+      "JavaScriptEngineSwitcher.Core/1.2.4": {
+        "type": "package",
+        "compile": {
+          "lib/net40/JavaScriptEngineSwitcher.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/JavaScriptEngineSwitcher.Core.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
+      "JavaScriptEngineSwitcher.Msie/1.2.4": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4",
+          "MsieJavaScriptEngine": "1.5.1"
+        },
+        "compile": {
+          "lib/net40/JavaScriptEngineSwitcher.Msie.dll": {}
+        },
+        "runtime": {
+          "lib/net40/JavaScriptEngineSwitcher.Msie.dll": {}
+        }
+      },
+      "JavaScriptEngineSwitcher.V8/1.2.4": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40/ClearScript.dll": {},
+          "lib/net40/JavaScriptEngineSwitcher.V8.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ClearScript.dll": {},
+          "lib/net40/JavaScriptEngineSwitcher.V8.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/JavaScriptEngineSwitcher.V8.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
       "jQuery/1.9.1": {
         "type": "package"
+      },
+      "JsPool/0.3.1": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40-Client/JSPool.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/JSPool.dll": {}
+        }
+      },
+      "JSPool/0.3.1": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40-Client/JSPool.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/JSPool.dll": {}
+        }
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -1567,6 +1637,20 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "MsieJavaScriptEngine/1.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/MsieJavaScriptEngine.dll": {}
+        },
+        "runtime": {
+          "lib/net40/MsieJavaScriptEngine.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/MsieJavaScriptEngine.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "type": "package",
         "compile": {
@@ -1590,7 +1674,53 @@
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final"
+          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+          "React.AspNet": "2.1.2"
+        }
+      },
+      "React.AspNet/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4",
+          "JavaScriptEngineSwitcher.Msie": "1.2.4",
+          "JavaScriptEngineSwitcher.V8": "1.2.4",
+          "JsPool": "0.3.1",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-rc1-final",
+          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final",
+          "MsieJavaScriptEngine": "1.5.1",
+          "React.Core": "2.1.2"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/React.AspNet.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/React.AspNet.dll": {}
+        }
+      },
+      "React.Core/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Msie": "1.2.4",
+          "JavaScriptEngineSwitcher.V8": "1.2.4",
+          "JSPool": "0.3.1",
+          "Newtonsoft.Json": "6.0.8"
+        },
+        "compile": {
+          "lib/net40/React.Core.dll": {},
+          "lib/net40/VroomJs.dll": {}
+        },
+        "runtime": {
+          "lib/net40/React.Core.dll": {},
+          "lib/net40/VroomJs.dll": {}
         }
       },
       "Remotion.Linq/2.0.1": {
@@ -2066,8 +2196,78 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
+      "JavaScriptEngineSwitcher.Core/1.2.4": {
+        "type": "package",
+        "compile": {
+          "lib/net40/JavaScriptEngineSwitcher.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/JavaScriptEngineSwitcher.Core.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
+      "JavaScriptEngineSwitcher.Msie/1.2.4": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4",
+          "MsieJavaScriptEngine": "1.5.1"
+        },
+        "compile": {
+          "lib/net40/JavaScriptEngineSwitcher.Msie.dll": {}
+        },
+        "runtime": {
+          "lib/net40/JavaScriptEngineSwitcher.Msie.dll": {}
+        }
+      },
+      "JavaScriptEngineSwitcher.V8/1.2.4": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40/ClearScript.dll": {},
+          "lib/net40/JavaScriptEngineSwitcher.V8.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ClearScript.dll": {},
+          "lib/net40/JavaScriptEngineSwitcher.V8.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/JavaScriptEngineSwitcher.V8.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
       "jQuery/1.9.1": {
         "type": "package"
+      },
+      "JsPool/0.3.1": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40-Client/JSPool.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/JSPool.dll": {}
+        }
+      },
+      "JSPool/0.3.1": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40-Client/JSPool.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/JSPool.dll": {}
+        }
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -3491,6 +3691,20 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "MsieJavaScriptEngine/1.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/MsieJavaScriptEngine.dll": {}
+        },
+        "runtime": {
+          "lib/net40/MsieJavaScriptEngine.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/MsieJavaScriptEngine.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "type": "package",
         "compile": {
@@ -3514,7 +3728,53 @@
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final"
+          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+          "React.AspNet": "2.1.2"
+        }
+      },
+      "React.AspNet/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4",
+          "JavaScriptEngineSwitcher.Msie": "1.2.4",
+          "JavaScriptEngineSwitcher.V8": "1.2.4",
+          "JsPool": "0.3.1",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-rc1-final",
+          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final",
+          "MsieJavaScriptEngine": "1.5.1",
+          "React.Core": "2.1.2"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/React.AspNet.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/React.AspNet.dll": {}
+        }
+      },
+      "React.Core/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Msie": "1.2.4",
+          "JavaScriptEngineSwitcher.V8": "1.2.4",
+          "JSPool": "0.3.1",
+          "Newtonsoft.Json": "6.0.8"
+        },
+        "compile": {
+          "lib/net40/React.Core.dll": {},
+          "lib/net40/VroomJs.dll": {}
+        },
+        "runtime": {
+          "lib/net40/React.Core.dll": {},
+          "lib/net40/VroomJs.dll": {}
         }
       },
       "Remotion.Linq/2.0.1": {
@@ -3990,8 +4250,78 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
+      "JavaScriptEngineSwitcher.Core/1.2.4": {
+        "type": "package",
+        "compile": {
+          "lib/net40/JavaScriptEngineSwitcher.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/JavaScriptEngineSwitcher.Core.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
+      "JavaScriptEngineSwitcher.Msie/1.2.4": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4",
+          "MsieJavaScriptEngine": "1.5.1"
+        },
+        "compile": {
+          "lib/net40/JavaScriptEngineSwitcher.Msie.dll": {}
+        },
+        "runtime": {
+          "lib/net40/JavaScriptEngineSwitcher.Msie.dll": {}
+        }
+      },
+      "JavaScriptEngineSwitcher.V8/1.2.4": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40/ClearScript.dll": {},
+          "lib/net40/JavaScriptEngineSwitcher.V8.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ClearScript.dll": {},
+          "lib/net40/JavaScriptEngineSwitcher.V8.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/JavaScriptEngineSwitcher.V8.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
       "jQuery/1.9.1": {
         "type": "package"
+      },
+      "JsPool/0.3.1": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40-Client/JSPool.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/JSPool.dll": {}
+        }
+      },
+      "JSPool/0.3.1": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4"
+        },
+        "compile": {
+          "lib/net40-Client/JSPool.dll": {}
+        },
+        "runtime": {
+          "lib/net40-Client/JSPool.dll": {}
+        }
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -5415,6 +5745,20 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "MsieJavaScriptEngine/1.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/MsieJavaScriptEngine.dll": {}
+        },
+        "runtime": {
+          "lib/net40/MsieJavaScriptEngine.dll": {}
+        },
+        "resource": {
+          "lib/net40/ru-ru/MsieJavaScriptEngine.resources.dll": {
+            "locale": "ru-ru"
+          }
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "type": "package",
         "compile": {
@@ -5438,7 +5782,53 @@
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
           "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final"
+          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+          "React.AspNet": "2.1.2"
+        }
+      },
+      "React.AspNet/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Core": "1.2.4",
+          "JavaScriptEngineSwitcher.Msie": "1.2.4",
+          "JavaScriptEngineSwitcher.V8": "1.2.4",
+          "JsPool": "0.3.1",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-rc1-final",
+          "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final",
+          "MsieJavaScriptEngine": "1.5.1",
+          "React.Core": "2.1.2"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/React.AspNet.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/React.AspNet.dll": {}
+        }
+      },
+      "React.Core/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "JavaScriptEngineSwitcher.Msie": "1.2.4",
+          "JavaScriptEngineSwitcher.V8": "1.2.4",
+          "JSPool": "0.3.1",
+          "Newtonsoft.Json": "6.0.8"
+        },
+        "compile": {
+          "lib/net40/React.Core.dll": {},
+          "lib/net40/VroomJs.dll": {}
+        },
+        "runtime": {
+          "lib/net40/React.Core.dll": {},
+          "lib/net40/VroomJs.dll": {}
         }
       },
       "Remotion.Linq/2.0.1": {
@@ -5911,6 +6301,57 @@
         "lib/portable-windows8+net45+wp8/System.Interactive.Async.XML"
       ]
     },
+    "JavaScriptEngineSwitcher.Core/1.2.4": {
+      "type": "package",
+      "sha512": "Ml0C9FDh+PuZItK9PbnOmPx4L8fkvqoewUkQ9S8x4F+mMLr0+nNi/AWsO49qKqdtcgJzt+9Uigz5eU0wnYkEuQ==",
+      "files": [
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "JavaScriptEngineSwitcher.Core.1.2.4.nupkg",
+        "JavaScriptEngineSwitcher.Core.1.2.4.nupkg.sha512",
+        "JavaScriptEngineSwitcher.Core.nuspec",
+        "lib/net40/JavaScriptEngineSwitcher.Core.dll",
+        "lib/net40/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll",
+        "readme.txt"
+      ]
+    },
+    "JavaScriptEngineSwitcher.Msie/1.2.4": {
+      "type": "package",
+      "sha512": "ejRjXQnG9rFQEiDGNjtTY3Z4qfFjHNO5wOGbrf0/UdHxnMqyX1CnM5f3kvj7/nSwkJRIpUQLc0GMxywwi8JiOg==",
+      "files": [
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "JavaScriptEngineSwitcher.Msie.1.2.4.nupkg",
+        "JavaScriptEngineSwitcher.Msie.1.2.4.nupkg.sha512",
+        "JavaScriptEngineSwitcher.Msie.nuspec",
+        "lib/net40/JavaScriptEngineSwitcher.Msie.dll",
+        "msie-javascript-engine-license.txt",
+        "readme.txt"
+      ]
+    },
+    "JavaScriptEngineSwitcher.V8/1.2.4": {
+      "type": "package",
+      "sha512": "kbw5ZUaLq6+TnUwGbiZZtMgJ4lX5CK96cUWaBwAIkOtvbgvux9N0MWSX06SfB5iR4CXgyX/V5DGRnyEFiVeIKg==",
+      "files": [
+        "clearscript-license.txt",
+        "content/app.config.transform",
+        "content/ClearScript.V8/ClearScriptV8-32.dll",
+        "content/ClearScript.V8/ClearScriptV8-64.dll",
+        "content/ClearScript.V8/v8-ia32.dll",
+        "content/ClearScript.V8/v8-x64.dll",
+        "content/web.config.transform",
+        "JavaScriptEngineSwitcher.V8.1.2.4.nupkg",
+        "JavaScriptEngineSwitcher.V8.1.2.4.nupkg.sha512",
+        "JavaScriptEngineSwitcher.V8.nuspec",
+        "lib/net40/ClearScript.dll",
+        "lib/net40/JavaScriptEngineSwitcher.V8.dll",
+        "lib/net40/ru-ru/JavaScriptEngineSwitcher.V8.resources.dll",
+        "readme.txt",
+        "tools/Install.ps1",
+        "tools/Uninstall.ps1",
+        "v8-license.txt"
+      ]
+    },
     "jQuery/1.9.1": {
       "type": "package",
       "sha512": "HiX9icLyiJGgiL5EOIn0d1MBPHVV2M9mzWT4mANdniDNR51RvAFTyKEXEd2+5yQJ4PJ5xePOR61Vjj/omQzYcw==",
@@ -5926,6 +6367,28 @@
         "Tools/install.ps1",
         "Tools/jquery-1.9.1.intellisense.js",
         "Tools/uninstall.ps1"
+      ]
+    },
+    "JsPool/0.3.1": {
+      "type": "package",
+      "sha512": "Bzq/Ote6JvBqYtZVzTPvgGQZ8NGWwNRnRVLkOvksf4ngU2D57BOhSrimYAC4BXJeKBJRl1S1jAmqj2SKExDypg==",
+      "files": [
+        "JsPool.0.3.1.nupkg",
+        "JsPool.0.3.1.nupkg.sha512",
+        "JsPool.nuspec",
+        "lib/net40-Client/JSPool.dll",
+        "lib/net40-Client/JSPool.XML"
+      ]
+    },
+    "JSPool/0.3.1": {
+      "type": "package",
+      "sha512": "Bzq/Ote6JvBqYtZVzTPvgGQZ8NGWwNRnRVLkOvksf4ngU2D57BOhSrimYAC4BXJeKBJRl1S1jAmqj2SKExDypg==",
+      "files": [
+        "JsPool.0.3.1.nupkg",
+        "JsPool.0.3.1.nupkg.sha512",
+        "JsPool.nuspec",
+        "lib/net40-Client/JSPool.dll",
+        "lib/net40-Client/JSPool.XML"
       ]
     },
     "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
@@ -7023,6 +7486,21 @@
         "Microsoft.Net.Http.Headers.nuspec"
       ]
     },
+    "MsieJavaScriptEngine/1.5.1": {
+      "type": "package",
+      "sha512": "E8+a6c7qXmNb5SvG9hIYJQFb7hmh0How0R+7AYcJWE8SW+FP+MRTBaazdv9cOYvkhXAAW0xjxouwa2hnEvZbpQ==",
+      "files": [
+        "chakra-host-license.txt",
+        "lib/net40/MsieJavaScriptEngine.dll",
+        "lib/net40/ru-ru/MsieJavaScriptEngine.resources.dll",
+        "microsoft-ajax-minifier-license.txt",
+        "MsieJavaScriptEngine.1.5.1.nupkg",
+        "MsieJavaScriptEngine.1.5.1.nupkg.sha512",
+        "MsieJavaScriptEngine.nuspec",
+        "readme.txt",
+        "sass-and-coffee-license.txt"
+      ]
+    },
     "Newtonsoft.Json/7.0.1": {
       "type": "package",
       "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
@@ -7043,6 +7521,29 @@
         "Newtonsoft.Json.7.0.1.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "React.AspNet/2.1.2": {
+      "type": "package",
+      "sha512": "prWDGPFmPkBDI5wX0L5HJ+R7WHjnBKsaLSApNX2WFc1VuXurtu8YGy7fdHUuvdcyEiUcaumtsYRH3/7nq+MKzA==",
+      "files": [
+        "lib/dnx451/React.AspNet.dll",
+        "lib/dnx451/React.AspNet.xml",
+        "React.AspNet.2.1.2.nupkg",
+        "React.AspNet.2.1.2.nupkg.sha512",
+        "React.AspNet.nuspec"
+      ]
+    },
+    "React.Core/2.1.2": {
+      "type": "package",
+      "sha512": "bV+GNBW+HdsdFCI2qBl5CPS8LjM2p/P7qZAFfuiUxYklEDUDYAIQb8MPkvqfP6N5OjGoEoH9gltML+LytH3WXQ==",
+      "files": [
+        "lib/net40/React.Core.dll",
+        "lib/net40/React.Core.xml",
+        "lib/net40/VroomJs.dll",
+        "React.Core.2.1.2.nupkg",
+        "React.Core.2.1.2.nupkg.sha512",
+        "React.Core.nuspec"
       ]
     },
     "Remotion.Linq/2.0.1": {
