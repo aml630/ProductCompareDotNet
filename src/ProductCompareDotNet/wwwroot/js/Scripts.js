@@ -28,4 +28,38 @@ $(document).ready(function () {
         console.log("end");
     });
 
+    $('.downvote').submit(function (event) {
+        event.preventDefault();
+        console.log("downVote!")
+        $.ajax({
+            url: 'Products/Downvote',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $('.down-' + result.ProductId).text(result.ProductDownVotes);
+
+            }
+
+        })
+    })
+
+    $('.upvote').submit(function (event) {
+        event.preventDefault();
+        console.log("downVote!")
+        $.ajax({
+            url: 'Products/Upvote',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $('.up-' + result.ProductId).text(result.ProductUpVotes);
+
+            }
+
+        })
+    })
+
 });

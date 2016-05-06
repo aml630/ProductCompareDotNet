@@ -44,7 +44,7 @@
 
 .product-box {
   padding-top:10px;
-  width:170px;
+  width: auto;
   margin-right:25px;
   height:300px;
   border: 1px solid #d1d1d1;
@@ -90,7 +90,7 @@
       border-top: 1px solid #d1d1d1;
 
     padding-top: 5px;
-    padding-left:45px;
+    padding-left:25px;
     display: inline-flex;
     height: 20px;
     font-size: 30px;

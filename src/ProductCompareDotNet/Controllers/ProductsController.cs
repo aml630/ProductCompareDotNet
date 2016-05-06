@@ -68,5 +68,24 @@ namespace ProductCompareDotNet.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult Downvote(int id)
+        {
+            Console.WriteLine("ID?: " + id);
+
+            var foundProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
+            foundProduct.ProductDownVotes = foundProduct.ProductDownVotes - 1;
+            db.SaveChanges();
+            return Json(foundProduct);
+        }
+        [HttpPost]
+        public IActionResult Upvote(int id)
+        {
+            var foundProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
+            foundProduct.ProductUpVotes = foundProduct.ProductUpVotes + 1;
+            db.SaveChanges();
+            return Json(foundProduct);
+        }
+
     }
 }

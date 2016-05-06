@@ -64,8 +64,18 @@
                             </div>
 
                             <div class="votes">
-                            <i class="fa fa-arrow-circle-down" aria-hidden="true" >@product.ProductUpVotes</i>
-                            <i class="fa fa-arrow-circle-up" aria-hidden="true">@product.ProductDownVotes</i>
+                                <form class="downvote">
+                                    <input type="number" name="id" hidden value="@product.ProductId" />
+                                    <button><i class="fa fa-arrow-circle-down down-@product.ProductId" aria-hidden="true">@product.ProductDownVotes</i></button>
+
+                                </form>
+
+                                <form class="upvote">
+                                    <input type="number" name="id" hidden value="@product.ProductId" />
+                                    <button><i class="fa fa-arrow-circle-up up-@product.ProductId" aria-hidden="true">@product.ProductUpVotes</i></button>
+
+                                </form>
+
                             </div>
                          
                         </div>
