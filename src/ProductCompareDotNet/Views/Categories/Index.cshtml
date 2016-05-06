@@ -36,12 +36,45 @@
 @foreach (var category in Model)
 {
     <h2>@Html.DisplayFor(x => category.CategoryName): @Html.ActionLink("Details", "CategoryList", "Categories",  new { id = category.CategoryId })</h2>
+    <div class="container-fluid main">
 
-    @foreach (var product in category.Products)
-    {
-        <li>@Html.ActionLink(product.ProductName, "ProductList", "Products", new { id = product.ProductId })</li>
-        <li>
-            @Html.DisplayFor(x => product.ProductId)</li>
-        <hr />
+        @foreach (var product in category.Products)
+        {
+            @*<li>@Html.ActionLink(product.ProductName, "ProductList", "Products", new { id = product.ProductId })</li>
+                <li>
+                    @Html.DisplayFor(x => product.ProductId)</li>
+                <hr />*@
+                <div class="content">
+
+                    <div class="product-box">
+                        <div class="img-wrap">
+                            <img src="http://www.thetoyinsider.com/wp/wp-content/uploads/2015/09/Tomy.toddler_jumbo_jamboree.jpg" height="100" width="100">
+                        </div>
+
+                        <div class="product-name">
+                            @Html.ActionLink(product.ProductName, "ProductList", "Products", new { id = product.ProductId })
+                        </div>
+                        <div class="product-sale-price">
+                            $@product.ProductId
+                            
+                        </div>
+                        <div class="product-likes-and-comments">
+                            <div class="product-comments" id="shopping-cart-box">
+                                <i class="fa fa-commenting" aria-hidden="true" style="font-size:24px;position:relative;top:-2px;"></i>
+                            </div>
+
+                            <div class="votes">
+                            <i class="fa fa-arrow-circle-down" aria-hidden="true" >@product.ProductUpVotes</i>
+                            <i class="fa fa-arrow-circle-up" aria-hidden="true">@product.ProductDownVotes</i>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
         }
-        }
+    </div>
+
+}
+
+
+
