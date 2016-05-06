@@ -14,7 +14,7 @@
 
 
 <div class="row">
-<div class="col-sm-6">
+<div class="col-sm-5">
     <div class="center">
 
         <h2>Hated it</h2>
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-<div class="col-sm-6">
+<div class="col-sm-5">
     <div class="center">
     <h2>Loved it</h2>
     <form action="/Products/LeaveComment" method="post">
@@ -50,7 +50,7 @@
 
 
 
-<div class="col-sm-6 hate">
+<div class="col-sm-5 hate">
 @foreach (var product in Model)
 {
 
@@ -61,9 +61,9 @@
     {
         @if (comment.Like == false)
         {
+            <div class="triangle-right">
             <p class="floatLeft">@Html.DisplayFor(x => comment.Statement)</p>
-
-                <p class="floatLeft">@Html.DisplayFor(x => comment.Like)</p>
+                </div>
                 <p class="floatLeft">User: @Html.DisplayFor(x => comment.User)</p>
 
                 <br />
@@ -75,7 +75,7 @@
 
 </div>
 
-<div class="col-sm-6 love">
+<div class="col-sm-5 love">
     @foreach (var product in Model)
     {
 
@@ -86,18 +86,19 @@
         {
             @if (comment.Like == true)
             {
-                <p class="floatLeft">@Html.DisplayFor(x => comment.Statement)</p>
+                <div class="triangle-love">
+                    <p class="floatLeft">@Html.DisplayFor(x => comment.Statement)</p>
+                    </div>
+                    <p class="floatLeft">@Html.DisplayFor(x => comment.Like)</p>
+                    <br />
 
-                <p class="floatLeft">@Html.DisplayFor(x => comment.Like)</p>
-                <br />
+                    }
 
-            }
-           
 
-        }
-    }
+                    }
+                    }
 
-</div>
+                </div>
     </div>
 
 

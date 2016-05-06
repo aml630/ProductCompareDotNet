@@ -33,13 +33,26 @@
 }
 
 .hate {
+    margin-top: 20px;
     background-color: #ffb3b3;
     height: auto;
-    /*width: auto;*/
+     padding-top:10px;
+  border: 1px solid #d1d1d1;
+  box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+  margin-bottom:20px;
+  margin-right: 10px;
 }
 .love {
+        margin-top: 20px;
+
     background-color: #b3ecff;
     height: auto;
+     padding-top:10px;
+  border: 1px solid #d1d1d1;
+  box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+  margin-bottom:20px;
+    margin-left: 10px;
+
 }
 
 .product-box {
@@ -55,6 +68,59 @@
   background: #fff;
 }
 
+.triangle-right {
+       position: relative;
+    padding: 15px 30px;
+    margin: 0;
+    color: #fff;
+    background: #990000;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#990000), to(#ff6666));
+    background: -moz-linear-gradient(#990000, #ff3333);
+    background: -o-linear-gradient(#990000, #ff3333);
+    background: linear-gradient(#990000, #ff3333);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.triangle-right:after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 50px;
+    border-width: 0 20px 50px 0px;
+    border-style: solid;
+    border-color: transparent #ff6666;
+    display: block;
+    width: 0;
+}
+
+.triangle-love {
+       position: relative;
+    padding: 15px 30px;
+    margin: 0;
+    color: #fff;
+    background: #00cccc;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#00cccc), to(#4dffff));
+    background: -moz-linear-gradient(#00cccc, #4dffff);
+    background: -o-linear-gradient(#00cccc, #4dffff);
+    background: linear-gradient(#00cccc, #4dffff);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.triangle-love:after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 50px;
+    border-width: 0 20px 50px 0px;
+    border-style: solid;
+    border-color: transparent #99ffff;
+    display: block;
+    width: 0;
+}
 
 .img-wrap {
   text-align:center;
@@ -118,6 +184,11 @@
 .main {
        display: inline-flex;
 
+}
+
+.jumbotron {
+    background-image: url("http://blog.kidville.com/wp-content/uploads/2013/11/Picture14.jpg");
+    color: white;
 }
 
 /*NavBar STuff*/

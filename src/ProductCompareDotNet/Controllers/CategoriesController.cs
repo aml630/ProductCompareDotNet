@@ -9,6 +9,7 @@ using Microsoft.AspNet.Authorization;
 
 
 //how can i print out the user name of the person who posted the within the product controller?
+//how do i sort children after .include?
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -24,6 +25,7 @@ namespace ProductCompareDotNet.Controllers
         public IActionResult CategoryList(int id)
         {
             var catList = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).ToList();
+
 
             ViewBag.CatId = id;
 
@@ -66,7 +68,7 @@ namespace ProductCompareDotNet.Controllers
 
             db.Products.Add(product);
             db.SaveChanges();
-            return RedirectToAction("CategoryList", "Categories", new { id = product.CategoryId });
+            return RedirectToAction("Index", "Categories");
         }
     }
 }
