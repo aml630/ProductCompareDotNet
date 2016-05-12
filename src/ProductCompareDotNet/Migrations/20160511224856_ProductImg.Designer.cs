@@ -8,9 +8,10 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    partial class ProductCompareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160511224856_ProductImg")]
+    partial class ProductImg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -192,8 +193,6 @@ namespace ProductCompareDotNet.Migrations
                     b.Property<string>("ProductImg");
 
                     b.Property<string>("ProductName");
-
-                    b.Property<int>("ProductPrice");
 
                     b.Property<int>("ProductUpVotes");
 

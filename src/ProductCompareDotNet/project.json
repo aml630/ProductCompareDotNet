@@ -16,7 +16,9 @@
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
     "bootstrap": "3.3.6",
     "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-    "React.AspNet": "2.1.2"
+    "React.AspNet": "2.1.2",
+    "RestSharp": "105.2.3"
+
 
 
   },
