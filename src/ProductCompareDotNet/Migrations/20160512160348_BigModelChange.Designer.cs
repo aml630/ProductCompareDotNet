@@ -8,8 +8,8 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    [Migration("20160429214325_Initial")]
-    partial class Initial
+    [Migration("20160512160348_BigModelChange")]
+    partial class BigModelChange
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -99,6 +99,22 @@ namespace ProductCompareDotNet.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
                 });
 
+            modelBuilder.Entity("ProductCompareDotNet.Models.Answer", b =>
+                {
+                    b.Property<int>("AnswerId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AnswerText");
+
+                    b.Property<int>("QuestionId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("AnswerId");
+
+                    b.HasAnnotation("Relational:TableName", "Answers");
+                });
+
             modelBuilder.Entity("ProductCompareDotNet.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id");
@@ -112,6 +128,8 @@ namespace ProductCompareDotNet.Migrations
                         .HasAnnotation("MaxLength", 256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FullName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -135,6 +153,8 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
+
+                    b.Property<string>("UserPic");
 
                     b.HasKey("Id");
 
@@ -184,15 +204,49 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<int>("CategoryId");
 
-                    b.Property<int>("ProductDownVotes");
+                    b.Property<string>("ProductImg");
 
                     b.Property<string>("ProductName");
 
-                    b.Property<int>("ProductUpVotes");
+                    b.Property<int>("ProductPrice");
 
                     b.HasKey("ProductId");
 
                     b.HasAnnotation("Relational:TableName", "Products");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Question", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<string>("QuestionText");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("QuestionId");
+
+                    b.HasAnnotation("Relational:TableName", "Questions");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Review", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<string>("ReviewText");
+
+                    b.Property<int>("Stars");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasAnnotation("Relational:TableName", "Reviews");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
@@ -227,6 +281,17 @@ namespace ProductCompareDotNet.Migrations
                         .HasForeignKey("UserId");
                 });
 
+            modelBuilder.Entity("ProductCompareDotNet.Models.Answer", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId");
+
+                    b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("ProductCompareDotNet.Models.Comment", b =>
                 {
                     b.HasOne("ProductCompareDotNet.Models.Product")
@@ -243,6 +308,28 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.Category")
                         .WithMany()
                         .HasForeignKey("CategoryId");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Question", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.Review", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
         }
     }

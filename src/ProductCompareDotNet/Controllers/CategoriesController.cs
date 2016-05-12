@@ -11,10 +11,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
-//how can i print out the user name of the person who posted the within the product controller?
-//how do i sort children after .include?
-//got rid of     //"dnxcore50": { } in frameowrks of project json.  will taht be bad?
-
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -24,7 +20,7 @@ namespace ProductCompareDotNet.Controllers
 
         public IActionResult Index()
         {
-            return View(db.Products.Include(product => product.Comments).ToList());
+            return View(db.Products.Include(product => product.Reviews).ToList());
         }
 
         public IActionResult CategoryList(int id)
@@ -98,8 +94,6 @@ namespace ProductCompareDotNet.Controllers
             Product product = new Product();
             product.ProductName = stuff.items[0].name;
             product.ProductImg = stuff.items[0].thumbnailImage;
-            product.ProductUpVotes = 5;
-            product.ProductDownVotes = 5;
             product.ProductPrice = stuff.items[0].salePrice;
 
             product.CategoryId = category.CategoryId;

@@ -15,13 +15,12 @@ namespace ProductCompareDotNet.Models
         [Key]
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public int ProductUpVotes { get; set; }
-        public int ProductDownVotes { get; set; }
         public string ProductImg { get; set; }
         public int ProductPrice { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
      
 
     }

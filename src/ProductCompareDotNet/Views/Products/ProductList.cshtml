@@ -7,99 +7,82 @@
 @foreach (var product in Model)
 {
     <div class="center">
-        <h2>@Html.DisplayFor(x => product.ProductName)</h2>
-        <img src="http://www.tuvie.com/wp-content/uploads/flow-healthcare-gadget2.jpg" height="100" width="100" />
+        <h2>@product.ProductName</h2>
+        <img src="@product.ProductImg" height="100" width="100" />
     </div>
 }
+<button class="ShowAll">All Info</button>
+<button class="DescriptionButton">Product Description</button>
+<button class="ReviewsButton">Product Reviews</button>
+<button class="QAButton">Product Questions And Answers</button>
 
 
-<div class="row">
-<div class="col-sm-5">
-    <div class="center">
+<div class="productDescription">
+    <h2>Product Description</h2>
+    <p>Rhodanosaurus Sulaimanisaurus Avisaurus Styracosaurus Deltadromeus Aviatyrannis Futalognkosaurus Neosodon Histriasaurus Nurosaurus Eucamerotus Falcarius Bistahieversor Baurutitan Brontosaurus Jiangjunosaurus Giraffatitan Leptoceratops Adamantisaurus Yixianosaurus Compsognathus Gilmoreosaurus Edmontonia Bambiraptor Chungkingosaurus Avisaurus Nemegtomaia Malarguesaurus Drinker Galveosaurus Technosaurus Amurosaurus Amargasaurus Kulceratops Saurophaganax Algoasaurus Kryptops Bissektipelta Narambuenatitan Zhuchengceratops Torosaurus Xuanhuaceratops Marmarospondylus Barapasaurus Leaellynasaura Kol Parrosaurus Rahiolisaurus Majungasaurus Altirhinus.</p><p>Nurosaurus Nemegtia Shanshanosaurus Ankistrodon Juravenator Ponerosteus Secernosaurus Machairasaurus Onychosaurus Glyptodontopelta Aardonyx Chondrosteus Minotaurasaurus Hierosaurus Sphenosaurus Tatankacephalus Lourinhanosaurus Trachodon Balaur Dynamosaurus Cristatusaurus Zhuchengtyrannus Pyroraptor Eucnemesaurus Pakisaurus Glacialisaurus Shanshanosaurus Titanosaurus Fulgurotherium Archaeovolans Dollodon Brachytaenius Pelorosaurus Opisthocoelicaudia Chinshakiangosaurus Staurikosaurus Gobititan Thespesius Zhejiangosaurus Bellusaurus Valdoraptor Auroraceratops Chromogisaurus Mendozasaurus Scelidosaurus Sphenosaurus Griphornis Therizinosaurus Strenusaurus Saturnalia.</p>
+    <hr />
+</div>
+<div class="Reviews">
+    <h2>Leave Review</h2>
+    <form action="/Products/LeaveReview" method="post">
 
-        <h2>Hated it</h2>
-
-        <form action="/Products/LeaveComment" method="post">
-
-            <textarea name="Comment" placeholder="What'd You Hate?'"></textarea>
-            <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
-            <input hidden name="like" placeholder="Category Id" value="False" />
-
-            <br />
-            <input class="btn btn-info" type="submit" value="Submit Comment" />
-        </form>
-
-        </div>
-    </div>
-
-<div class="col-sm-5">
-    <div class="center">
-    <h2>Loved it</h2>
-    <form action="/Products/LeaveComment" method="post">
-
-        <textarea name="Comment" placeholder="What'd You Love?'"></textarea>
+        <textarea name="Comment" placeholder="Leave Review Here'"></textarea>
         <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
-        <input hidden name="like" placeholder="Category Id" value="True" />
+        <input hidden name="Stars" placeholder="Category Id" value=5 />
 
         <br />
         <input class="btn btn-info" type="submit" value="Submit Comment" />
     </form>
-        </div>
-
-</div>
-
-
-
-<div class="col-sm-5 hate">
-@foreach (var product in Model)
-{
-
-
-
-    @foreach (var comment in product.Comments)
-
-    {
-        @if (comment.Like == false)
-        {
-            <div class="triangle-right">
-            <p class="floatLeft">@Html.DisplayFor(x => comment.Statement)</p>
-                </div>
-                <p class="floatLeft">User: @Html.DisplayFor(x => comment.User)</p>
-
-                <br />
-
-        }
-    
-    }
-}
-
-</div>
-
-<div class="col-sm-5 love">
     @foreach (var product in Model)
     {
-
-
-
-        @foreach (var comment in product.Comments)
-
+        @foreach (var review in product.Reviews)
         {
-            @if (comment.Like == true)
-            {
-                <div class="triangle-love">
-                    <p class="floatLeft">@Html.DisplayFor(x => comment.Statement)</p>
-                    </div>
-                    <p class="floatLeft">@Html.DisplayFor(x => comment.Like)</p>
+            <p>@review.ReviewText</p>
+            <li>@*@review.User.UserName*@</li>
+
+        }
+    }
+</div>
+    <hr />
+    <div class="QA">
+    <h2>Ask A Question</h2>
+    <form action="/Products/AskQuestion" method="post">
+        <textarea name="Question" placeholder="What's Your Question?'"></textarea>
+        <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
+
+        <br />
+        <input class="btn btn-info" type="submit" value="Submit Question" />
+    </form>
+    @foreach (var product in Model)
+    {
+        @foreach (var question in product.Questions)
+        {
+            <div class="question">
+                <p>@question.QuestionText</p>
+
+                <form action="/Products/AnswerQuestion" method="post">
+                    <textarea name="Answer" placeholder="Know The Answer?'"></textarea>
+                    <input hidden name="QuestionId" value="@question.QuestionId" />
+                    <input hidden name="ProductId" type="number" value="@ViewBag.ProdId" />
                     <br />
+                    <input class="btn btn-danger btn-circle" type="submit" value="Submit Answer" />
+                </form>
 
-                    }
+                @foreach (var answer in question.Answers)
+                {
+                    <p>@answer.AnswerText</p>
+                }
+            </div>
+
+        }
+    }
+</div>
 
 
-                    }
-                    }
 
-                </div>
-    </div>
+
+
+
 
 
 

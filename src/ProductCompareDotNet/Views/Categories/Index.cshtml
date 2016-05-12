@@ -48,11 +48,11 @@
                         </div>
                         <div class="product-likes-and-comments">
                             <div class="product-comments" id="shopping-cart-box">
-                                @product.Comments.Count()
+                                @product.Reviews.Count()
                                 <a href="/Products/ProductList/@product.ProductId"><i class="fa fa-commenting" aria-hidden="true" style="font-size:47px;position:relative;top:-2px;"></i></a>
                             </div>
 
-                            <div class="votes">
+                            @*<div class="votes">
                                 <form class="downvote">
                                     <input type="number" name="id" hidden value="@product.ProductId" />
                                     <button><i class="fa fa-arrow-circle-down down-@product.ProductId" aria-hidden="true">@product.ProductDownVotes</i></button>
@@ -65,7 +65,7 @@
 
                                 </form>
 
-                            </div>
+                            </div>*@
                          
                         </div>
                     </div>

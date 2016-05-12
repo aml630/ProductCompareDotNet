@@ -28,13 +28,14 @@ namespace ProductCompareDotNet.Controllers
 
         public IActionResult Index()
         {
-            return View(db.Products.Include(product => product.Comments).ToList());
+            //return View(db.Products.Include(product => product.Reviews).ToList());
+            return View();
         }
 
 
         public IActionResult ProductList(int id)
         {
-            var prodList = db.Products.Where(x => x.ProductId == id).Include(product => product.Comments).ToList();
+            var prodList = db.Products.Where(x => x.ProductId == id).Include(product => product.Reviews).ThenInclude(review => review.User).Include(product => product.Questions).ThenInclude(question => question.Answers).ToList();
 
             ViewBag.ProdId = id;
 
@@ -45,6 +46,7 @@ namespace ProductCompareDotNet.Controllers
         {
             return View();
         }
+
         //[Authorize]
         [HttpPost, ActionName("CreateRoute")]
         public IActionResult CreateProduct(Product product)
@@ -54,38 +56,49 @@ namespace ProductCompareDotNet.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public async Task <IActionResult> LeaveComment(string Comment, string ProdId, bool like)
+        public async Task<IActionResult> LeaveReview(string Comment, string ProdId, int Stars)
         {
-            Comment comment = new Comment();
-            comment.Statement = Request.Form["Comment"];
-            comment.ProductId = Int32.Parse(Request.Form["ProdId"]);
-            comment.Like = like;
+            Review review = new Review();
+            review.ReviewText = Request.Form["Comment"];
+            review.ProductId = Int32.Parse(Request.Form["ProdId"]);
+            review.Stars = Stars;
             var user = await _userManager.FindByIdAsync(User.GetUserId());
-            comment.User = user;
-            db.Comments.Add(comment);
+            review.User = user;
+            db.Reviews.Add(review);
             db.SaveChanges();
-            return RedirectToAction("ProductList", "Products", new { id = comment.ProductId });
+            return RedirectToAction("ProductList", "Products", new { id = review.ProductId });
 
         }
 
         [HttpPost]
-        public IActionResult Downvote(int id)
+        public async Task<IActionResult> AskQuestion(string Question, string ProdId)
         {
-            Console.WriteLine("ID?: " + id);
-
-            var foundProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
-            foundProduct.ProductDownVotes = foundProduct.ProductDownVotes - 1;
+            Question question = new Question();
+            question.QuestionText = Request.Form["Question"];
+            question.ProductId = Int32.Parse(Request.Form["ProdId"]);
+            var user = await _userManager.FindByIdAsync(User.GetUserId());
+            question.User = user;
+            db.Questions.Add(question);
             db.SaveChanges();
-            return Json(foundProduct);
+            return RedirectToAction("ProductList", "Products", new { id = question.ProductId });
+
         }
+
+
         [HttpPost]
-        public IActionResult Upvote(int id)
+        public async Task<IActionResult> AnswerQuestion(string Question, string QuestionId, int ProductId)
         {
-            var foundProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
-            foundProduct.ProductUpVotes = foundProduct.ProductUpVotes + 1;
+            Answer answer = new Answer();
+            answer.AnswerText = Request.Form["Answer"];
+            answer.QuestionId = Int32.Parse(Request.Form["QuestionId"]);
+            var user = await _userManager.FindByIdAsync(User.GetUserId());
+            answer.User = user;
+            db.Answers.Add(answer);
             db.SaveChanges();
-            return Json(foundProduct);
-        }
+            return RedirectToAction("ProductList", "Products", new { id = ProductId });
 
+
+
+        }
     }
 }

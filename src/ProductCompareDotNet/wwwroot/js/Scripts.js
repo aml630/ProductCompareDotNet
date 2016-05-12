@@ -1,6 +1,36 @@
 ﻿
 
 $(document).ready(function () {
+    $(".ShowAll").click(function () {
+
+        $(".productDescription").show()
+        $(".Reviews").show()
+        $(".QA").show()
+
+    })
+    $(".DescriptionButton").click(function () {
+
+        $(".productDescription").show()
+        $(".Reviews").hide()
+        $(".QA").hide()
+
+    })
+    $(".ReviewsButton").click(function () {
+
+        $(".productDescription").hide()
+        $(".Reviews").show()
+        $(".QA").hide()
+
+    })
+    $(".QAButton").click(function () {
+
+        $(".productDescription").hide()
+        $(".Reviews").hide()
+        $(".QA").show()
+
+    })
+
+
     $(".showSearch").click(function () {
         console.log("click worked")
         $(".bigSearch").show();
