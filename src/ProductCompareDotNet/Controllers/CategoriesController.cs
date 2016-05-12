@@ -20,23 +20,31 @@ namespace ProductCompareDotNet.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Categories = db.Categories.ToList();
+
             return View(db.Products.Include(product => product.Reviews).ToList());
         }
 
         public IActionResult PriceSort()
         {
+            ViewBag.Categories = db.Categories.ToList();
+
             var ProductList = db.Products.Include(product => product.Reviews).ToList();
             var newList = ProductList.OrderByDescending(product => product.ProductPrice).ToList();
             return View("Index", newList);
         }
         public IActionResult DateSort()
         {
+            ViewBag.Categories = db.Categories.ToList();
+
             var ProductList = db.Products.Include(product => product.Reviews).ToList();
             var newList = ProductList.OrderBy(product => product.DateTime).ToList();            
             return View("Index", newList);
         }
         public IActionResult ReviewSort()
         {
+            ViewBag.Categories = db.Categories.ToList();
+
             var ProductList = db.Products.Include(product => product.Reviews).ToList();
             var newList = ProductList.OrderByDescending(product => product.Reviews.Count()).ToList();
             return View("Index", newList);
@@ -93,20 +101,15 @@ namespace ProductCompareDotNet.Controllers
 
             var response = client.Execute(request);
 
-
-            //JObject jsonResponse = (JObject)JsonConvert.DeserializeObject(response.Content);
-
             dynamic stuff = JObject.Parse(response.Content);
+            string baseString = stuff.items[0].categoryPath;
+            int stop = baseString.IndexOf("/");
+            string catName = baseString.Substring(0, stop);
 
-
-            Console.WriteLine(stuff.items[0].name);
-
-
-            //Console.WriteLine(jsonResponse["itemId"]);
-
+            Console.WriteLine(catName);
 
             Category category = new Category();
-            category.CategoryName = "firstCategory";
+            category.CategoryName = catName;
             db.Categories.Add(category);
 
             db.SaveChanges();
@@ -123,7 +126,6 @@ namespace ProductCompareDotNet.Controllers
             db.Products.Add(product);
 
             db.SaveChanges();
-
 
             return RedirectToAction("Index", "Categories");
         }

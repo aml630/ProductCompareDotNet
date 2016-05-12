@@ -15,6 +15,8 @@ namespace ProductCompareDotNet.Models
         public string ReviewText { get; set; }
         public int ProductId { get; set; }
         public int Stars { get; set; }
+        public DateTime DateTime { get; set; }
+
         public virtual Product Product { get; set; }
         public virtual ApplicationUser User { get; set; }
 

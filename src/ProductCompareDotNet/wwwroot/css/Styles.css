@@ -1,5 +1,7 @@
 ﻿
-
+.sidebar {
+    border: 1px solid black;
+}
 
 
 .bigSearch{
@@ -35,8 +37,7 @@
 
 .center {
     text-align: center;
-    /*color: red;
-    margin-right: 30%;*/
+
 }
 
 .hate {
@@ -65,9 +66,10 @@
 .product-box {
   padding-top:10px;
   width: auto;
-  max-width: 300px;
-  margin-right:25px;
-  height:300px;
+  max-width: 250px;
+  margin-right:5px;
+  height:auto;
+  padding-bottom: 10px;
   border: 1px solid #d1d1d1;
   box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
   margin-bottom:20px;
@@ -133,8 +135,13 @@
 .img-wrap {
   text-align:center;
   margin-bottom:10px;
+  margin-right: 10%;
+    margin-left: 10%;
+
   width:auto;
- 
+  box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    border: 1px solid #d1d1d1;
+
 }
 
 .product-name {
@@ -143,7 +150,7 @@
   padding-left:15px;
   padding-right:15px;
   overflow:hidden;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -151,13 +158,16 @@
   padding-left:15px;
   padding-right:15px;
   margin-top:10px;
-  font-size:14px;
   font-weight:700;
   color:#60a430;
   height:30px;
   margin-bottom:10px;
-  text-align: center;
+  /*text-align: center;*/
   font-size: 30px;
+      display:flex;
+  flex-wrap:nowrap;
+
+
 }
 
 .votes {
@@ -181,10 +191,10 @@
   flex-wrap:nowrap;
 }
 .product-comments {
-  border-top: 1px solid #d1d1d1;
-  height:40px;
-  width:50%;
-  padding:7px;
+  /*border-top: 1px solid #d1d1d1;*/
+  /*height:40px;
+  width:50%;*/
+  margin-left: 30%;
   text-align:center;
   border-right:none;
   font-size: 20px;

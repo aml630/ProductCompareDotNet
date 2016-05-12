@@ -62,6 +62,8 @@ namespace ProductCompareDotNet.Controllers
             review.ReviewText = Request.Form["Comment"];
             review.ProductId = Int32.Parse(Request.Form["ProdId"]);
             review.Stars = Stars;
+            review.DateTime = DateTime.Now;
+
             var user = await _userManager.FindByIdAsync(User.GetUserId());
             review.User = user;
             db.Reviews.Add(review);
@@ -76,6 +78,8 @@ namespace ProductCompareDotNet.Controllers
             Question question = new Question();
             question.QuestionText = Request.Form["Question"];
             question.ProductId = Int32.Parse(Request.Form["ProdId"]);
+            question.DateTime = DateTime.Now;
+
             var user = await _userManager.FindByIdAsync(User.GetUserId());
             question.User = user;
             db.Questions.Add(question);
@@ -91,6 +95,8 @@ namespace ProductCompareDotNet.Controllers
             Answer answer = new Answer();
             answer.AnswerText = Request.Form["Answer"];
             answer.QuestionId = Int32.Parse(Request.Form["QuestionId"]);
+            answer.DateTime = DateTime.Now;
+
             var user = await _userManager.FindByIdAsync(User.GetUserId());
             answer.User = user;
             db.Answers.Add(answer);

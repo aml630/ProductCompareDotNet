@@ -26,40 +26,56 @@
         </div>
     </div>
 </div>
-<li><a href="~/Categories/PriceSort">Sort By Price</a></li>
-<li><a href="~/Categories/DateSort">Newest First</a></li>
-<li><a href="~/Categories/ReviewSort">Most Reviews</a></li>
+
+<div class="col-md-10">
 
 
-       @foreach(var product in Model)
-        {
 
-                <div class="container-fluid main content">
+    @foreach (var product in Model)
+    {
 
-                    <div class="product-box">
-                        <div class="img-wrap">
-                            <img src="@product.ProductImg" height="100" width="100">
-                        </div>
+        <div class="container-fluid main content">
 
-                        <div class="product-name">
-                            @Html.ActionLink(product.ProductName, "ProductList", "Products", new { id = product.ProductId })
-                        </div>
-                        <div class="product-sale-price">
-                            $@product.ProductPrice
-
-                         
-
-                        </div>
-                        <div class="product-likes-and-comments">
-                            <div class="product-comments" id="shopping-cart-box">
-                                @product.Reviews.Count()
-                                <a href="/Products/ProductList/@product.ProductId"><i class="fa fa-commenting" aria-hidden="true" style="font-size:47px;position:relative;top:-2px;"></i></a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="product-box">
+                <div class="img-wrap">
+                    <img src="@product.ProductImg">
                 </div>
 
-        }
+                <div class="product-name">
+                    @Html.ActionLink(product.ProductName, "ProductList", "Products", new { id = product.ProductId })
+                </div>
+                <div class="product-sale-price">
+                    $@product.ProductPrice
+                    <div class="product-comments" id="shopping-cart-box">
+                        @product.Reviews.Count()
+                        <a href="/Products/ProductList/@product.ProductId"><i class="fa fa-commenting" aria-hidden="true" style="font-size:47px;position:relative;top:-2px;"></i></a>
+                    </div>
+
+
+                </div>
+                <div class="product-likes-and-comments">
+                   
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+<div class="col-md-2 sidebar">
+    <li><a href="~/Categories/PriceSort">Sort By Price</a></li>
+    <li><a href="~/Categories/DateSort">Newest First</a></li>
+    <li><a href="~/Categories/ReviewSort">Most Reviews</a></li>
+    @foreach(var category in ViewBag.Categories)
+    {
+        <p>@category.CategoryName</p>
+
+    }
+
+</div>
+
+
+
+
 
 
 

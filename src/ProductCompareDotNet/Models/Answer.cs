@@ -14,6 +14,8 @@ namespace ProductCompareDotNet.Models
         public int AnswerId { get; set; }
         public string AnswerText { get; set; }
         public int QuestionId { get; set; }
+        public DateTime DateTime { get; set; }
+
         public virtual Question Question { get; set; }
         public virtual ApplicationUser User { get; set; }
 

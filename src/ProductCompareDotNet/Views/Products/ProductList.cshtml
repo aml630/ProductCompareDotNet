@@ -38,7 +38,7 @@
         @foreach (var review in product.Reviews)
         {
             <p>@review.ReviewText</p>
-            <li>@*@review.User.UserName*@</li>
+            <li>@review.User.UserName</li>
 
         }
     }
@@ -59,6 +59,7 @@
         {
             <div class="question">
                 <p>@question.QuestionText</p>
+                <p>@question.User.UserName</p>
 
                 <form action="/Products/AnswerQuestion" method="post">
                     <textarea name="Answer" placeholder="Know The Answer?'"></textarea>
@@ -71,6 +72,8 @@
                 @foreach (var answer in question.Answers)
                 {
                     <p>@answer.AnswerText</p>
+                    <p>@answer.User.UserName</p>
+
                 }
             </div>
 

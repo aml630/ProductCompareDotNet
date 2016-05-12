@@ -22,12 +22,6 @@ namespace ProductCompareDotNet.Controllers
             return View();
         }
 
-        [HttpPost, ActionName("CreateRoute")]
-        public IActionResult CreateComment(Comment comment)
-        {
-            db.Comments.Add(comment);
-            db.SaveChanges();
-            return RedirectToAction("CreateRoute");
-        }
+     
     }
 }

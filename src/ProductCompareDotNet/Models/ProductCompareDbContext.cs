@@ -27,7 +27,6 @@ namespace ProductCompareDotNet.Models
 
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Comment> Comments { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
