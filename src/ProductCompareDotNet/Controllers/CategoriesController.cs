@@ -23,6 +23,26 @@ namespace ProductCompareDotNet.Controllers
             return View(db.Products.Include(product => product.Reviews).ToList());
         }
 
+        public IActionResult PriceSort()
+        {
+            var ProductList = db.Products.Include(product => product.Reviews).ToList();
+            var newList = ProductList.OrderByDescending(product => product.ProductPrice).ToList();
+            return View("Index", newList);
+        }
+        public IActionResult DateSort()
+        {
+            var ProductList = db.Products.Include(product => product.Reviews).ToList();
+            var newList = ProductList.OrderBy(product => product.DateTime).ToList();            
+            return View("Index", newList);
+        }
+        public IActionResult ReviewSort()
+        {
+            var ProductList = db.Products.Include(product => product.Reviews).ToList();
+            var newList = ProductList.OrderByDescending(product => product.Reviews.Count()).ToList();
+            return View("Index", newList);
+        }
+
+
         public IActionResult CategoryList(int id)
         {
             var catList = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).ToList();
@@ -95,6 +115,7 @@ namespace ProductCompareDotNet.Controllers
             product.ProductName = stuff.items[0].name;
             product.ProductImg = stuff.items[0].thumbnailImage;
             product.ProductPrice = stuff.items[0].salePrice;
+            product.DateTime = DateTime.Now;
 
             product.CategoryId = category.CategoryId;
             int id = Int32.Parse(Request.Form["CatId"]);

@@ -26,10 +26,14 @@
         </div>
     </div>
 </div>
+<li><a href="~/Categories/PriceSort">Sort By Price</a></li>
+<li><a href="~/Categories/DateSort">Newest First</a></li>
+<li><a href="~/Categories/ReviewSort">Most Reviews</a></li>
 
-       @foreach (var product in Model)
+
+       @foreach(var product in Model)
         {
-        
+
                 <div class="container-fluid main content">
 
                     <div class="product-box">
@@ -51,27 +55,11 @@
                                 @product.Reviews.Count()
                                 <a href="/Products/ProductList/@product.ProductId"><i class="fa fa-commenting" aria-hidden="true" style="font-size:47px;position:relative;top:-2px;"></i></a>
                             </div>
-
-                            @*<div class="votes">
-                                <form class="downvote">
-                                    <input type="number" name="id" hidden value="@product.ProductId" />
-                                    <button><i class="fa fa-arrow-circle-down down-@product.ProductId" aria-hidden="true">@product.ProductDownVotes</i></button>
-
-                                </form>
-
-                                <form class="upvote">
-                                    <input type="number" name="id" hidden value="@product.ProductId" />
-                                    <button><i class="fa fa-arrow-circle-up up-@product.ProductId" aria-hidden="true">@product.ProductUpVotes</i></button>
-
-                                </form>
-
-                            </div>*@
-                         
                         </div>
                     </div>
                 </div>
 
-}
+        }
 
 
 
