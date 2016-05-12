@@ -67,7 +67,8 @@
     <li><a href="~/Categories/ReviewSort">Most Reviews</a></li>
     @foreach(var category in ViewBag.Categories)
     {
-        <p>@category.CategoryName</p>
+        string Name = category.CategoryName;
+        <p>@Html.ActionLink(Name, "CategorySort", "Categories", new { catId = category.CategoryId })</p>
 
     }
 

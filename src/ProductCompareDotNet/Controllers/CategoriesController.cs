@@ -27,27 +27,47 @@ namespace ProductCompareDotNet.Controllers
 
         public IActionResult PriceSort()
         {
-            ViewBag.Categories = db.Categories.ToList();
-
-            var ProductList = db.Products.Include(product => product.Reviews).ToList();
-            var newList = ProductList.OrderByDescending(product => product.ProductPrice).ToList();
-            return View("Index", newList);
+            return Sort("Price");
         }
         public IActionResult DateSort()
         {
-            ViewBag.Categories = db.Categories.ToList();
-
-            var ProductList = db.Products.Include(product => product.Reviews).ToList();
-            var newList = ProductList.OrderBy(product => product.DateTime).ToList();            
-            return View("Index", newList);
+            return Sort("Date");
         }
         public IActionResult ReviewSort()
         {
-            ViewBag.Categories = db.Categories.ToList();
+            return Sort("Review");
+        }
 
+        public IActionResult CategorySort(int catId)
+        {
+            return Sort("Category", catId);
+        }
+
+        public IActionResult Sort(string SortStuff, int catId = 0)
+        {
+
+            ViewBag.Categories = db.Categories.ToList();
             var ProductList = db.Products.Include(product => product.Reviews).ToList();
-            var newList = ProductList.OrderByDescending(product => product.Reviews.Count()).ToList();
-            return View("Index", newList);
+            List<Product> sortedList = new List<Product>();
+            switch (SortStuff)
+            {
+                case "Price":
+                    sortedList = ProductList.OrderByDescending(product => product.ProductPrice).ToList();
+                    break;
+                case "Date":
+                    sortedList = ProductList.OrderBy(product => product.DateTime).ToList();
+                    break;
+                case "Review":
+                    sortedList = ProductList.OrderByDescending(product => product.Reviews.Count()).ToList();
+                    break;
+                case "Category":
+                    sortedList = db.Products.Where(x => x.CategoryId == catId).Include(product => product.Reviews).ToList();
+                    break;
+
+            }
+
+            return View("Index", sortedList);
+
         }
 
 
@@ -106,21 +126,32 @@ namespace ProductCompareDotNet.Controllers
             int stop = baseString.IndexOf("/");
             string catName = baseString.Substring(0, stop);
 
-            Console.WriteLine(catName);
-
-            Category category = new Category();
-            category.CategoryName = catName;
-            db.Categories.Add(category);
-
-            db.SaveChanges();
-
             Product product = new Product();
             product.ProductName = stuff.items[0].name;
             product.ProductImg = stuff.items[0].thumbnailImage;
             product.ProductPrice = stuff.items[0].salePrice;
             product.DateTime = DateTime.Now;
 
-            product.CategoryId = category.CategoryId;
+
+
+
+            var test = db.Categories.FirstOrDefault(x => x.CategoryName == catName);
+            if(test == null)
+            {
+                Category category = new Category();
+                category.CategoryName = catName;
+                db.Categories.Add(category);
+
+                db.SaveChanges();
+                product.CategoryId = category.CategoryId;
+
+            }
+            else
+            {
+                product.CategoryId = test.CategoryId;
+
+            }
+
             int id = Int32.Parse(Request.Form["CatId"]);
 
             db.Products.Add(product);
