@@ -56,12 +56,13 @@ namespace ProductCompareDotNet.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public async Task<IActionResult> LeaveReview(string Comment, string ProdId, int Stars)
+        public async Task<IActionResult> LeaveReview(string ReviewText, string rating, string ProdId)
         {
             Review review = new Review();
-            review.ReviewText = Request.Form["Comment"];
-            review.ProductId = Int32.Parse(Request.Form["ProdId"]);
-            review.Stars = Stars;
+            review.ReviewText = ReviewText;
+            //review.ProductId = int.Parse(Request.Form["ProdId"]);
+            review.ProductId = int.Parse(ProdId);
+            review.Stars = int.Parse(rating);
             review.DateTime = DateTime.Now;
 
             var user = await _userManager.FindByIdAsync(User.GetUserId());

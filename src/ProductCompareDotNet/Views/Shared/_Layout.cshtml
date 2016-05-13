@@ -38,8 +38,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Categories")</li>
                         <li  role="presentation">@Html.ActionLink("New User", "Register", "Account")</li>
-                        <li  role="presentation">@Html.ActionLink("Roles", "Index", "Roles")</li>
-                        <li  role="presentation">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
+
+                        @*@if (User.IsInRole("admin"))*@
+                        
+                            <li role="presentation">@Html.ActionLink("Roles", "Index", "Roles")</li>
+                            <li role="presentation">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
+
+                                     
                 
                         @if (User.IsSignedIn())
 

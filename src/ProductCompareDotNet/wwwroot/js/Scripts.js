@@ -96,69 +96,69 @@ $(document).ready(function () {
     })
 
 
-    $(".fiveStar").hover(
-        function () {
-            $(".oneStar").addClass("selected");
-            $(".twoStar").addClass("selected");
-            $(".threeStar").addClass("selected");
-            $(".fourStar").addClass("selected");
-            $(".fiveStar").addClass("selected");
+//    $(".fiveStar").hover(
+//        function () {
+//            $(".oneStar").addClass("selected");
+//            $(".twoStar").addClass("selected");
+//            $(".threeStar").addClass("selected");
+//            $(".fourStar").addClass("selected");
+//            $(".fiveStar").addClass("selected");
 
-        },
-        function () {
-            $(".oneStar").removeClass("selected");
-            $(".twoStar").removeClass("selected");
-            $(".threeStar").removeClass("selected");
-            $(".fourStar").removeClass("selected");
-            $(".fiveStar").removeClass("selected");
-        });
+//        },
+//        function () {
+//            $(".oneStar").removeClass("selected");
+//            $(".twoStar").removeClass("selected");
+//            $(".threeStar").removeClass("selected");
+//            $(".fourStar").removeClass("selected");
+//            $(".fiveStar").removeClass("selected");
+//        });
 
-    $(".fourStar").hover(
-       function () {
-           $(".oneStar").addClass("selected");
-           $(".twoStar").addClass("selected");
-           $(".threeStar").addClass("selected");
-           $(".fourStar").addClass("selected");
+//    $(".fourStar").hover(
+//       function () {
+//           $(".oneStar").addClass("selected");
+//           $(".twoStar").addClass("selected");
+//           $(".threeStar").addClass("selected");
+//           $(".fourStar").addClass("selected");
 
-       },
-       function () {
-           $(".oneStar").removeClass("selected");
-           $(".twoStar").removeClass("selected");
-           $(".threeStar").removeClass("selected");
-           $(".fourStar").removeClass("selected");
-           });
+//       },
+//       function () {
+//           $(".oneStar").removeClass("selected");
+//           $(".twoStar").removeClass("selected");
+//           $(".threeStar").removeClass("selected");
+//           $(".fourStar").removeClass("selected");
+//           });
 
-        $(".threeStar").hover(
-       function () {
-           $(".oneStar").addClass("selected");
-           $(".twoStar").addClass("selected");
-           $(".threeStar").addClass("selected");
+//        $(".threeStar").hover(
+//       function () {
+//           $(".oneStar").addClass("selected");
+//           $(".twoStar").addClass("selected");
+//           $(".threeStar").addClass("selected");
 
-       },
-       function () {
-           $(".oneStar").removeClass("selected");
-           $(".twoStar").removeClass("selected");
-           $(".threeStar").removeClass("selected");
-       });
+//       },
+//       function () {
+//           $(".oneStar").removeClass("selected");
+//           $(".twoStar").removeClass("selected");
+//           $(".threeStar").removeClass("selected");
+//       });
 
-        $(".twoStar").hover(
-       function () {
-           $(".oneStar").addClass("selected");
-           $(".twoStar").addClass("selected");
-       },
-       function () {
-           $(".oneStar").removeClass("selected");
-           $(".twoStar").removeClass("selected");
-       });
+//        $(".twoStar").hover(
+//       function () {
+//           $(".oneStar").addClass("selected");
+//           $(".twoStar").addClass("selected");
+//       },
+//       function () {
+//           $(".oneStar").removeClass("selected");
+//           $(".twoStar").removeClass("selected");
+//       });
 
-    $(".oneStar").hover(
-   function () {
-       $(".oneStar").addClass("selected");
+//    $(".oneStar").hover(
+//   function () {
+//       $(".oneStar").addClass("selected");
 
 
-   },
-   function () {
-       $(".oneStar").removeClass("selected");
+//   },
+//   function () {
+//       $(".oneStar").removeClass("selected");
 
-   });
+//   });
 });
