@@ -1,4 +1,8 @@
-﻿
+﻿.selected {
+    color: yellow;
+}
+
+
 .sidebar {
     border: 1px solid black;
 }
