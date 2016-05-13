@@ -8,7 +8,9 @@
 {
     <div class="center">
         <h2>@product.ProductName</h2>
-        <img src="@product.ProductImg" height="100" width="100" />
+        <img src="@product.ProductBigImg" height="300" width="300" />
+        <a class="btn btn-danger btn-circle" href="@product.ProductLink">SHUT UP AND TAKE MY MONEY</a>
+
     </div>
 }
 <button class="ShowAll btn btn-warning">All Info</button>
@@ -22,69 +24,69 @@
     <p>Rhodanosaurus Sulaimanisaurus Avisaurus Styracosaurus Deltadromeus Aviatyrannis Futalognkosaurus Neosodon Histriasaurus Nurosaurus Eucamerotus Falcarius Bistahieversor Baurutitan Brontosaurus Jiangjunosaurus Giraffatitan Leptoceratops Adamantisaurus Yixianosaurus Compsognathus Gilmoreosaurus Edmontonia Bambiraptor Chungkingosaurus Avisaurus Nemegtomaia Malarguesaurus Drinker Galveosaurus Technosaurus Amurosaurus Amargasaurus Kulceratops Saurophaganax Algoasaurus Kryptops Bissektipelta Narambuenatitan Zhuchengceratops Torosaurus Xuanhuaceratops Marmarospondylus Barapasaurus Leaellynasaura Kol Parrosaurus Rahiolisaurus Majungasaurus Altirhinus.</p><p>Nurosaurus Nemegtia Shanshanosaurus Ankistrodon Juravenator Ponerosteus Secernosaurus Machairasaurus Onychosaurus Glyptodontopelta Aardonyx Chondrosteus Minotaurasaurus Hierosaurus Sphenosaurus Tatankacephalus Lourinhanosaurus Trachodon Balaur Dynamosaurus Cristatusaurus Zhuchengtyrannus Pyroraptor Eucnemesaurus Pakisaurus Glacialisaurus Shanshanosaurus Titanosaurus Fulgurotherium Archaeovolans Dollodon Brachytaenius Pelorosaurus Opisthocoelicaudia Chinshakiangosaurus Staurikosaurus Gobititan Thespesius Zhejiangosaurus Bellusaurus Valdoraptor Auroraceratops Chromogisaurus Mendozasaurus Scelidosaurus Sphenosaurus Griphornis Therizinosaurus Strenusaurus Saturnalia.</p>
     <hr />
 </div>
+<div class="Reviews">
 
-<div class="row">
-    <div class="col-md-9">
-        @foreach (var product in Model)
+    <div class="row">
+        <div class="col-md-9">
+            @foreach (var product in Model)
             {
-            @foreach (var review in product.Reviews)
+                @foreach (var review in product.Reviews)
                 {
-                <div class="singleReview">
-                    @if (review.Stars == 3)
+                    <div class="singleReview">
+                        @if (review.Stars == 3)
                     {
-                        <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
 
 
-                    }
-                    else if (review.Stars == 2)
-                    {
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
+                        }
+                        else if (review.Stars == 2)
+                        {
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
 
-                    }
-                    else if (review.Stars == 3)
-                    {
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
-
-
-                    }
-                    else if (review.Stars == 4)
-                    {
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
+                        }
+                        else if (review.Stars == 3)
+                        {
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
 
 
-                    }
-                    else if (review.Stars == 5)
-                    {
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
-                        <i class="fa fa-star" style="font-size:20px"></i>
+                        }
+                        else if (review.Stars == 4)
+                        {
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
 
 
-                    }
+                        }
+                        else if (review.Stars == 5)
+                        {
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
 
-                    <p class="reviewText">@review.ReviewText</p>
-                    <p class="reviewDate">@review.DateTime</p>
 
-                    <p class="reviewName">@review.User.UserName</p>
-                    
-                </div>
+                        }
 
+                        <p class="reviewText">@review.ReviewText</p>
+                        <p class="reviewDate">@review.DateTime</p>
+
+                        <p class="reviewName">@review.User.UserName</p>
+
+                    </div>
+
+                }
             }
-        }
-       
-    </div>
+
+        </div>
 
 
-    <div class="col-md-3">
-        <div class="Reviews">
+        <div class="col-md-3">
             <h2>Leave Review</h2>
 
 
@@ -115,41 +117,58 @@
     </div>
 </div>
     <hr />
+
+
+<div class="row">
     <div class="QA">
-    <h2>Ask A Question</h2>
-    <form action="/Products/AskQuestion" method="post">
-        <textarea name="Question" placeholder="What's Your Question?'"></textarea>
-        <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
-
-        <br />
-        <input class="btn btn-info" type="submit" value="Submit Question" />
-    </form>
-    @foreach (var product in Model)
-    {
-        @foreach (var question in product.Questions)
-        {
-            <div class="question">
-                <p>@question.QuestionText</p>
-                <p>@question.User.UserName</p>
-
-                <form action="/Products/AnswerQuestion" method="post">
-                    <textarea name="Answer" placeholder="Know The Answer?'"></textarea>
-                    <input hidden name="QuestionId" value="@question.QuestionId" />
-                    <input hidden name="ProductId" type="number" value="@ViewBag.ProdId" />
-                    <br />
-                    <input class="btn btn-danger btn-circle" type="submit" value="Submit Answer" />
-                </form>
-
-                @foreach (var answer in question.Answers)
+        
+        <div class="col-md-9">
+            @foreach (var product in Model)
+            {
+                @foreach (var question in product.Questions)
                 {
-                    <p>@answer.AnswerText</p>
-                    <p>@answer.User.UserName</p>
+                    <div class="singleQuestion">
+                        <p class="reviewText">@question.QuestionText</p>
+                        <p class="reviewDate">@question.DateTime</p>
+                        <p class="reviewName">@question.User.UserName</p>
+
+                        <form class="answerForm" action="~/Products/AnswerQuestion" method="post">
+                            <textarea name="Answer" placeholder="Know The Answer?'"></textarea>
+                            <input hidden name="QuestionId" value="@question.QuestionId" />
+                            <input hidden name="ProductId" type="number" value="@ViewBag.ProdId" />
+                            <br />
+                            <input class="btn btn-danger btn-circle" type="submit" value="Submit Answer" />
+                        </form>
+                    </div>
+                        @foreach (var answer in question.Answers)
+                        {
+                            <div class="singleAnswer">
+
+                                <p class="reviewText">@answer.AnswerText</p>
+                                <p class="reviewDate">@answer.DateTime</p>
+                                <p class="reviewName">@answer.User.UserName</p>
+                            </div>
+
+                        }
+
 
                 }
-            </div>
+                }
+        </div>
+        <div class="col-md-3">
+            <h2>Ask A Question</h2>
+            <form action="/Products/AskQuestion" method="post">
+                <textarea name="Question" placeholder="What's Your Question?'"></textarea>
+                <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
 
-        }
-    }
+                <br />
+                <input class="btn btn-info" type="submit" value="Submit Question" />
+            </form>
+        </div>
+
+       
+      
+    </div>
 </div>
 
 

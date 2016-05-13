@@ -1,4 +1,9 @@
 ﻿
+.answerForm {
+    float: left;
+}
+
+
 .fa-star {
    color:#FFD700;
 }
@@ -30,9 +35,27 @@
     letter-spacing: 3px;
     margin: 0 0 20px 0;
     font-size: 15px;
-
-
 }
+
+.singleQuestion {
+background: #CCFFFF;
+    margin: 0 0 20px 0;
+    padding: 20px 20px 10px 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.singleAnswer {
+background: #ffe6e6;
+    margin: 0 0 30px 60px;
+    padding: 20px 20px 10px 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    /*max-width: 80%;
+    float: right;*/
+}
+
 
 .rating {
     float:left;
@@ -129,9 +152,7 @@
     color: red;
 }
 
-.question {
-    border: 1px solid black;
-}
+
 
 .center {
     text-align: center;
@@ -264,10 +285,11 @@
   font-size: 30px;
       display:flex;
   flex-wrap:nowrap;
-
-
 }
 
+.product-sale-price a {
+    font-size: 25px;
+}
 .votes {
       border-top: 1px solid #d1d1d1;
 

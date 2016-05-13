@@ -1,8 +1,9 @@
 ﻿
 
 $(document).ready(function () {
-
-
+    $('.flexdatalist').flexdatalist({
+        minLength: 1
+    });
 
     $(".ShowAll").click(function () {
 
@@ -50,7 +51,7 @@ $(document).ready(function () {
     //    event.preventDefault();
     //    console.log(($(this).data))
     //    $.ajax({
-    //        url: 'Categories/AjaxCreateCategory',
+    //        url: '~/../../Categories/AjaxCreateCategory',
     //        type: 'POST',
     //        dataType: 'json',
     //        data: $(this).serialize(),

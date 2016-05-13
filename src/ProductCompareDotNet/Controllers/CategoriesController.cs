@@ -129,6 +129,9 @@ namespace ProductCompareDotNet.Controllers
             Product product = new Product();
             product.ProductName = stuff.items[0].name;
             product.ProductImg = stuff.items[0].thumbnailImage;
+            product.ProductBigImg = stuff.items[0].largeImage;
+            product.ProductLink = stuff.items[0].productUrl;
+
             product.ProductPrice = stuff.items[0].salePrice;
             product.DateTime = DateTime.Now;
 
@@ -152,7 +155,6 @@ namespace ProductCompareDotNet.Controllers
 
             }
 
-            int id = Int32.Parse(Request.Form["CatId"]);
 
             db.Products.Add(product);
 

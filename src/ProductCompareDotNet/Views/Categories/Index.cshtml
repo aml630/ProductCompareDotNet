@@ -13,9 +13,12 @@
                 <h1>Lets Talk About Stuff</h1>
                 <form action="/Categories/CreateProduct" method="post">
                     <div class="col-md-6 col-md-offset-3">
-                        <div class="input-group input-group-lg">
-                            <input name="Name" type="text" class="form-control" placeholder="Thinking About Buying Something?">
-                            <input hidden="" name="CatId" placeholder="Category Id" value="1">
+                        <div class="ui-widget input-group input-group-lg">
+                            <input id="prodSearch" name="Name" type="text" class="form-control" placeholder="Thinking About Buying Something?">
+
+
+
+
                             <input type="submit" value="GOGO" />
                         </div>
                     </div>
@@ -47,8 +50,7 @@
                 <div class="product-sale-price">
                     $@product.ProductPrice
                     <div class="product-comments" id="shopping-cart-box">
-                        @product.Reviews.Count()
-                        <a href="/Products/ProductList/@product.ProductId"><i class="fa fa-commenting" aria-hidden="true" style="font-size:47px;position:relative;top:-2px;"></i></a>
+                        <a href="/Products/ProductList/@product.ProductId"><i class="fa fa-commenting">@product.Reviews.Count()</i></a>
                     </div>
 
 

@@ -16,6 +16,8 @@ namespace ProductCompareDotNet.Models
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductImg { get; set; }
+        public string ProductBigImg { get; set; }
+        public string ProductLink { get; set; }
         public int ProductPrice { get; set; }
         public int CategoryId { get; set; }
         public DateTime DateTime { get; set; }
