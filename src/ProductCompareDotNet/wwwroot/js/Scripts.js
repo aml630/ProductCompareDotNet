@@ -6,13 +6,21 @@ $(document).ready(function () {
     var newArray = [];
     var timedSearch;
 
+    $("#basics").keypress(function () {
+        window.clearTimeout(timedSearch)
+        timedSearch = window.setTimeout(keyPressSearch, 1000);
+
+    });
+
     function keyPressSearch() {
         var input = $("#basics").val();
-        console.log("begin function input: " + input);
+
 
         if (input !== "") {
 
             newArray = [];
+            console.log("emptied: " +newArray)
+            $.when(
             $.ajax({
                 url: "http://api.walmartlabs.com/v1/search?query=" + input + "&format=json&apiKey=k2waftsef676thk9khfnevds",
                 type: "GET",
@@ -23,24 +31,29 @@ $(document).ready(function () {
                     for (var i = 0; i < response.items.length; i++) {
                         newArray.push(response.items[i].name);
                     }
-                    console.log(newArray);
+                    console.log("first fire" +newArray);
                 }
-            });
-        }
-        console.log(newArray);
+
+            })).then(function () {
+
+                console.log("second fire" + newArray);
+                $("#basics").autocomplete({
+                    source: newArray
+                })
+            })
+              
+              
+          
+        
 
       
 
+
+        }
+
     }
 
-    $("#basics").keypress(function () {
-        window.clearTimeout(timedSearch)
-        timedSearch = window.setTimeout(keyPressSearch, 2000);
-        $("#basics").autocomplete({
-            source: newArray
-        })
-       
-    });
+
 
 
 
