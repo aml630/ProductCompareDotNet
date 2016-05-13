@@ -1,9 +1,56 @@
 ﻿
 
 $(document).ready(function () {
-    $('.flexdatalist').flexdatalist({
-        minLength: 1
+
+    //alert("working");
+    var newArray = [];
+    var timedSearch;
+
+    function keyPressSearch() {
+        var input = $("#basics").val();
+        console.log("begin function input: " + input);
+
+        if (input !== "") {
+
+            newArray = [];
+            $.ajax({
+                url: "http://api.walmartlabs.com/v1/search?query=" + input + "&format=json&apiKey=k2waftsef676thk9khfnevds",
+                type: "GET",
+                crossDomain: true,
+                dataType: "jsonp",
+                success: function (response) {
+
+                    for (var i = 0; i < response.items.length; i++) {
+                        newArray.push(response.items[i].name);
+                    }
+                    console.log(newArray);
+                }
+            });
+        }
+        console.log(newArray);
+
+      
+
+    }
+
+    $("#basics").keypress(function () {
+        window.clearTimeout(timedSearch)
+        timedSearch = window.setTimeout(keyPressSearch, 2000);
+        $("#basics").autocomplete({
+            source: newArray
+        })
+       
     });
+
+
+
+
+
+
+
+
+
+
 
     $(".ShowAll").click(function () {
 
