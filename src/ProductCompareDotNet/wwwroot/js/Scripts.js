@@ -15,7 +15,6 @@ $(document).ready(function () {
     function keyPressSearch() {
         var input = $("#basics").val();
 
-
         if (input !== "") {
 
             newArray = [];
@@ -27,13 +26,11 @@ $(document).ready(function () {
                 crossDomain: true,
                 dataType: "jsonp",
                 success: function (response) {
-
                     for (var i = 0; i < response.items.length; i++) {
                         newArray.push(response.items[i].name);
                     }
                     console.log("first fire" +newArray);
                 }
-
             })).then(function () {
 
                 console.log("second fire" + newArray);
@@ -41,29 +38,9 @@ $(document).ready(function () {
                     source: newArray
                 })
             })
-              
-              
-          
-        
-
-      
-
 
         }
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     $(".ShowAll").click(function () {
 
@@ -139,87 +116,18 @@ $(document).ready(function () {
     //    })
     //})
 
-    $('.upvote').submit(function (event) {
-        event.preventDefault();
-        console.log("downVote!")
-        $.ajax({
-            url: 'Products/Upvote',
-            type: 'POST',
-            dataType: 'json',
-            data: $(this).serialize(),
-            success: function (result) {
-                console.log(result);
-                $('.up-' + result.ProductId).text(result.ProductUpVotes);
-
-            }
-
-        })
-    })
-
-
-//    $(".fiveStar").hover(
-//        function () {
-//            $(".oneStar").addClass("selected");
-//            $(".twoStar").addClass("selected");
-//            $(".threeStar").addClass("selected");
-//            $(".fourStar").addClass("selected");
-//            $(".fiveStar").addClass("selected");
-
-//        },
-//        function () {
-//            $(".oneStar").removeClass("selected");
-//            $(".twoStar").removeClass("selected");
-//            $(".threeStar").removeClass("selected");
-//            $(".fourStar").removeClass("selected");
-//            $(".fiveStar").removeClass("selected");
-//        });
-
-//    $(".fourStar").hover(
-//       function () {
-//           $(".oneStar").addClass("selected");
-//           $(".twoStar").addClass("selected");
-//           $(".threeStar").addClass("selected");
-//           $(".fourStar").addClass("selected");
-
-//       },
-//       function () {
-//           $(".oneStar").removeClass("selected");
-//           $(".twoStar").removeClass("selected");
-//           $(".threeStar").removeClass("selected");
-//           $(".fourStar").removeClass("selected");
-//           });
-
-//        $(".threeStar").hover(
-//       function () {
-//           $(".oneStar").addClass("selected");
-//           $(".twoStar").addClass("selected");
-//           $(".threeStar").addClass("selected");
-
-//       },
-//       function () {
-//           $(".oneStar").removeClass("selected");
-//           $(".twoStar").removeClass("selected");
-//           $(".threeStar").removeClass("selected");
-//       });
-
-//        $(".twoStar").hover(
-//       function () {
-//           $(".oneStar").addClass("selected");
-//           $(".twoStar").addClass("selected");
-//       },
-//       function () {
-//           $(".oneStar").removeClass("selected");
-//           $(".twoStar").removeClass("selected");
-//       });
-
-//    $(".oneStar").hover(
-//   function () {
-//       $(".oneStar").addClass("selected");
-
-
-//   },
-//   function () {
-//       $(".oneStar").removeClass("selected");
-
-//   });
+    //$('.upvote').submit(function (event) {
+    //    event.preventDefault();
+    //    console.log("downVote!")
+    //    $.ajax({
+    //        url: 'Products/Upvote',
+    //        type: 'POST',
+    //        dataType: 'json',
+    //        data: $(this).serialize(),
+    //        success: function (result) {
+    //            console.log(result);
+    //            $('.up-' + result.ProductId).text(result.ProductUpVotes);
+    //        }
+    //    })
+    //})
 });
