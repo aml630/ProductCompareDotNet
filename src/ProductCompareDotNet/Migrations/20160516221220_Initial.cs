@@ -5,7 +5,7 @@ using Microsoft.Data.Entity.Metadata;
 
 namespace ProductCompareDotNet.Migrations
 {
-    public partial class BigModelChange : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,6 +59,18 @@ namespace ProductCompareDotNet.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.CategoryId);
+                });
+            migrationBuilder.CreateTable(
+                name: "SubCategories",
+                columns: table => new
+                {
+                    SubCategoryId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    SubCategoryName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubCategory", x => x.SubCategoryId);
                 });
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -149,9 +161,21 @@ namespace ProductCompareDotNet.Migrations
                     ProductId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CategoryId = table.Column<int>(nullable: false),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    EasyUseFalse = table.Column<int>(nullable: false),
+                    EasyUseTrue = table.Column<int>(nullable: false),
+                    GoodValueFalse = table.Column<int>(nullable: false),
+                    GoodValueTrue = table.Column<int>(nullable: false),
+                    ProductBigImg = table.Column<string>(nullable: true),
                     ProductImg = table.Column<string>(nullable: true),
+                    ProductLink = table.Column<string>(nullable: true),
                     ProductName = table.Column<string>(nullable: true),
-                    ProductPrice = table.Column<int>(nullable: false)
+                    ProductPrice = table.Column<int>(nullable: false),
+                    SetUpFalse = table.Column<int>(nullable: false),
+                    SetUpTrue = table.Column<int>(nullable: false),
+                    SubCategoryId = table.Column<int>(nullable: false),
+                    WouldSuggestFalse = table.Column<int>(nullable: false),
+                    WouldSuggestTrue = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -162,33 +186,12 @@ namespace ProductCompareDotNet.Migrations
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
-                });
-            migrationBuilder.CreateTable(
-                name: "Comments",
-                columns: table => new
-                {
-                    CommentId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Like = table.Column<bool>(nullable: false),
-                    ProductId = table.Column<int>(nullable: false),
-                    Statement = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Comment", x => x.CommentId);
                     table.ForeignKey(
-                        name: "FK_Comment_Product_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "ProductId",
+                        name: "FK_Product_SubCategory_SubCategoryId",
+                        column: x => x.SubCategoryId,
+                        principalTable: "SubCategories",
+                        principalColumn: "SubCategoryId",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Comment_ApplicationUser_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
             migrationBuilder.CreateTable(
                 name: "Questions",
@@ -196,6 +199,7 @@ namespace ProductCompareDotNet.Migrations
                 {
                     QuestionId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    DateTime = table.Column<DateTime>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
                     QuestionText = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
@@ -222,6 +226,7 @@ namespace ProductCompareDotNet.Migrations
                 {
                     ReviewId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    DateTime = table.Column<DateTime>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
                     ReviewText = table.Column<string>(nullable: true),
                     Stars = table.Column<int>(nullable: false),
@@ -250,6 +255,7 @@ namespace ProductCompareDotNet.Migrations
                     AnswerId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AnswerText = table.Column<string>(nullable: true),
+                    DateTime = table.Column<DateTime>(nullable: false),
                     QuestionId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true)
                 },
@@ -290,13 +296,13 @@ namespace ProductCompareDotNet.Migrations
             migrationBuilder.DropTable("AspNetUserLogins");
             migrationBuilder.DropTable("AspNetUserRoles");
             migrationBuilder.DropTable("Answers");
-            migrationBuilder.DropTable("Comments");
             migrationBuilder.DropTable("Reviews");
             migrationBuilder.DropTable("AspNetRoles");
             migrationBuilder.DropTable("Questions");
             migrationBuilder.DropTable("Products");
             migrationBuilder.DropTable("AspNetUsers");
             migrationBuilder.DropTable("Categories");
+            migrationBuilder.DropTable("SubCategories");
         }
     }
 }

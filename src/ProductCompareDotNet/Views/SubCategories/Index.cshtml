@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IList<ProductCompareDotNet.Models.SubCategory>
+
+
+@foreach(var subCategory in Model)
+{
+    <li>@subCategory.SubCategoryName</li>
+}

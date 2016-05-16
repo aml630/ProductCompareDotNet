@@ -33,8 +33,12 @@ namespace ProductCompareDotNet.Models
         public int WouldSuggestFalse { get; set; }
 
         public int CategoryId { get; set; }
+        public int SubCategoryId { get; set; }
+
         public DateTime DateTime { get; set; }
         public virtual Category Category { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
+
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
 

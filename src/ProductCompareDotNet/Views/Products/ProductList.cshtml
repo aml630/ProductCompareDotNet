@@ -12,64 +12,68 @@
         <a class="btn btn-danger btn-circle" href="@product.ProductLink">SHUT UP AND TAKE MY MONEY</a>
 
     </div>
-    <div  class="productInfo">
-        <h3>Is This Product Easy To SetUp?</h3>
-        <p>Yes: <span class="setUpTrueValue">@product.SetUpTrue</span></p>
-        <p>No: <span class="setUpFalseValue">@product.SetUpFalse</span</p>
-        @*Score: @ViewData["Percentage"].ToString()*@
-        <form class="setUpTrue">
-            <input hidden class="id" name="id" value="@product.ProductId"/>
-            <button>Yes</button>
-        </form> 
-        <form class="setUpFalse" action="~/Products/SetUpFalse/">
-            <input hidden name="id" value="@product.ProductId" />
-            <button>No</button>
-        </form>
-    </div>
-    <div class="productInfo">
-        <h3>Is This Product Easy To Use?</h3>
-        <p>Yes: <span class="easyUseTrueValue">@product.EasyUseTrue</span></p>
-        <p>No: <span class="easyUseFalseValue">@product.EasyUseFalse</span></p>
-        @*Score: @ViewData["Percentage"].ToString()*@
-        <form class="easyUseTrue" action="~/Products/SetUpTrue/">
-            <input hidden name="id" value="@product.ProductId" />
-            <button>Yes</button>
-        </form>
-        <form class="easyUseFalse"  action="~/Products/SetUpFalse/">
-            <input hidden name="id" value="@product.ProductId" />
-            <button>No</button>
-        </form>
+    <div class="row">
+        <div class="productInfo">
+            <h7>Is This Product Easy To SetUp?</h7>
+            <p>Yes: <span class="setUpTrueValue">@product.SetUpTrue</span></p>
+            <p>No: <span class="setUpFalseValue">@product.SetUpFalse</span></p>
+            @*Score: @ViewData["Percentage"].ToString()*@
+            <form class="setUpTrue">
+                <input hidden class="id" name="id" value="@product.ProductId" />
+                <button>Yes</button>
+            </form>
+            <form class="setUpFalse" action="~/Products/SetUpFalse/">
+                <input hidden name="id" value="@product.ProductId" />
+                <button>No</button>
+            </form>
+        </div>
+        <div class="productInfo">
+            <h7>Is This Product Easy To Use?</h7>
+            <p>Yes: <span class="easyUseTrueValue">@product.EasyUseTrue</span></p>
+            <p>No: <span class="easyUseFalseValue">@product.EasyUseFalse</span></p>
+            @*Score: @ViewData["Percentage"].ToString()*@
+            <form class="easyUseTrue" action="~/Products/SetUpTrue/">
+                <input hidden name="id" value="@product.ProductId" />
+                <button>Yes</button>
+            </form>
+            <form class="easyUseFalse" action="~/Products/SetUpFalse/">
+                <input hidden name="id" value="@product.ProductId" />
+                <button>No</button>
+            </form>
 
-    </div>
-    <div class="productInfo">
-        <h3>Is This Product Good Value?</h3>
-        <p>Yes: <span class="goodValueTrueValue">@product.GoodValueTrue</span></p>
-        <p>No: <span class="goodValueFalseValue">@product.GoodValueFalse</span></p>
-        @*Score: @ViewData["Percentage"].ToString()*@
-        <form class="goodValueTrue">
-            <input hidden name="id" value="@product.ProductId" />
-            <button>Yes</button>
-        </form>
-        <form class="goodValueFalse">
-            <input hidden name="id" value="@product.ProductId" />
-            <button>No</button>
-        </form>
+        </div>
+        <div class="productInfo">
+            <h7>Is This Product Good Value?</h7>
+            <p>Yes: <span class="goodValueTrueValue">@product.GoodValueTrue</span></p>
+            <p>No: <span class="goodValueFalseValue">@product.GoodValueFalse</span></p>
+            @*Score: @ViewData["Percentage"].ToString()*@
+            <form class="goodValueTrue">
+                <input hidden name="id" value="@product.ProductId" />
+                <button>Yes</button>
+            </form>
+            <form class="goodValueFalse">
+                <input hidden name="id" value="@product.ProductId" />
+                <button>No</button>
+            </form>
 
-    </div>
-    <div class="productInfo">
-        <h3>Would You Suggest This Product To Others?</h3>
-        <p>Yes: <span class="suggestTrueValue">@product.WouldSuggestTrue</span></p>
-        <p>No: <span class="suggestFalseValue">@product.WouldSuggestFalse</span></p>
-        @*Score: @ViewData["Percentage"].ToString()*@
-        <form class="suggestTrue">
-            <input hidden name="id" value="@product.ProductId" />
-            <button>Yes</button>
-        </form>
-        <form class="suggestFalse">
-            <input hidden name="id" value="@product.ProductId" />
-            <button>No</button>
-        </form>
+        </div>
+        <div class="productInfo">
+            <h7>Would You Suggest This Product To Others?</h7>
+            <p>Yes: <span class="suggestTrueValue">@product.WouldSuggestTrue</span></p>
+            <p>No: <span class="suggestFalseValue">@product.WouldSuggestFalse</span></p>
+            @*Score: @ViewData["Percentage"].ToString()*@
+            <form class="suggestTrue">
+                <input hidden name="id" value="@product.ProductId" />
+                <button>Yes</button>
+            </form>
+            <form class="suggestFalse">
+                <input hidden name="id" value="@product.ProductId" />
+                <button>No</button>
+            </form>
 
+        </div>
+
+        <a href="~/SubCategories/CompareProducts/@product.SubCategoryId"class="btn btn-info">Compare Products</a>
     </div>
 }
 <button class="ShowAll btn btn-warning">All Info</button>

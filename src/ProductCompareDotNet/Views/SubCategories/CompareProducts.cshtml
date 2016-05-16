@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<ProductCompareDotNet.Models.SubCategory>
+
+
+@foreach (var subCat in Model)
+{
+    <li>@subCat.SubCategoryName</li>
+
+    <div class="row">
+        <div class="col-sm-2">
+
+    Product Name
+
+    @foreach (var product in subCat.Products)
+    {
+        <div class="tableCell">@product.ProductName 
+            <img src="@product.ProductImg" height="30" width="30" />
+            </div>
+        
+        
+
+    }
+        </div>
+        <div class="col-sm-2">
+            Product Price
+                        @foreach (var product in subCat.Products)
+                        {
+                            <div class="tableCell">
+                                @product.ProductPrice</div>
+
+                        }
+
+                    </div>
+        <div class="col-sm-2">
+            Usability
+            @foreach (var product in subCat.Products)
+            {
+                <div class="tableCell">
+                    @product.EasyUseTrue
+                    @product.EasyUseFalse
+                </div>
+
+            }
+
+        </div>
+        <div class="col-sm-2">
+            Good Value
+            @foreach (var product in subCat.Products)
+            {
+                <div class="tableCell">
+                    @product.GoodValueTrue
+                    @product.GoodValueFalse
+                </div>
+
+            }
+
+        </div>
+        <div class="col-sm-2">
+            Ease Of Setup
+            @foreach (var product in subCat.Products)
+            {
+                <div class="tableCell">
+                    @product.SetUpTrue
+                    @product.SetUpFalse
+                </div>
+
+            }
+
+        </div>
+        <div class="col-sm-2">
+            Would Suggest
+            @foreach (var product in subCat.Products)
+            {
+                <div class="tableCell">
+                    @product.WouldSuggestTrue
+                    @product.WouldSuggestFalse
+                </div>
+
+            }
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

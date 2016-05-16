@@ -9,7 +9,6 @@ $(document).ready(function () {
     $("#basics").keypress(function () {
         window.clearTimeout(timedSearch)
         timedSearch = window.setTimeout(keyPressSearch, 1000);
-     
 
     });
 
@@ -43,41 +42,6 @@ $(document).ready(function () {
         }
     }
 
-
-
-    //function keyPressSearch() {
-    //    var input = $("#basics").val();
-
-    //    if (input !== "") {
-
-    //        newArray = [];
-    //        console.log("emptied: " + newArray)
-    //        $("#basics").autcomplete({
-    //            source: function (request, response) {
-    //                $.ajax({
-    //                    url: "http://api.walmartlabs.com/v1/search?query=" + input + "&format=json&apiKey=k2waftsef676thk9khfnevds",
-    //                    type: "GET",
-    //                    crossDomain: true,
-    //                    dataType: "jsonp",
-    //                    success: function (response) {
-    //                        for (var i = 0; i < response.items.length; i++) {
-    //                            newArray.push(response.items[i].name);
-    //                        }
-    //                        console.log("first fire" + newArray);
-    //                    }
-    //                })
-
-    //            }
-    //        })
-         
-
-    //            console.log("second fire" + newArray);
-    //            $("#basics").autocomplete({
-    //                source: newArray
-               
-    //        })
-    //    }
-    //}
 
 
 
@@ -126,8 +90,10 @@ $(document).ready(function () {
 
     $('.setUpTrue').submit(function (event) {
         event.preventDefault();
+        console.log("running");
+
         $.ajax({
-            url: '/../../Products/SetUp/',
+            url: '/../../Products/SetUpTrue/',
             type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
@@ -151,7 +117,6 @@ $(document).ready(function () {
                 $(".setUpFalseValue").text(result);
             }
         });
-        console.log(id);
     });
 
 

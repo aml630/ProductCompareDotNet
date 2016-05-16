@@ -3,11 +3,21 @@
     float: left;
 }
 
+.col-sm-2 {
+    border: 1px solid black;
+}
+ 
+.tableCell {
+    height: 70px;
+    border-bottom: 1px solid black;
+}
+
+
 .productInfo {
      padding-top:10px;
      display: inline-flex;
   width: auto;
-  max-width: 250px;
+  max-width: 150px;
   margin-right:5px;
   height:auto;
   padding-bottom: 10px;
