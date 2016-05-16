@@ -52,11 +52,6 @@ namespace ProductCompareDotNet.Controllers
             return View();
         }
 
-        public IActionResult AccessDenied()
-        {
-            return View();
-        }
-
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -69,6 +64,11 @@ namespace ProductCompareDotNet.Controllers
             {
                 return View();
             }
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         [HttpPost]
