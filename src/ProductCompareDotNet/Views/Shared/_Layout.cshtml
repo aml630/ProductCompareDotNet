@@ -18,23 +18,16 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 
-   
-
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>*@
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    @*<script src="~/js/jquery.easy-autocomplete.js"></script>*@
-    @*<link rel="stylesheet" href="~/css/easy-autocomplete.min.css">*@
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
 
 
 </head>
-@using System.Security.Claims
 
 <body>
     <div class="container">
@@ -54,7 +47,7 @@
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                <div class="collapse navbar-collapse navBarMove" id="navbar-collapse-2" >
                     <ul class="nav navbar-nav navbar-right">
                         <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Categories")</li>
                         <li  role="presentation">@Html.ActionLink("New User", "Register", "Account")</li>
@@ -65,24 +58,17 @@
                             <li role="presentation">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
 
                                      
-                
-                        @if (User.IsSignedIn())
+                        @*user login/logout*@
+                        @using System.Security.Claims
 
-                            {
-                            <li role="presentation">@Html.ActionLink("Profile", "Index", "Account", new { name = @User.GetUserName() })</li>
-                            }
                         @if (User.IsSignedIn())
                         {
-                            <li role="presentation">
-                                @using (Html.BeginForm("LogOff", "Account"))
-                                {
-                                    <input class="btn btn-default btn-outline btn-circle collapsed" type="submit" value="Log out" />
-                                }
-                                </li>
+                            <li role="presentation">@Html.ActionLink("Profile", "Index", "Account")</li>
+                            <li role="presentation" class="logOutLI">@Html.ActionLink("Log Off", "LogOff", "Account")</li>
+                        }
 
-                                }
-@if (!User.IsSignedIn())
-{
+                        else
+                        {
                         <li>
                             <a class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
                         </li>
@@ -101,7 +87,6 @@
                             </div>
                             <button type="submit" class="btn btn-success">Sign in</button>
                         </form>
-
                     </div>
 
                 </div><!-- /.navbar-collapse -->
@@ -129,6 +114,3 @@
     </div>
 </body>
 </html>
-
-
-

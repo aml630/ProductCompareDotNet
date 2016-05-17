@@ -1,4 +1,15 @@
-﻿
+﻿.registerLoginInfo {
+    text-align: center;
+}
+
+li.logOutLI {
+    margin-right: 20px;
+}
+
+.navBarMove {
+    margin-left: 10px;
+}
+
 .answerForm {
     float: left;
 }
@@ -28,6 +39,7 @@
   font-size:11.5px;
   background: #fff;
 }
+
 
 .fa-star {
    color:#FFD700;

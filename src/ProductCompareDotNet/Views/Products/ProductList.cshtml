@@ -2,6 +2,8 @@
     ViewData["Title"] = "To Do List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using System.Security.Claims
+
 @model IEnumerable<ProductCompareDotNet.Models.Product>
 
 @foreach (var product in Model)
@@ -173,7 +175,15 @@
 
 
                 <br />
-                <input class="btn btn-info" type="submit" value="Submit Comment" />
+                @if (User.IsSignedIn())
+                {
+                    <input class="btn btn-info" type="submit" value="Submit Comment" />
+                }
+                else
+                {
+                    <input class="btn btn-info" data-toggle="modal" data-target="#myModal" id="modalPopUp" type="button" value="Submit Comment"/>
+                    @Html.Partial("_CommentModalPartial");
+                }
             </form>
 
         </div>
@@ -226,7 +236,17 @@
                 <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
 
                 <br />
-                <input class="btn btn-info" type="submit" value="Submit Question" />
+
+                @if (User.IsSignedIn())
+                {
+                    <input class="btn btn-info" type="submit" value="Submit Question" />
+                }
+                else
+                {
+                    <input class="btn btn-info" data-toggle="modal" data-target="#questionModal" id="modalPopUp" type="button" value="Ask a Question" />
+                    @Html.Partial("_QuestionModalPartial");
+                }
+                
             </form>
         </div>
 
