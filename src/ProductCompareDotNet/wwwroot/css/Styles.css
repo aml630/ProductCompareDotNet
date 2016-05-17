@@ -1,8 +1,14 @@
-﻿
+﻿li.logOutLI {
+    margin-right: 20px;
+}
+
+.navBarMove {
+    margin-left: 10px;
+}
+
 .answerForm {
     float: left;
 }
-
 
 .fa-star {
    color:#FFD700;

@@ -28,7 +28,6 @@
 
 
 </head>
-@using System.Security.Claims
 
 <body>
     <div class="container">
@@ -48,7 +47,7 @@
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                <div class="collapse navbar-collapse navBarMove" id="navbar-collapse-2" >
                     <ul class="nav navbar-nav navbar-right">
                         <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Categories")</li>
                         <li  role="presentation">@Html.ActionLink("New User", "Register", "Account")</li>
@@ -60,15 +59,12 @@
 
                                      
                         @*user login/logout*@
+                        @using System.Security.Claims
+
                         @if (User.IsSignedIn())
                         {
-                            <li role="presentation">@Html.ActionLink("Profile", "Index", "Account", new { name = @User.GetUserName() })</li>
-                            <li role="presentation">
-                                @using (Html.BeginForm("LogOff", "Account"))
-                                {
-                                    <input class="btn btn-default btn-outline btn-circle collapsed" type="submit" value="Log out" />
-                                }
-                            </li>
+                            <li role="presentation">@Html.ActionLink("Profile", "Index", "Account")</li>
+                            <li role="presentation" class="logOutLI">@Html.ActionLink("Log Off", "LogOff", "Account")</li>
                         }
 
                         else
