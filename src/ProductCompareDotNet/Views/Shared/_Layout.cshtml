@@ -1,38 +1,22 @@
-﻿<!DOCTYPE html>
-
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-
-
-   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="~/js/Scripts.js"></script>
-
- 
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
     <script src='https://www.google.com/recaptcha/api.js'></script>
-
     <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
-
-
 </head>
 
 <body>
     <div class="container">
-
-
         <nav class="navbar navbar-default">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,14 +37,10 @@
                         <li  role="presentation">@Html.ActionLink("New User", "Register", "Account")</li>
 
                         @*@if (User.IsInRole("admin"))*@
-                        
                             <li role="presentation">@Html.ActionLink("Roles", "Index", "Roles")</li>
                             <li role="presentation">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
-
                                      
                         @*user login/logout*@
-                        @using System.Security.Claims
-
                         @if (User.IsSignedIn())
                         {
                             <li role="presentation">@Html.ActionLink("Profile", "Index", "Account")</li>
@@ -89,28 +69,12 @@
                         </form>
                     </div>
 
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container -->
-        </nav><!-- /.navbar -->
+                </div>
+            </div>
+        </nav>
 
-        @*<form action="/Account/Login" method="post">
-            <label for="Email">Email</label>
-            <input id="Email" name="Email" type="text" value="">
-            <label for="Password">Password</label>
-            <input id="Password" name="Password" type="password">
-            <input type="submit" value="Log in" class="btn btn-default">
-        </form>*@
-
-        
-
-     
         @RenderBody()
-
         <br />
-
-        @*<button class="btn btn-success">@Html.ActionLink("People", "Index", "Persons")</button>
-            <button class="btn btn-info">@Html.ActionLink("Locations", "Index", "Locations")</button>
-            <button class="btn btn-warning">@Html.ActionLink("Experiences", "Index", "Experiences")</button>*@
     </div>
 </body>
 </html>
