@@ -1,4 +1,8 @@
-﻿li.logOutLI {
+﻿.registerLoginInfo {
+    text-align: center;
+}
+
+li.logOutLI {
     margin-right: 20px;
 }
 
