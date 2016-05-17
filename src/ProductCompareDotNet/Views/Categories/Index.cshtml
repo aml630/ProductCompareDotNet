@@ -72,17 +72,15 @@
     }
 </div>
 <div class="col-md-2 sidebar">
-    <li><a href="~/Categories/PriceSort">Sort By Price</a></li>
-    <li><a href="~/Categories/DateSort">Newest First</a></li>
-    <li><a href="~/Categories/ReviewSort">Most Reviews</a></li>
+    <h4><a href="~/Categories/PriceSort">Sort By Price </a><i class="fa fa-money" aria-hidden="true"></i></h4>
+    <h4><a href="~/Categories/DateSort">Newest First</a>  <i class="fa fa-caret-square-o-up" aria-hidden="true"></i></h4>
+    <h4><a href="~/Categories/ReviewSort">Most Reviews</a>  <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4>
     <hr />
     @foreach(var category in ViewBag.Categories)
     {
         string Name = category.CategoryName;
-        <p>@Html.ActionLink(Name, "CategorySort", "Categories", new { catId = category.CategoryId })</p>
-
+        <h4>@Html.ActionLink(Name, "CategorySort", "Categories", new { catId = category.CategoryId })</h4>
     }
-
 </div>
 
 
