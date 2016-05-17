@@ -14,246 +14,289 @@
         <a class="btn btn-danger btn-circle" href="@product.ProductLink">SHUT UP AND TAKE MY MONEY</a>
 
     </div>
-    <div class="row">
-        <div class="productInfo">
-            <h7>Is This Product Easy To SetUp?</h7>
-            <p>Yes: <span class="setUpTrueValue">@product.SetUpTrue</span></p>
-            <p>No: <span class="setUpFalseValue">@product.SetUpFalse</span></p>
-            @*Score: @ViewData["Percentage"].ToString()*@
-            <form class="setUpTrue">
-                <input hidden class="id" name="id" value="@product.ProductId" />
-                <button>Yes</button>
-            </form>
-            <form class="setUpFalse" action="~/Products/SetUpFalse/">
-                <input hidden name="id" value="@product.ProductId" />
-                <button>No</button>
-            </form>
-        </div>
-        <div class="productInfo">
-            <h7>Is This Product Easy To Use?</h7>
-            <p>Yes: <span class="easyUseTrueValue">@product.EasyUseTrue</span></p>
-            <p>No: <span class="easyUseFalseValue">@product.EasyUseFalse</span></p>
-            @*Score: @ViewData["Percentage"].ToString()*@
-            <form class="easyUseTrue" action="~/Products/SetUpTrue/">
-                <input hidden name="id" value="@product.ProductId" />
-                <button>Yes</button>
-            </form>
-            <form class="easyUseFalse" action="~/Products/SetUpFalse/">
-                <input hidden name="id" value="@product.ProductId" />
-                <button>No</button>
-            </form>
-
-        </div>
-        <div class="productInfo">
-            <h7>Is This Product Good Value?</h7>
-            <p>Yes: <span class="goodValueTrueValue">@product.GoodValueTrue</span></p>
-            <p>No: <span class="goodValueFalseValue">@product.GoodValueFalse</span></p>
-            @*Score: @ViewData["Percentage"].ToString()*@
-            <form class="goodValueTrue">
-                <input hidden name="id" value="@product.ProductId" />
-                <button>Yes</button>
-            </form>
-            <form class="goodValueFalse">
-                <input hidden name="id" value="@product.ProductId" />
-                <button>No</button>
-            </form>
-
-        </div>
-        <div class="productInfo">
-            <h7>Would You Suggest This Product To Others?</h7>
-            <p>Yes: <span class="suggestTrueValue">@product.WouldSuggestTrue</span></p>
-            <p>No: <span class="suggestFalseValue">@product.WouldSuggestFalse</span></p>
-            @*Score: @ViewData["Percentage"].ToString()*@
-            <form class="suggestTrue">
-                <input hidden name="id" value="@product.ProductId" />
-                <button>Yes</button>
-            </form>
-            <form class="suggestFalse">
-                <input hidden name="id" value="@product.ProductId" />
-                <button>No</button>
-            </form>
-
-        </div>
-
-        <a href="~/SubCategories/CompareProducts/@product.SubCategoryId"class="btn btn-info">Compare Products</a>
-    </div>
+   
 }
-<button class="ShowAll btn btn-warning">All Info</button>
+@*<button class="ShowAll btn btn-warning">All Info</button>
 <button class="DescriptionButton btn btn-warning">Product Description</button>
 <button class="ReviewsButton btn btn-warning">Product Reviews</button>
-<button class="QAButton btn btn-warning">Product Questions And Answers</button>
-
-
-
-
-<div class="productDescription">
-    <h2>Product Description</h2>
-    <p>Rhodanosaurus Sulaimanisaurus Avisaurus Styracosaurus Deltadromeus Aviatyrannis Futalognkosaurus Neosodon Histriasaurus Nurosaurus Eucamerotus Falcarius Bistahieversor Baurutitan Brontosaurus Jiangjunosaurus Giraffatitan Leptoceratops Adamantisaurus Yixianosaurus Compsognathus Gilmoreosaurus Edmontonia Bambiraptor Chungkingosaurus Avisaurus Nemegtomaia Malarguesaurus Drinker Galveosaurus Technosaurus Amurosaurus Amargasaurus Kulceratops Saurophaganax Algoasaurus Kryptops Bissektipelta Narambuenatitan Zhuchengceratops Torosaurus Xuanhuaceratops Marmarospondylus Barapasaurus Leaellynasaura Kol Parrosaurus Rahiolisaurus Majungasaurus Altirhinus.</p><p>Nurosaurus Nemegtia Shanshanosaurus Ankistrodon Juravenator Ponerosteus Secernosaurus Machairasaurus Onychosaurus Glyptodontopelta Aardonyx Chondrosteus Minotaurasaurus Hierosaurus Sphenosaurus Tatankacephalus Lourinhanosaurus Trachodon Balaur Dynamosaurus Cristatusaurus Zhuchengtyrannus Pyroraptor Eucnemesaurus Pakisaurus Glacialisaurus Shanshanosaurus Titanosaurus Fulgurotherium Archaeovolans Dollodon Brachytaenius Pelorosaurus Opisthocoelicaudia Chinshakiangosaurus Staurikosaurus Gobititan Thespesius Zhejiangosaurus Bellusaurus Valdoraptor Auroraceratops Chromogisaurus Mendozasaurus Scelidosaurus Sphenosaurus Griphornis Therizinosaurus Strenusaurus Saturnalia.</p>
-    <hr />
-</div>
-<div class="Reviews">
-
-    <div class="row">
-        <div class="col-md-9">
-            @foreach (var product in Model)
-            {
-                @foreach (var review in product.Reviews)
-                {
-                    <div class="singleReview">
-                        @if (review.Stars == 1)
-                    {
-                            <i class="fa fa-star" style="font-size:20px"></i>
-
-
-                        }
-                        else if (review.Stars == 2)
-                        {
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-
-                        }
-                        else if (review.Stars == 3)
-                        {
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-
-
-                        }
-                        else if (review.Stars == 4)
-                        {
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-
-
-                        }
-                        else if (review.Stars == 5)
-                        {
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-                            <i class="fa fa-star" style="font-size:20px"></i>
-
-                        }
-
-                        <p class="reviewText">@review.ReviewText</p>
-                        <p class="reviewDate">@review.DateTime</p>
-
-                        <p class="reviewName">@review.User.UserName</p>
-
-                    </div>
-
-                }
-            }
-
-        </div>
-
-
-        <div class="col-md-3">
-            <h2>Leave Review</h2>
-
-
-
-
-
-            <form action="/Products/LeaveReview" method="post">
-
-                <textarea name="ReviewText" placeholder="Leave Review Here'"></textarea>
-                <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
-                <fieldset name="Stars" class="rating">
-                    <legend>Please rate:</legend>
-                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
-                </fieldset>
-                <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
-
-
-                <br />
-                @if (User.IsSignedIn())
-                {
-                    <input class="btn btn-info" type="submit" value="Submit Comment" />
-                }
-                else
-                {
-                    <input class="btn btn-info" data-toggle="modal" data-target="#myModal" id="modalPopUp" type="button" value="Submit Comment"/>
-                    @Html.Partial("_CommentModalPartial");
-                }
-            </form>
-
-        </div>
-
-    </div>
-</div>
-    <hr />
+<button class="QAButton btn btn-warning">Product Questions And Answers</button>*@
 
 
 <div class="row">
-    <div class="QA">
-        
-        <div class="col-md-9">
-            @foreach (var product in Model)
-            {
-                @foreach (var question in product.Questions)
-                {
-                    <div class="singleQuestion">
-                        <p class="reviewText">@question.QuestionText</p>
-                        <p class="reviewDate">@question.DateTime</p>
-                        <p class="reviewName">@question.User.UserName</p>
+    <div class="col-md-9">
+        <div class="productDescription">
+            <h2>Product Description</h2>
+            <p>Rhodanosaurus Sulaimanisaurus Avisaurus Styracosaurus Deltadromeus Aviatyrannis Futalognkosaurus Neosodon Histriasaurus Nurosaurus Eucamerotus Falcarius Bistahieversor Baurutitan Brontosaurus Jiangjunosaurus Giraffatitan Leptoceratops Adamantisaurus Yixianosaurus Compsognathus Gilmoreosaurus Edmontonia Bambiraptor Chungkingosaurus Avisaurus Nemegtomaia Malarguesaurus Drinker Galveosaurus Technosaurus Amurosaurus Amargasaurus Kulceratops Saurophaganax Algoasaurus Kryptops Bissektipelta Narambuenatitan Zhuchengceratops Torosaurus Xuanhuaceratops Marmarospondylus Barapasaurus Leaellynasaura Kol Parrosaurus Rahiolisaurus Majungasaurus Altirhinus.</p><p>Nurosaurus Nemegtia Shanshanosaurus Ankistrodon Juravenator Ponerosteus Secernosaurus Machairasaurus Onychosaurus Glyptodontopelta Aardonyx Chondrosteus Minotaurasaurus Hierosaurus Sphenosaurus Tatankacephalus Lourinhanosaurus Trachodon Balaur Dynamosaurus Cristatusaurus Zhuchengtyrannus Pyroraptor Eucnemesaurus Pakisaurus Glacialisaurus Shanshanosaurus Titanosaurus Fulgurotherium Archaeovolans Dollodon Brachytaenius Pelorosaurus Opisthocoelicaudia Chinshakiangosaurus Staurikosaurus Gobititan Thespesius Zhejiangosaurus Bellusaurus Valdoraptor Auroraceratops Chromogisaurus Mendozasaurus Scelidosaurus Sphenosaurus Griphornis Therizinosaurus Strenusaurus Saturnalia.</p>
 
-                        <form class="answerForm" action="~/Products/AnswerQuestion" method="post">
-                            <textarea name="Answer" placeholder="Know The Answer?'"></textarea>
-                            <input hidden name="QuestionId" value="@question.QuestionId" />
-                            <input hidden name="ProductId" type="number" value="@ViewBag.ProdId" />
-                            <br />
-                            <input class="btn btn-danger btn-circle" type="submit" value="Submit Answer" />
-                        </form>
-                    </div>
-                        @foreach (var answer in question.Answers)
-                        {
-                            <div class="singleAnswer">
-
-                                <p class="reviewText">@answer.AnswerText</p>
-                                <p class="reviewDate">@answer.DateTime</p>
-                                <p class="reviewName">@answer.User.UserName</p>
-                            </div>
-
-                        }
-
-
-                }
-                }
+            <hr />
         </div>
-        <div class="col-md-3">
-            <h2>Ask A Question</h2>
-            <form action="/Products/AskQuestion" method="post">
-                <textarea name="Question" placeholder="What's Your Question?'"></textarea>
-                <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
 
+        <h2>Leave Review</h2>
+
+
+        <form action="/Products/LeaveReview" method="post">
+
+            <textarea name="ReviewText" placeholder="Leave Review Here'"></textarea>
+            <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
+            <fieldset name="Stars" class="rating">
+                <legend>Please rate:</legend>
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+            </fieldset>
+            <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
+
+
+            <br />
+            @if (User.IsSignedIn())
+            {
+                <input class="btn btn-info" type="submit" value="Submit Comment" />
+            }
+            else
+            {
+                <input class="btn btn-info" data-toggle="modal" data-target="#myModal" id="modalPopUp" type="button" value="Login To Leave Review" />
+                    @Html.Partial("_CommentModalPartial");
+            }
+        </form>
+
+        @foreach (var product in Model)
+            {
+            @foreach (var review in product.Reviews)
+                {
+                <div class="singleReview">
+                    @if (review.Stars == 1)
+                    {
+                        <i class="fa fa-star" style="font-size:20px"></i>
+
+
+                    }
+                    else if (review.Stars == 2)
+                    {
+                        <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+
+                    }
+                    else if (review.Stars == 3)
+                    {
+                        <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+
+
+                    }
+                    else if (review.Stars == 4)
+                    {
+                        <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+
+
+                    }
+                    else if (review.Stars == 5)
+                    {
+                        <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+                            <i class="fa fa-star" style="font-size:20px"></i>
+
+                    }
+
+                    <p class="reviewText">@review.ReviewText</p>
+                    <p class="reviewDate">@review.DateTime</p>
+
+                    <p class="reviewName">@review.User.UserName</p>
+
+                </div>
+
+            }
+        }
+        <hr />
+        <h2>Ask A Question</h2>
+        <form action="/Products/AskQuestion" method="post">
+            <textarea name="Question" placeholder="What's Your Question?'"></textarea>
+            <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
+
+            <br />
+
+            @if (User.IsSignedIn())
+            {
+                <input class="btn btn-info" type="submit" value="Submit Question" />
+            }
+            else
+            {
+                <input class="btn btn-info" data-toggle="modal" data-target="#questionModal" id="modalPopUp" type="button" value="Ask a Question" />
+                @Html.Partial("_QuestionModalPartial");
+            }
+
+        </form>
+
+        @foreach (var product in Model)
+            {
+            @foreach (var question in product.Questions)
+                {
+                <div class="singleQuestion">
+                    <p class="reviewText">@question.QuestionText</p>
+                    <p class="reviewDate">@question.DateTime</p>
+                    <p class="reviewName">@question.User.UserName</p>
+
+                    <form class="answerForm" action="~/Products/AnswerQuestion" method="post">
+                        <textarea name="Answer" placeholder="Know The Answer?'"></textarea>
+                        <input hidden name="QuestionId" value="@question.QuestionId" />
+                        <input hidden name="ProductId" type="number" value="@ViewBag.ProdId" />
+                        <br />
+                        <input class="btn btn-danger btn-circle" type="submit" value="Submit Answer" />
+                    </form>
+                </div>
+                    @foreach (var answer in question.Answers)
+                    {
+                        <div class="singleAnswer">
+
+                            <p class="reviewText">@answer.AnswerText</p>
+                            <p class="reviewDate">@answer.DateTime</p>
+                            <p class="reviewName">@answer.User.UserName</p>
+                        </div>
+
+                    }
+
+
+            }
+        }
+    </div>
+
+
+
+
+
+    <div class="col-md-3">
+        @foreach (var product in Model)
+        {
+            <a href="~/SubCategories/CompareProducts/@product.SubCategoryId" class="btn btn-info compareProducts">Compare Products</a>
+
+            <div class="productInfo">
+                <h7>Is This Product Easy To SetUp?</h7>
+                <br />
+                <div class="score">
+                    <p>Yes: <span class="setUpTrueValue">@product.SetUpTrue</span></p>
+                    <p>No: <span class="setUpFalseValue">@product.SetUpFalse</span></p>
+
+
+                </div>
+                <br />
+                <div class="percentage">
+                    <div class="roundedNum">
+                        <p>@ViewData["Setup"]</p>
+                    </div>
+                </div>
                 <br />
 
-                @if (User.IsSignedIn())
-                {
-                    <input class="btn btn-info" type="submit" value="Submit Question" />
-                }
-                else
-                {
-                    <input class="btn btn-info" data-toggle="modal" data-target="#questionModal" id="modalPopUp" type="button" value="Ask a Question" />
-                    @Html.Partial("_QuestionModalPartial");
-                }
-                
-            </form>
-        </div>
+                <div class="yesNo">
 
-       
-      
+                    <form class="setUpTrue">
+                        <input hidden class="id" name="id" value="@product.ProductId" />
+                        <button class="btn btn-info">Yes</button>
+                    </form>
+                    <form class="setUpFalse" action="~/Products/SetUpFalse/">
+                        <input hidden name="id" value="@product.ProductId" />
+                        <button class="btn btn-danger">No</button>
+                    </form>
+                    </div>
+                </div>
+                    <div class="productInfo">
+                        <h7>Is This Product Easy To Use?</h7>
+                        <br />
+
+                        <div class="score">
+
+                            <p>Yes: <span class="easyUseTrueValue">@product.EasyUseTrue</span></p>
+                            <p>No: <span class="easyUseFalseValue">@product.EasyUseFalse</span></p>
+                            </div>
+                        <br />
+                        <div class="percentage">
+                            <div class="roundedNum">
+                                <p>@ViewData["EasyUse"]</p>
+                            </div>
+                        </div>
+                        <br />
+
+                            <div class="yesNo">
+                                <form class="easyUseTrue" action="~/Products/SetUpTrue/">
+                                    <input hidden name="id" value="@product.ProductId" />
+                                    <button class="btn btn-info">Yes</button>
+                                </form>
+                                <form class="easyUseFalse" action="~/Products/SetUpFalse/">
+                                    <input hidden name="id" value="@product.ProductId" />
+                                    <button class="btn btn-danger">No</button>
+                                </form>
+                            </div>
+                        </div>
+                    <div class="productInfo">
+                        <h7>Is This Product Good Value?</h7>
+                        <br />
+
+                        <div class="score">
+
+                            <p>Yes: <span class="goodValueTrueValue">@product.GoodValueTrue</span></p>
+                            <p>No: <span class="goodValueFalseValue">@product.GoodValueFalse</span></p>
+                            </div>
+                        <br />
+                        <div class="percentage">
+                            <div class="roundedNum">
+                                <p>@ViewData["GoodValue"]</p>
+                            </div>
+                        </div>
+                        <br />
+                            <div class="yesNo">
+
+                                <form class="goodValueTrue">
+                                    <input hidden name="id" value="@product.ProductId" />
+                                    <button class="btn btn-info">Yes</button>
+                                </form>
+                                <form class="goodValueFalse">
+                                    <input hidden name="id" value="@product.ProductId" />
+                                    <button class="btn btn-danger">No</button>
+                                </form>
+                            </div>
+                        </div>
+                    <div class="productInfo">
+                        <h7>Would You Suggest This Product To Others?</h7>
+                        <br />
+
+                        <div class="score">
+
+                            <p>Yes: <span class="suggestTrueValue">@product.WouldSuggestTrue</span></p>
+                            <p>No: <span class="suggestFalseValue">@product.WouldSuggestFalse</span></p>
+                            </div> 
+                        <br />
+                        <div class="percentage">
+                            <div class="roundedNum">
+                                <p>@ViewData["WouldSuggest"]</p>
+                            </div>
+                        </div>
+                        <br />
+
+                            <div class="yesNo">
+
+                                <form class="suggestTrue">
+                                    <input hidden name="id" value="@product.ProductId" />
+                                    <button class="btn btn-info">Yes</button>
+                                </form>
+                                <form class="suggestFalse">
+                                    <input hidden name="id" value="@product.ProductId" />
+                                    <button class="btn btn-danger">No</button>
+                                </form>
+                            </div>
+                        </div>
+
+                   
+                    }
+
     </div>
 </div>
+
 
 
 

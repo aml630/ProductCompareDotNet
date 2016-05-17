@@ -1,4 +1,34 @@
-﻿.registerLoginInfo {
+﻿.percentage {
+ 
+   padding-right: 20%;
+      padding-left: 32%;
+
+
+   
+    /*text-align: center;*/
+
+    
+}
+.percentage p {
+        font: 15px Arial, sans-serif;
+        margin-top: 30%;
+        font-weight: bold;
+
+}
+
+.roundedNum {
+        border-radius: 50%;
+    behavior: url(PIE.htc);  remove if you don't care about IE8 
+         background: #fff;
+    border: 2px solid #666;
+    color: lawngreen;
+    width: 55px;
+    height: 55px;
+    background-color: grey;
+}
+
+
+.registerLoginInfo {
     text-align: center;
 }
 
@@ -26,7 +56,7 @@ li.logOutLI {
 
 .productInfo {
      padding-top:10px;
-     display: inline-flex;
+    text-align: center;
   width: auto;
   max-width: 150px;
   margin-right:5px;
@@ -38,6 +68,24 @@ li.logOutLI {
   font-family: "Open Sans Semibold", "Open Sans", Arial, sans-serif;
   font-size:11.5px;
   background: #fff;
+}
+
+.compareProducts {
+    margin: 10px;
+
+}
+
+.productInfo h7 {
+    font-weight: bold;
+}
+.yesNo {
+    display: inline-flex;
+}
+.score {
+    display: inline-flex;
+}
+.score p {
+    margin: 4px;
 }
 
 
