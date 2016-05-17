@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     });
 
+
     function keyPressSearch() {
         var input = $("#basics").val();
 
@@ -26,21 +27,24 @@ $(document).ready(function () {
                 crossDomain: true,
                 dataType: "jsonp",
                 success: function (response) {
-                    for (var i = 0; i < response.items.length; i++) {
-                        newArray.push(response.items[i].name);
-                    }
-                    console.log("first fire" +newArray);
-                }
-            })).then(function () {
+              
+                   }
+            })).then(function (response) {
 
+                for (var i = 0; i < response.items.length; i++) {
+                    newArray.push(response.items[i].name);
+                }
                 console.log("second fire" + newArray);
                 $("#basics").autocomplete({
                     source: newArray
                 })
             })
-
         }
     }
+
+
+
+
 
     $(".ShowAll").click(function () {
 
@@ -84,29 +88,141 @@ $(document).ready(function () {
     })
 
 
-    //$('.CategoryForm').submit(function (event) {
-    //    event.preventDefault();
-    //    console.log(($(this).data))
-    //    $.ajax({
-    //        url: '~/../../Categories/AjaxCreateCategory',
-    //        type: 'POST',
-    //        dataType: 'json',
-    //        data: $(this).serialize(),
-    //        success: function (result) {
-    //          console.log(result);
-    //        }
-    //    });
-    //    console.log("end");
-    //});
+    $('.setUpTrue').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
 
-    //$('.downvote').submit(function (event) {
+        $.ajax({
+            url: '/../../Products/SetUpTrue/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".setUpTrueValue").text(result);
+            }
+        });
+    });
+
+    $('.setUpFalse').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
+        $.ajax({
+            url: '/../../Products/SetUpFalse/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".setUpFalseValue").text(result);
+            }
+        });
+    });
+
+
+
+    $('.easyUseTrue').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
+
+        $.ajax({
+            url: '/../../Products/EasyUseTrue/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".easyUseTrueValue").text(result);
+            }
+        });
+    });
+
+    $('.easyUseFalse').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
+        $.ajax({
+            url: '/../../Products/EasyUseFalse/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".easyUseFalseValue").text(result);
+            }
+        });
+    });
+
+
+    $('.goodValueTrue').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
+
+        $.ajax({
+            url: '/../../Products/GoodValueTrue/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".goodValueTrueValue").text(result);
+            }
+        });
+    });
+
+    $('.goodValueFalse').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
+        $.ajax({
+            url: '/../../Products/GoodValueFalse/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".goodValueFalseValue").text(result);
+            }
+        });
+    });
+
+
+    $('.suggestTrue').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
+
+        $.ajax({
+            url: '/../../Products/WouldSuggestTrue/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".suggestTrueValue").text(result);
+            }
+        });
+    });
+
+    $('.suggestFalse').submit(function (event) {
+        event.preventDefault();
+        console.log("running");
+        $.ajax({
+            url: '/../../Products/WouldSuggestFalse/',
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                console.log(result);
+                $(".suggestFalseValue").text(result);
+            }
+        });
+    });
+    //$('.downvote').submit(function (event, id) {
     //    event.preventDefault();
     //    console.log("downVote!")
     //    $.ajax({
     //        url: 'Products/Downvote',
     //        type: 'POST',
-    //        dataType: 'json',
-    //        data: $(this).serialize(),
+    //        dataType: 'int',
+    //        data: id,
     //        success: function (result) {
     //            console.log(result);
     //            $('.down-' + result.ProductId).text(result.ProductDownVotes);

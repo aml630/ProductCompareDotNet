@@ -189,6 +189,14 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<DateTime>("DateTime");
 
+                    b.Property<int>("EasyUseFalse");
+
+                    b.Property<int>("EasyUseTrue");
+
+                    b.Property<int>("GoodValueFalse");
+
+                    b.Property<int>("GoodValueTrue");
+
                     b.Property<string>("ProductBigImg");
 
                     b.Property<string>("ProductImg");
@@ -198,6 +206,16 @@ namespace ProductCompareDotNet.Migrations
                     b.Property<string>("ProductName");
 
                     b.Property<int>("ProductPrice");
+
+                    b.Property<int>("SetUpFalse");
+
+                    b.Property<int>("SetUpTrue");
+
+                    b.Property<int>("SubCategoryId");
+
+                    b.Property<int>("WouldSuggestFalse");
+
+                    b.Property<int>("WouldSuggestTrue");
 
                     b.HasKey("ProductId");
 
@@ -240,6 +258,18 @@ namespace ProductCompareDotNet.Migrations
                     b.HasKey("ReviewId");
 
                     b.HasAnnotation("Relational:TableName", "Reviews");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.SubCategory", b =>
+                {
+                    b.Property<int>("SubCategoryId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("SubCategoryName");
+
+                    b.HasKey("SubCategoryId");
+
+                    b.HasAnnotation("Relational:TableName", "SubCategories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
@@ -290,6 +320,10 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.Category")
                         .WithMany()
                         .HasForeignKey("CategoryId");
+
+                    b.HasOne("ProductCompareDotNet.Models.SubCategory")
+                        .WithMany()
+                        .HasForeignKey("SubCategoryId");
                 });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Question", b =>

@@ -122,9 +122,22 @@ namespace ProductCompareDotNet.Controllers
             var response = client.Execute(request);
 
             dynamic stuff = JObject.Parse(response.Content);
+
             string baseString = stuff.items[0].categoryPath;
             int stop = baseString.IndexOf("/");
             string catName = baseString.Substring(0, stop);
+
+
+            int index1 = baseString.LastIndexOf('/');
+            
+            string subCatName = baseString.Substring(index1+1);
+            
+
+
+
+
+
+
 
             Product product = new Product();
             product.ProductName = stuff.items[0].name;
@@ -139,6 +152,7 @@ namespace ProductCompareDotNet.Controllers
 
 
             var test = db.Categories.FirstOrDefault(x => x.CategoryName == catName);
+
             if(test == null)
             {
                 Category category = new Category();
@@ -154,6 +168,27 @@ namespace ProductCompareDotNet.Controllers
                 product.CategoryId = test.CategoryId;
 
             }
+
+            var subCatTest = db.SubCategories.FirstOrDefault(x => x.SubCategoryName == subCatName);
+
+            if (subCatTest == null)
+            {
+                SubCategory subCat = new SubCategory();
+                subCat.SubCategoryName = subCatName;
+                db.SubCategories.Add(subCat);
+
+                db.SaveChanges();
+                product.SubCategoryId = subCat.SubCategoryId;
+
+            }
+            else
+            {
+                product.SubCategoryId = subCatTest.SubCategoryId;
+
+            }
+
+
+
 
 
             db.Products.Add(product);
