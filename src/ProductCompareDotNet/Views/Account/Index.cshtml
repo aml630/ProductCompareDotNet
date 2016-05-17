@@ -6,7 +6,7 @@
 
 @using System.Security.Claims
 
-<h2>User Profile Page</h2>
+<h1 class="textCenter">User Profile Page</h1>
 <hr />
 @if (User.IsSignedIn())
 {
@@ -23,6 +23,5 @@
 }
 else
 {
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>
+    <h2 class="redWarning">Please login/register to access all of our services.</h2>
 }
