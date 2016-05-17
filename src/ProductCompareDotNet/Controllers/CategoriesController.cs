@@ -107,37 +107,22 @@ namespace ProductCompareDotNet.Controllers
         [HttpPost]
         public IActionResult CreateProduct(string Name, string Upvotes, string DownVotes)
         {
-
-
-
             var client = new RestClient("http://api.walmartlabs.com/v1");
-
             var request = new RestRequest("search", Method.GET);
 
             request.AddParameter("query", Name);
             request.AddParameter("format", "json");
             request.AddParameter("apikey", "k2waftsef676thk9khfnevds");
 
-
             var response = client.Execute(request);
 
             dynamic stuff = JObject.Parse(response.Content);
-
             string baseString = stuff.items[0].categoryPath;
             int stop = baseString.IndexOf("/");
             string catName = baseString.Substring(0, stop);
 
-
             int index1 = baseString.LastIndexOf('/');
-            
-            string subCatName = baseString.Substring(index1+1);
-            
-
-
-
-
-
-
+            string subCatName = baseString.Substring(index1 + 1);
 
             Product product = new Product();
             product.ProductName = stuff.items[0].name;
@@ -148,11 +133,7 @@ namespace ProductCompareDotNet.Controllers
             product.ProductPrice = stuff.items[0].salePrice;
             product.DateTime = DateTime.Now;
 
-
-
-
             var test = db.Categories.FirstOrDefault(x => x.CategoryName == catName);
-
             if(test == null)
             {
                 Category category = new Category();
@@ -186,10 +167,6 @@ namespace ProductCompareDotNet.Controllers
                 product.SubCategoryId = subCatTest.SubCategoryId;
 
             }
-
-
-
-
 
             db.Products.Add(product);
 

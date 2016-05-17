@@ -1,0 +1,13 @@
+﻿@using System.Security.Claims
+
+@if (User.IsSignedIn())
+{
+    <li role="presentation">@Html.ActionLink("Profile", "Index", "Account")</li>
+    <li role="presentation" class="logOutLI">@Html.ActionLink("Log Off", "LogOff", "Account")</li>
+}
+
+else
+{
+    <li role="presentation" id="dropdownLogin" btn-circle collapsed" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">@Html.ActionLink("Log in", "Login", "Account")
+    </li>
+}
