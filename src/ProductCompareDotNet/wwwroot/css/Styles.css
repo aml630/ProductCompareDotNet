@@ -1,4 +1,13 @@
-﻿.registerLoginInfo {
+﻿.sidebarIcons  {
+    font-size: 50px;
+    margin-left: 60px;
+}
+
+.sidebarCategories {
+    margin-left: 32px;
+}
+
+.registerLoginInfo {
     text-align: center;
 }
 

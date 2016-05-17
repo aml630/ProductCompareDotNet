@@ -6,16 +6,19 @@
 
 @using System.Security.Claims
 
-<h2>Authentication with Identity</h2>
+<h2>User Profile Page</h2>
 <hr />
 @if (User.IsSignedIn())
 {
-    <p>Hello @Model.UserName!</p>
-
-    <p>Tell us a little more about yourself!</p>
+    <h4>Tell us a little more about yourself!</h4>
     <form>
         <input name="UserName"  placeholder="UserName"/>
-        <input name="UserPic" placeholder="PictureURL" />
+    </form>
+    <br /><hr />
+    <h4>Upload an avatar!</h4>
+    <form method="post" asp-action="Index" asp-controller="Home" enctype="multipart/form-data">
+        <input type="file" name="files" multiple />
+        <input type="submit" value="Upload" />
     </form>
 }
 else

@@ -72,9 +72,12 @@
     }
 </div>
 <div class="col-md-2 sidebar">
-    <h4><a href="~/Categories/PriceSort">Sort By Price </a><i class="fa fa-money" aria-hidden="true"></i></h4>
-    <h4><a href="~/Categories/DateSort">Newest First</a>  <i class="fa fa-caret-square-o-up" aria-hidden="true"></i></h4>
-    <h4><a href="~/Categories/ReviewSort">Most Reviews</a>  <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4>
+    <i class="fa fa-money sidebarIcons" aria-hidden="true"></i>
+    <h4><a href="~/Categories/PriceSort" class="sidebarCategories">Sort By Price</a></h4>
+    <i class="fa fa-caret-square-o-up sidebarIcons" aria-hidden="true"></i>
+    <h4><a class="sidebarCategories" href="~/Categories/DateSort">Newest First</a></h4>
+    <i class="fa fa-thumbs-up sidebarIcons" aria-hidden="true"></i>
+    <h4><a class="sidebarCategories" href="~/Categories/ReviewSort">Most Reviews</a></h4>
     <hr />
     @foreach(var category in ViewBag.Categories)
     {
