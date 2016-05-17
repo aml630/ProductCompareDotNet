@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
-
+using System.Globalization;
 
 namespace ProductCompareDotNet.Models
 {
@@ -42,28 +41,18 @@ namespace ProductCompareDotNet.Models
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
 
-        //public Product(string productName, string productImg, string productBigImage, string productLink, int productPrice, int setUpTrue, int setUpFalse, int easyUseTrue, int easyUseFalse, int goodValueTrue, int goodValueFalse, int wouldSuggestTrue, int wouldSuggestFalse, int categoryId, DateTime datetime, int productId = 0)
-        //{
-        //    productName = ProductName;
-        //    productImg = ProductImg;
-        //    productBigImage = ProductBigImg;
-        //    productLink = ProductLink;
-        //    productPrice = ProductPrice;
-        //    setUpTrue = SetUpTrue;
-        //    setUpFalse = SetUpFalse;
-        //    easyUseTrue = EasyUseTrue;
-        //    easyUseFalse = EasyUseFalse;
-        //    goodValueTrue = GoodValueTrue;
-        //    goodValueFalse = GoodValueFalse;
-        //    wouldSuggestTrue = WouldSuggestTrue;
-        //    wouldSuggestFalse = WouldSuggestFalse;
-        //    datetime = DateTime;
-        //    categoryId = CategoryId;
+        public string getPercent(int num1, int num2)
+        {
 
-        //}
+            NumberFormatInfo nfi = new CultureInfo("en-US", false).NumberFormat;
+            nfi.PercentDecimalDigits = 0;
 
-        //public Product() { }
+            decimal firstNum = (decimal)(num1 / (decimal)(num2 + num1 + .0001));
+            string endNum = firstNum.ToString("P", nfi);
 
+            return endNum;
+        }
+    
 
 
     }

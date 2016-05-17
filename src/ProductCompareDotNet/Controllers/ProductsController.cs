@@ -38,23 +38,7 @@ namespace ProductCompareDotNet.Controllers
         public IActionResult ProductList(int id)
         {
             Product findProd = db.Products.FirstOrDefault(x => x.ProductId == id);
-            NumberFormatInfo nfi = new CultureInfo("en-US", false).NumberFormat;
-            nfi.PercentDecimalDigits = 0;
-
-            decimal firstNum = (decimal)(findProd.SetUpTrue / (decimal)(findProd.SetUpTrue + findProd.SetUpFalse +.0001));
-            ViewData["Setup"] = firstNum.ToString("P", nfi);
-
-            decimal secondNum = (decimal)(findProd.EasyUseTrue / (decimal)(findProd.EasyUseTrue + findProd.EasyUseFalse + .0001));
-            ViewData["EasyUse"] = secondNum.ToString("P", nfi);
-
-            decimal thirdNum = (decimal)(findProd.GoodValueTrue / (decimal)(findProd.GoodValueTrue + findProd.GoodValueFalse + .0001));
-            ViewData["GoodValue"] = thirdNum.ToString("P", nfi);
-
-            decimal fourthNum = (decimal)(findProd.WouldSuggestTrue / (decimal)(findProd.WouldSuggestTrue + findProd.WouldSuggestFalse + .0001));
-            ViewData["WouldSuggest"] = fourthNum.ToString("P", nfi);
-
-
-
+           
 
             var prodList = db.Products.Where(x => x.ProductId == id).Include(product => product.Reviews).ThenInclude(review => review.User).Include(product => product.Questions).ThenInclude(question => question.Answers).ToList();
 

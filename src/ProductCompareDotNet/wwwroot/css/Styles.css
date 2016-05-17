@@ -1,4 +1,30 @@
-﻿.percentage {
+﻿
+.questionForm {
+    display:none;
+    text-align: center;
+}
+.reviewForm {
+    display:none;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.reviewForm form {
+    text-align: center;
+}
+
+.headingAndButton {
+    display: inline-flex;
+    text-align: center;
+    margin-left: 40%;
+}
+
+.headingAndButton button {
+    margin-left: 60%;
+}
+
+
+
+.percentage {
  
    padding-right: 20%;
       padding-left: 32%;
@@ -45,12 +71,23 @@ li.logOutLI {
 }
 
 .col-sm-2 {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
  
 .tableCell {
-    height: 70px;
-    border-bottom: 1px solid black;
+    height: 100px;
+      text-align:center;
+  margin-bottom:10px;
+  margin-right: 10%;
+    margin-left: 10%;
+
+  width:auto;
+  box-shadow: rgba(0,0,0, 0.0980392) 0px 3px 12px 1px;
+    border: 1px solid #d1d1d1;
+}
+
+.tableCell h5 {
+    border-bottom: .4px solid grey;
 }
 
 
