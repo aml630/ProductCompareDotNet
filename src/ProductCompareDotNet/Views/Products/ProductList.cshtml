@@ -28,8 +28,10 @@
     <div class="col-md-9">
         <div class="productDescription">
             <h2>Product Description</h2>
-            <p>Rhodanosaurus Sulaimanisaurus Avisaurus Styracosaurus Deltadromeus Aviatyrannis Futalognkosaurus Neosodon Histriasaurus Nurosaurus Eucamerotus Falcarius Bistahieversor Baurutitan Brontosaurus Jiangjunosaurus Giraffatitan Leptoceratops Adamantisaurus Yixianosaurus Compsognathus Gilmoreosaurus Edmontonia Bambiraptor Chungkingosaurus Avisaurus Nemegtomaia Malarguesaurus Drinker Galveosaurus Technosaurus Amurosaurus Amargasaurus Kulceratops Saurophaganax Algoasaurus Kryptops Bissektipelta Narambuenatitan Zhuchengceratops Torosaurus Xuanhuaceratops Marmarospondylus Barapasaurus Leaellynasaura Kol Parrosaurus Rahiolisaurus Majungasaurus Altirhinus.</p><p>Nurosaurus Nemegtia Shanshanosaurus Ankistrodon Juravenator Ponerosteus Secernosaurus Machairasaurus Onychosaurus Glyptodontopelta Aardonyx Chondrosteus Minotaurasaurus Hierosaurus Sphenosaurus Tatankacephalus Lourinhanosaurus Trachodon Balaur Dynamosaurus Cristatusaurus Zhuchengtyrannus Pyroraptor Eucnemesaurus Pakisaurus Glacialisaurus Shanshanosaurus Titanosaurus Fulgurotherium Archaeovolans Dollodon Brachytaenius Pelorosaurus Opisthocoelicaudia Chinshakiangosaurus Staurikosaurus Gobititan Thespesius Zhejiangosaurus Bellusaurus Valdoraptor Auroraceratops Chromogisaurus Mendozasaurus Scelidosaurus Sphenosaurus Griphornis Therizinosaurus Strenusaurus Saturnalia.</p>
-
+            @foreach (var product in Model)
+            {
+                <p>@product.ProductDescription</p>
+            }
             <hr />
         </div>
 

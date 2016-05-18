@@ -29,8 +29,7 @@ namespace ProductCompareDotNet.Controllers
 
         public IActionResult Index()
         {
-            //return View(db.Products.Include(product => product.Reviews).ToList());
-            return View();
+            return View(db.Products.Include(product => product.Reviews).ToList());
         }
 
       

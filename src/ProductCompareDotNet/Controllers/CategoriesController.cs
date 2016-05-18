@@ -116,7 +116,7 @@ namespace ProductCompareDotNet.Controllers
 
             var response = client.Execute(request);
 
-            dynamic stuff = JObject.Parse(response.Content);
+            dynamic stuff = JObject.Parse(response.Content);    
             string baseString = stuff.items[0].categoryPath;
             int stop = baseString.IndexOf("/");
             string catName = baseString.Substring(0, stop);
@@ -129,6 +129,7 @@ namespace ProductCompareDotNet.Controllers
             product.ProductImg = stuff.items[0].thumbnailImage;
             product.ProductBigImg = stuff.items[0].largeImage;
             product.ProductLink = stuff.items[0].productUrl;
+            product.ProductDescription = stuff.items[0].shortDescription;
 
             product.ProductPrice = stuff.items[0].salePrice;
             product.DateTime = DateTime.Now;
