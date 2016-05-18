@@ -652,3 +652,7 @@ background: #ffe6e6;
 #nav-collapse2 {
     background-color: white;
 }
+
+.center {
+   text-align: center;
+}

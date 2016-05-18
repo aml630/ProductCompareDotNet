@@ -19,7 +19,6 @@ namespace ProductCompareDotNet.Controllers
         private readonly ProductCompareDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        //private IHostingEnvironment _environment;
 
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ProductCompareDbContext db)
         {
@@ -28,35 +27,18 @@ namespace ProductCompareDotNet.Controllers
             _db = db;
         }
 
-        //public AccountController(IHostingEnvironment environment)
-        //{
-        //    _environment = environment;
-        //}
+
 
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.FindByIdAsync(User.GetUserId());
+            //user.Include(product => product.Reviews)()
 
+            //var userProducts = _db.Reviews.Where(x => x.User => User.GetUserId())
+            ViewBag.Reviews = _db.Reviews.Where(x => x.UserId == User.GetUserId());
             return View(user);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Index(ICollection<IFormFile> files)
-        //{
-        //    var uploads = Path.Combine(_environment.WebRootPath, "uploads");
-        //    foreach (var file in files)
-        //    {
-        //        if (file.Length > 0)
-        //        {
-        //            var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-        //            await file.SaveAsAsync(Path.Combine(uploads, fileName));
-        //        }
-        //    }
-
-        //    var user = await _userManager.FindByIdAsync(User.GetUserId());
-
-        //    return View(user);
-        //}
 
         public IActionResult Register()
         {
