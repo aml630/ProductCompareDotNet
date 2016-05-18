@@ -11,34 +11,27 @@
 
     <div class="row">
         <div class="col-sm-2 tile">
-
-
-
-    @foreach (var product in subCat.Products)
-    {
-        <div class="tableCell">
-            <h5>Product Name</h5>
-            @product.ProductName 
-            <img src="@product.ProductImg" height="30" width="30" />
-            </div>
-    }
+            @foreach (var product in subCat.Products)
+            {
+                <div class="tableCell noOverflow">
+                    <h5>Product Name</h5>
+                    @product.ProductName
+                    <img src="@product.ProductImg" height="30" width="30" />
+                </div>
+            }
         </div>
         <div class="col-sm-2">
-                        @foreach (var product in subCat.Products)
-                        {
+            @foreach (var product in subCat.Products)
+            {
 
-                            <div class="tableCell">
-                                <h5>Product Price</h5>
+                <div class="tableCell">
+                    <h5>Product Price</h5>
 
-                                <div class="product-sale-price">$@product.ProductPrice</div>
-                            </div>
-                        }
-                    </div>
+                    <div class="product-sale-price">$@product.ProductPrice</div>
+                </div>
+            }
+        </div>
         <div class="col-sm-2">
-
-     
-
-
             @foreach (var product in subCat.Products)
             {
                 <div class="tableCell">
@@ -49,13 +42,10 @@
                             <p>@product.getPercent(product.EasyUseTrue, product.EasyUseFalse)</p>
                         </div>
                     </div>
-                  
-
                 </div>
-
             }
-
         </div>
+
         <div class="col-sm-2">
             @foreach (var product in subCat.Products)
             {
@@ -72,7 +62,7 @@
 
         </div>
         <div class="col-sm-2">
-            
+
             @foreach (var product in subCat.Products)
             {
                 <div class="tableCell">
@@ -89,7 +79,7 @@
 
         </div>
         <div class="col-sm-2">
-           
+
             @foreach (var product in subCat.Products)
             {
                 <div class="tableCell">
@@ -105,9 +95,6 @@
             }
 
         </div>
-
-
-
     </div>
 
 
