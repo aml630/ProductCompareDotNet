@@ -4,7 +4,7 @@ using Microsoft.Data.Entity.Migrations;
 
 namespace ProductCompareDotNet.Migrations
 {
-    public partial class AddIcollectionToUser : Migration
+    public partial class difName : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,6 +18,10 @@ namespace ProductCompareDotNet.Migrations
             migrationBuilder.DropForeignKey(name: "FK_Product_SubCategory_SubCategoryId", table: "Products");
             migrationBuilder.DropForeignKey(name: "FK_Question_Product_ProductId", table: "Questions");
             migrationBuilder.DropForeignKey(name: "FK_Review_Product_ProductId", table: "Reviews");
+            migrationBuilder.AddColumn<int>(
+                name: "ProductProductId",
+                table: "AspNetUsers",
+                nullable: true);
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
                 table: "AspNetRoleClaims",
@@ -61,6 +65,13 @@ namespace ProductCompareDotNet.Migrations
                 principalColumn: "QuestionId",
                 onDelete: ReferentialAction.Cascade);
             migrationBuilder.AddForeignKey(
+                name: "FK_ApplicationUser_Product_ProductProductId",
+                table: "AspNetUsers",
+                column: "ProductProductId",
+                principalTable: "Products",
+                principalColumn: "ProductId",
+                onDelete: ReferentialAction.Restrict);
+            migrationBuilder.AddForeignKey(
                 name: "FK_Product_Category_CategoryId",
                 table: "Products",
                 column: "CategoryId",
@@ -98,10 +109,12 @@ namespace ProductCompareDotNet.Migrations
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_IdentityRole_RoleId", table: "AspNetUserRoles");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_ApplicationUser_UserId", table: "AspNetUserRoles");
             migrationBuilder.DropForeignKey(name: "FK_Answer_Question_QuestionId", table: "Answers");
+            migrationBuilder.DropForeignKey(name: "FK_ApplicationUser_Product_ProductProductId", table: "AspNetUsers");
             migrationBuilder.DropForeignKey(name: "FK_Product_Category_CategoryId", table: "Products");
             migrationBuilder.DropForeignKey(name: "FK_Product_SubCategory_SubCategoryId", table: "Products");
             migrationBuilder.DropForeignKey(name: "FK_Question_Product_ProductId", table: "Questions");
             migrationBuilder.DropForeignKey(name: "FK_Review_Product_ProductId", table: "Reviews");
+            migrationBuilder.DropColumn(name: "ProductProductId", table: "AspNetUsers");
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
                 table: "AspNetRoleClaims",

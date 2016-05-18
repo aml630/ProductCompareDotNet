@@ -11,12 +11,12 @@ namespace ProductCompareDotNet.Models
 {
     public class ApplicationUser : IdentityUser
     {
- 
-        public string FullName { get; set; }
-        public string UserPic { get; set; }
 
-        public virtual ICollection<Review> Reviews { get; set; }
-        public virtual ICollection<Question> Questions { get; set; }
+        //public string FullName { get; set; }
+        //public string UserPic { get; set; }
+
+        //public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
 
 

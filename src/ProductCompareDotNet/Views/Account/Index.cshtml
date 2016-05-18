@@ -58,6 +58,13 @@
                 </div>
                 <div class="tab-pane fade in" id="tab3">
                     <h3>Your Questions</h3>
+
+                    @foreach (var question in ViewBag.Questions)
+                    {
+                        <li> @question.QuestionText</li>
+                        <hr />
+
+                    }
                 </div>
              
             </div>

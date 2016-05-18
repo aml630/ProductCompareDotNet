@@ -8,8 +8,8 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    [Migration("20160518181950_AddIcollectionToUser")]
-    partial class AddIcollectionToUser
+    [Migration("20160518213849_difName")]
+    partial class difName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,6 +148,8 @@ namespace ProductCompareDotNet.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<int?>("ProductProductId");
 
                     b.Property<string>("SecurityStamp");
 
@@ -314,6 +316,13 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Product")
+                        .WithMany()
+                        .HasForeignKey("ProductProductId");
                 });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>

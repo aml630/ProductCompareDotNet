@@ -4,7 +4,7 @@ using Microsoft.Data.Entity.Migrations;
 
 namespace ProductCompareDotNet.Migrations
 {
-    public partial class AddUserIdToReviewsModel : Migration
+    public partial class CurrentDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,6 +18,8 @@ namespace ProductCompareDotNet.Migrations
             migrationBuilder.DropForeignKey(name: "FK_Product_SubCategory_SubCategoryId", table: "Products");
             migrationBuilder.DropForeignKey(name: "FK_Question_Product_ProductId", table: "Questions");
             migrationBuilder.DropForeignKey(name: "FK_Review_Product_ProductId", table: "Reviews");
+            migrationBuilder.DropColumn(name: "FullName", table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "UserPic", table: "AspNetUsers");
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
                 table: "AspNetRoleClaims",
@@ -102,6 +104,14 @@ namespace ProductCompareDotNet.Migrations
             migrationBuilder.DropForeignKey(name: "FK_Product_SubCategory_SubCategoryId", table: "Products");
             migrationBuilder.DropForeignKey(name: "FK_Question_Product_ProductId", table: "Questions");
             migrationBuilder.DropForeignKey(name: "FK_Review_Product_ProductId", table: "Reviews");
+            migrationBuilder.AddColumn<string>(
+                name: "FullName",
+                table: "AspNetUsers",
+                nullable: true);
+            migrationBuilder.AddColumn<string>(
+                name: "UserPic",
+                table: "AspNetUsers",
+                nullable: true);
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
                 table: "AspNetRoleClaims",

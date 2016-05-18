@@ -41,6 +41,10 @@ namespace ProductCompareDotNet.Models
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
 
+        //public virtual ICollection<ApplicationUser> Users { get; set; }
+
+
+
         public string getPercent(int num1, int num2)
         {
 

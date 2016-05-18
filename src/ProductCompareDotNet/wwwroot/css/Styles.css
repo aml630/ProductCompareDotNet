@@ -23,7 +23,7 @@
 }
 
 .headingAndButton button {
-    margin-left: 60%;
+    margin-left: 100%;
 }
 
 
@@ -189,7 +189,7 @@ background: #ffe6e6;
    it doesn’t make the test unnecessarily selective */
 .rating:not(:checked) > input {
     position:absolute;
-    top:-9999px;
+    /*top:-9999px;*/
     clip:rect(0,0,0,0);
 }
 
@@ -537,6 +537,10 @@ background: #ffe6e6;
     text-align: center;
 }
 
+.noOverflow {
+    overflow: hidden;
+}
+
 #container-fluid-nav {
     padding-left:0;
     background:#fff;
@@ -642,9 +646,14 @@ background: #ffe6e6;
 
 .navbar {
     padding-bottom:0 !important;
+    background-image: none;
 }
 
 .center {
-   text-align: center;
+   /*margin-left: 15%;*/
 }
 
+
+#nav-collapse2 {
+    background-color: white;
+}

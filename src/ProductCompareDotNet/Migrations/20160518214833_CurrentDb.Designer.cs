@@ -8,8 +8,8 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    [Migration("20160518183046_AddUserIdToReviewsModel")]
-    partial class AddUserIdToReviewsModel
+    [Migration("20160518214833_CurrentDb")]
+    partial class CurrentDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,8 +131,6 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FullName");
-
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -149,14 +147,14 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<int?>("ProductProductId");
+
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
-
-                    b.Property<string>("UserPic");
 
                     b.HasKey("Id");
 
@@ -314,6 +312,13 @@ namespace ProductCompareDotNet.Migrations
                     b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("ProductCompareDotNet.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("ProductCompareDotNet.Models.Product")
+                        .WithMany()
+                        .HasForeignKey("ProductProductId");
                 });
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>

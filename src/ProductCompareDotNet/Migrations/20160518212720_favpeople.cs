@@ -5,7 +5,7 @@ using Microsoft.Data.Entity.Metadata;
 
 namespace ProductCompareDotNet.Migrations
 {
-    public partial class Initial : Migration
+    public partial class favpeople : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -11,6 +11,7 @@ using Microsoft.AspNet.Http;
 using System.IO;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNet.Hosting;
+using System;
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -32,11 +33,12 @@ namespace ProductCompareDotNet.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.FindByIdAsync(User.GetUserId());
-            //user.Include(product => product.Reviews)()
+            ViewBag.Questions = _db.Questions.Where(x => x.User.Id == User.GetUserId());
 
-            //var userProducts = _db.Reviews.Where(x => x.User => User.GetUserId())
             ViewBag.Reviews = _db.Reviews.Where(x => x.UserId == User.GetUserId());
             return View(user);
+
+            //ViewBag.Products = _db.Products.Where(x => x.User.Id == User.GetUserId());
         }
 
 
@@ -88,5 +90,13 @@ namespace ProductCompareDotNet.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
+
+        //public IActionResult FavoriteProduct(int productId)
+        //{
+        //    Product findProd = _db.Products.FirstOrDefault(x => x.ProductId == productId);
+        //    findProd.FavUsers.Add(User.GetUserId());
+        //    _db.SaveChanges();
+        //    return Content("hey", "text/plain");
+        //}
     }
 }

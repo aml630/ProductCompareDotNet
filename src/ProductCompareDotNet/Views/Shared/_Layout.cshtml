@@ -43,8 +43,7 @@
                         @*user login/logout*@
                         @if (User.IsSignedIn())
                         {
-                            <li role="presentation" class="li-nav">@Html.ActionLink("Profile", "Index", "Account")</li>
-                            <li role="presentation" class="logOutLI li-nav">@Html.ActionLink("Log Off", "LogOff", "Account")</li>
+                            @Html.Partial("_LoginPartial")
                         }
 
                         else
@@ -54,7 +53,7 @@
                             </li>
                             <li role="presentation" class="sign-in li-nav">@Html.ActionLink("New User", "Register", "Account")</li>
                         }
-                        @Html.Partial("_LoginPartial")
+
                         
                     </ul>
                     <ul class="nav navbar-nav navbar-right" id="nav-left-div">
