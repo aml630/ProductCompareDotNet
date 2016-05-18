@@ -8,6 +8,7 @@ using ProductCompareDotNet.Models;
 using Microsoft.AspNet.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
+using System.Globalization;
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -37,8 +38,7 @@ namespace ProductCompareDotNet.Controllers
         public IActionResult ProductList(int id)
         {
             Product findProd = db.Products.FirstOrDefault(x => x.ProductId == id);
-            //ViewData["Percentage"] = findProd.SetUpTrue / (findProd.SetUpTrue + findProd.SetUpFalse);
-
+           
 
             var prodList = db.Products.Where(x => x.ProductId == id).Include(product => product.Reviews).ThenInclude(review => review.User).Include(product => product.Questions).ThenInclude(question => question.Answers).ToList();
 

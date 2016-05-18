@@ -2,6 +2,17 @@
 
 $(document).ready(function () {
 
+    $(".questionDiv button").click(function () {
+        $(".questionForm").toggle("slow");
+     
+    })
+
+    $(".reviewDiv button").click(function () {
+        $(".reviewForm").toggle("slow");
+
+    })
+
+
     //alert("working");
     var newArray = [];
     var timedSearch;
