@@ -12,6 +12,7 @@ using System.IO;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNet.Hosting;
 using System;
+using Microsoft.AspNet.Authorization;
 
 namespace ProductCompareDotNet.Controllers
 {
@@ -29,7 +30,7 @@ namespace ProductCompareDotNet.Controllers
         }
 
 
-
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.FindByIdAsync(User.GetUserId());
@@ -38,7 +39,7 @@ namespace ProductCompareDotNet.Controllers
             ViewBag.Reviews = _db.Reviews.Where(x => x.UserId == User.GetUserId());
             return View(user);
 
-            //ViewBag.Products = _db.Products.Where(x => x.User.Id == User.GetUserId());
+            //ViewBag.Products = _db.Products.Where(product => product.User.Id == User.GetUserId());
         }
 
 

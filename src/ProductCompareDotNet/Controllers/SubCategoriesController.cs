@@ -31,5 +31,7 @@ namespace ProductCompareDotNet.Controllers
 
             return View(SubProds);
         }
+
+
     }
 }

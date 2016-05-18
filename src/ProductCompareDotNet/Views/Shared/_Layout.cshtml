@@ -21,7 +21,7 @@
 
 
 <body>
-    <div class="container-fluid" id="container-fluid-nav">
+    <div class="container mainBox" id="container-fluid-nav">
         <nav class="navbar navbar-default">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -60,9 +60,11 @@
                         <li role="presentation" class="li-nav">@Html.ActionLink("Home", "Index", "Categories")</li>
 
 
-                        @*@if (User.IsInRole("admin"))*@
+                       @if (User.IsInRole("admin"))
+                        {
                         <li role="presentation" class="li-nav">@Html.ActionLink("Roles", "Index", "Roles")</li>
                         <li role="presentation" class="li-nav">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
+                        }
                     </ul>
                     <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
                         @Html.Partial("_LoginFormPartial")

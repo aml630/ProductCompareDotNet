@@ -2,8 +2,8 @@
 
 @if (User.IsSignedIn())
 {
-    <li role="presentation">@Html.ActionLink(User.GetUserName(), "Index", "Account")</li>
-    <li role="presentation" class="logOutLI">@Html.ActionLink("Log Off", "LogOff", "Account")</li>
+    <li role="presentation" class="sign-in li-nav">@Html.ActionLink(User.GetUserName(), "Index", "Account")</li>
+    <li role="presentation" class="logOutLI sign-in li-nav">@Html.ActionLink("Log Off", "LogOff", "Account")</li>
 }
 
 else
