@@ -7,23 +7,51 @@
 
 @model RegisterViewModel
 
-<h2>Register a new user</h2>
-<hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    @Html.LabelFor(m => m.UserName)
-    @Html.TextBoxFor(m => m.UserName)
-    <br /><br />
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
-    <br /><br />
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-    <br /><br />
-    @Html.LabelFor(m => m.ConfirmPassword)
-    @Html.PasswordFor(m => m.ConfirmPassword)
-    <br /><br />
-    <div class="g-recaptcha" data-sitekey="@ProductCompareDotNet.Models.EnvironmentVariables.captchaKey"></div>
-    <br />
-    <input type="submit" value="Register" />
-}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    <div class="row">
+                       
+                        <div class="col-xs-12">
+                            <a href="#" class ="active"id="register-form-link">Register</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            @*@Html.Partial("_NewLoginPartial")*@
+                            <form id="register-form" action="/Account/Register" method="post" role="form" >
+                                <div class="form-group">
+                          
+                                    <input placeholder="User Name"class="form-control" data-val="true" data-val-required="The User Name field is required." id="UserName" name="UserName" type="text" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input placeholder="Email (Optional)"class="form-control" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="text" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input placeholder="Password"class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password">
+                                </div>
+                                <div class="form-group">
+                                    <input placeholder="Confirm Password"class="form-control"  data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" type="password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="g-recaptcha" data-sitekey="6LdRFiATAAAAAItcjrQG7q8Os9p-yFJVSzvLjTeg"></div>
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
