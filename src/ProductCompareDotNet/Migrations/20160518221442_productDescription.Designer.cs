@@ -8,9 +8,10 @@ using ProductCompareDotNet.Models;
 namespace ProductCompareDotNet.Migrations
 {
     [DbContext(typeof(ProductCompareDbContext))]
-    partial class ProductCompareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160518221442_productDescription")]
+    partial class productDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -130,6 +131,8 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("FullName");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -152,6 +155,8 @@ namespace ProductCompareDotNet.Migrations
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
+
+                    b.Property<string>("UserPic");
 
                     b.HasKey("Id");
 
@@ -180,8 +185,6 @@ namespace ProductCompareDotNet.Migrations
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ApplicationUserId");
 
                     b.Property<int>("CategoryId");
 
@@ -317,10 +320,6 @@ namespace ProductCompareDotNet.Migrations
 
             modelBuilder.Entity("ProductCompareDotNet.Models.Product", b =>
                 {
-                    b.HasOne("ProductCompareDotNet.Models.ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("ProductCompareDotNet.Models.Category")
                         .WithMany()
                         .HasForeignKey("CategoryId");

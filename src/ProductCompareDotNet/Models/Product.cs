@@ -18,6 +18,7 @@ namespace ProductCompareDotNet.Models
         public string ProductBigImg { get; set; }
         public string ProductLink { get; set; }
         public int ProductPrice { get; set; }
+        public string ProductDescription { get; set; }
 
         public int SetUpTrue { get; set; }
         public int SetUpFalse { get; set; }
