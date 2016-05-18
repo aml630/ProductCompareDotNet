@@ -462,17 +462,14 @@ background: #ffe6e6;
 }
 
 .jumbotron {
-    background-image: url("http://blog.kidville.com/wp-content/uploads/2013/11/Picture14.jpg");
+    background-image: url("");
     color: black;
 }
 
 /*NavBar STuff*/
 .navbar-brand { position: relative; z-index: 2; }
 
-.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
-
 .navbar .navbar-collapse { position: relative; overflow: hidden !important; }
-.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
 
 .navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
 .navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
@@ -539,3 +536,112 @@ background: #ffe6e6;
 .reviewForm form {
     text-align: center;
 }
+
+#container-fluid-nav {
+    padding-left:0;
+    background:#fff;
+    border-radius:0;
+    padding-right:0;
+    height:60px;
+}
+
+.sign-in {
+    border-radius:5px !important;
+    padding:0px;
+    border:1px solid #FCFCFC;
+    height:40px !important;
+    margin-top:12px !important;
+    background:#287FB8; 
+    transition:.3s; 
+}
+.sign-in:hover {
+    background:#2371a3;
+    transition:.3s;
+}
+.sign-in>a {
+    color:#FFF !important;
+    transition:.3s;
+}
+
+.sign-in:hover > a {
+    color:#FCFCFC !important;
+    transition:.3s;
+    text-decoration:none !important;
+}
+
+.btn-default {
+    border-color:#fff;
+}
+
+.navbar-default {
+    background:#fff;
+    border:none;
+    border-bottom:1px solid #bcbcbc;
+    border-radius:0;
+}
+.li-nav {
+    height:60px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    padding-bottom:0px;
+    padding-top:0px;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    font-family:Arial, sans-serif;
+    font-size:13.667px;
+    border:none;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color:#287FB8;
+    text-decoration:underline;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+    color:#337ab7;
+}
+
+#navbar-collapse-2 > ul:nth-child(1) > li:nth-child(1) {
+    margin-right:12.5px;
+}
+
+#nav-left-div {
+    margin-right:5px;
+}
+
+#nav-right-div > li {
+    height:36px !important;
+}
+
+#section-1 {
+    background: url("/Images/background-cover-final.jpg") no-repeat;
+    background-size: cover;
+    margin-right:0;
+}
+
+.section-1-top-text {
+    margin:0 auto;
+    color:#FFF;
+    font-size:40px;
+    text-align:center;
+    font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+    margin-top:50px;
+    max-width:640px;
+}
+
+.section-1-top-text-wrap {
+        width:100%;
+}
+
+#container-fluid-index-top {
+    padding-left:0;
+    padding-right:0;
+    height:300px;
+}
+
+.navbar {
+    padding-bottom:0 !important;
+}
+
+
