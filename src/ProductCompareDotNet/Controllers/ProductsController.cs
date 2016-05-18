@@ -40,7 +40,7 @@ namespace ProductCompareDotNet.Controllers
             Product findProd = db.Products.FirstOrDefault(x => x.ProductId == id);
            
 
-            var prodList = db.Products.Where(x => x.ProductId == id).Include(product => product.Reviews).ThenInclude(review => review.User).Include(product => product.Questions).ThenInclude(question => question.Answers).ToList();
+            var prodList = db.Products.Where(x => x.ProductId == id).Include(product => product.Reviews).ThenInclude(review => review.User).Include(product => product.Questions).ThenInclude(question => question.User).Include(product => product.Questions).ThenInclude(question => question.Answers).ToList();
 
             ViewBag.ProdId = id;
 
@@ -74,6 +74,7 @@ namespace ProductCompareDotNet.Controllers
 
             var user = await _userManager.FindByIdAsync(User.GetUserId());
             review.User = user;
+            review.UserId = User.GetUserId();
             db.Reviews.Add(review);
             db.SaveChanges();
             return RedirectToAction("ProductList", "Products", new { id = review.ProductId });

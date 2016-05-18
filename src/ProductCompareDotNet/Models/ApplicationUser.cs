@@ -15,6 +15,10 @@ namespace ProductCompareDotNet.Models
         public string FullName { get; set; }
         public string UserPic { get; set; }
 
-       
+        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+
+
+
     }
 }
