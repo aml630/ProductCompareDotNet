@@ -15,19 +15,6 @@
 .sidebarCategories {
     margin-left: 32px;
 }
-﻿
-.questionForm {
-    display: none;
-    text-align: center;
-}
-.reviewForm {
-    display:none;
-    text-align: center;
-    margin-bottom: 80px;
-}
-.reviewForm form {
-    text-align: center;
-}
 
 .headingAndButton {
     display: inline-flex;
@@ -538,4 +525,17 @@ background: #ffe6e6;
     .navbar.navbar-inverse .nav-collapse.in.slide-down {
         transform: translate(0px,0px);
     }
+}
+
+.questionForm {
+    display: none;
+    text-align: center;
+}
+.reviewForm {
+    display: none;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.reviewForm form {
+    text-align: center;
 }

@@ -43,7 +43,7 @@
 
         <form class="reviewForm"  action="/Products/LeaveReview" method="post">
 
-            <textarea  class="form-control"  name="ReviewText" placeholder="Leave Review Here'"></textarea>
+            <textarea  class="form-control"  name="ReviewText" placeholder="Leave Review Here"></textarea>
             <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
             <fieldset name="Stars" class="rating">
                 <legend>Please rate:</legend>
@@ -62,7 +62,7 @@
             }
             else
             {
-                <input class="btn btn-warning" data-toggle="modal" data-target="#myModal" id="modalPopUp" type="button" value="Login To Leave Review" />
+                <input class="btn btn-warning" data-toggle="modal" data-target="#myModal" id="modalPopUp" type="button" value="Leave Review" />
                 @Html.Partial("_CommentModalPartial");
             }
         </form>
@@ -133,7 +133,7 @@
             <button class="btn btn-info">Ask A Question</button>
                 </div>
         <form class="questionForm" action="/Products/AskQuestion" method="post">
-            <textarea class="form-control" rows="3" name="Question" placeholder="What's Your Question?'"></textarea>
+            <textarea class="form-control" rows="3" name="Question" placeholder="What's Your Question?"></textarea>
             <input hidden name="ProdId" placeholder="Category Id" value="@ViewBag.ProdId" />
 
             <br />
