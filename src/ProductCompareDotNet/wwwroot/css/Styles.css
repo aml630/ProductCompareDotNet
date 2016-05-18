@@ -17,7 +17,7 @@
 }
 ﻿
 .questionForm {
-    display:none;
+    display: none;
     text-align: center;
 }
 .reviewForm {
@@ -53,10 +53,9 @@
     
 }
 .percentage p {
-        font: 15px Arial, sans-serif;
-        margin-top: 30%;
-        font-weight: bold;
-
+    font: 15px Arial, sans-serif;
+    margin-top: 30%;
+    font-weight: bold;
 }
 
 .roundedNum {
@@ -125,7 +124,6 @@ li.logOutLI {
 
 .compareProducts {
     margin: 10px;
-
 }
 
 .productInfo h7 {
@@ -505,7 +503,7 @@ background: #ffe6e6;
 }
 
 .navbar.navbar-default .nav-collapse,
-.navbar.navbar-inverse .nav-collapse {
+.navbar.navbar-inverse .nav-collapse {  
     height: auto !important;
     transition: transform 0.3s;
     transform: translate(0px,-50px);
