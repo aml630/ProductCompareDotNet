@@ -49,7 +49,7 @@
                         else
                         {
                             <li class="sign-in li-nav">
-                                <a class="btn btn-default btn-outline collapsed" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
+                                @Html.ActionLink("Sign In", "Login", "Account")
                             </li>
                             <li role="presentation" class="sign-in li-nav">@Html.ActionLink("New User", "Register", "Account")</li>
                         }
@@ -66,9 +66,9 @@
                         <li role="presentation" class="li-nav">@Html.ActionLink("ManageRoles", "ManageUserRoles", "Roles")</li>
                         }
                     </ul>
-                    <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
+                    @*<div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
                         @Html.Partial("_LoginFormPartial")
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </nav>
