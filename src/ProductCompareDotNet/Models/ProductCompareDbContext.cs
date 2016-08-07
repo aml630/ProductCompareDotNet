@@ -9,7 +9,10 @@ namespace ProductCompareDotNet.Models
 {
     public class ProductCompareDbContext : IdentityDbContext<ApplicationUser>
     {
-
+        public ProductCompareDbContext()
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
